@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Enablement voor engineeringteams — Codecraft</title>
+    <meta
+      name="description"
+      content="AI Enablement voor engineeringteams: een gedeeld beeld met de agent, grenzen aan wat die aanraakt, code die onderhoudbaar blijft voor mens en machine."
+    />
+    <!--
+      The ?v= is a cache buster, not decoration. Cloudflare sits in front of
+      GitHub Pages and cached the previous style.css for four hours, so the
+      new HTML shipped against the old stylesheet. Bump this whenever
+      style.css changes in a way that must reach visitors immediately.
+      Keep it in step with the value on the English page.
+    -->
+    <link rel="stylesheet" href="../style.css?v=4" />
+    <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
+    <link rel="alternate" hreflang="nl" href="https://matthijshakfoort.nl/nl/" />
+    <!--
+      No redirect script here, deliberately. The only redirect in the system
+      lives on the English page and runs one way (browser prefers Dutch →
+      /nl/). Someone who arrives here directly, by link or by that redirect,
+      stays here; the EN toggle is how they leave.
+    -->
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-top">
+          <p class="identity">
+            <span class="identity-mark">Codecraft</span>
+            <span class="identity-person">Matthijs Hakfoort</span>
+          </p>
+          <!--
+            A real link, works without script; the onclick only records the
+            explicit choice so the redirect never traps a returning visitor.
+          -->
+          <a
+            href="/"
+            class="lang-toggle"
+            onclick="try { localStorage.setItem('lang', 'en'); } catch (e) {}"
+            >EN</a
+          >
+        </div>
+        <h1 id="hero-title">De meeste ontwikkelteams gebruiken AI zonder richting.</h1>
+        <p class="lead">
+          Ik help ze LLMs op de juiste manier te instrueren, grenzen te stellen
+          aan wat de agent aanraakt en code op te leveren die onderhoudbaar blijft voor
+          mens en machine. Ik verbeter het ontwikkelen met AI door middel van klassiek
+          software-engineering vakwerk.
+        </p>
+      </section>
+
+      <section class="problems" aria-labelledby="problems-title">
+        <h2 id="problems-title">Drie manieren waarop het misgaat</h2>
+
+        <div class="problem">
+          <h3>De agent laten begrijpen wat je bedoelt</h3>
+          <p>
+            De agent bouwt iets goeds. Alleen niet wat jij voor ogen had. Er is
+            niets stuk en de tests slagen, maar de uitkomst is een antwoord op een
+            vraag die niemand stelde, of de juiste feature op de verkeerde manier gebouwd.
+          </p>
+          <p>
+            Ik merk dat de resultaten beter worden als agent en developer eerst
+            een gedeeld beeld krijgen. Goed vastgelegd stuurt en begrenst dat de
+            agent tijdens het bouwen.
+          </p>
+        </div>
+
+        <div class="problem">
+          <h3>AFK of Human-in-the-loop?</h3>
+          <p>
+            De agent werkt in zijn eentje aan een grote feature. Twee uur later
+            ontdek je dat hij na vijf minuten al verkeerd is afgeslagen. Wijzer
+            geworden kijk je de volgende keer over zijn schouder mee en pluis je elke
+            tool call uit voor je hem goed keurt. Maar deze keer doet hij het in één keer 
+            goed, en heb jij een uur voor niets zitten kijken.
+          </p>
+          <p>
+            Ik leer developers inschatten welke taken je een agent zelf kunt laten
+            doen in een beperkte omgeving met een goede briefing, en wanneer er
+            iemand moet meekijken t.b.v. veiligheid, kwaliteit of snelheid.
+          </p>
+        </div>
+
+        <div class="problem">
+          <h3>Onderhoudbaar voor mens én agent</h3>
+          <p>
+            De agent schrijft code die technisch klopt, maar die mensen lastig
+            kunnen begrijpen of aanpassen. Een mens breekt een
+            conventie die de agent bepaald had, zonder te weten dat die er
+            was. Daar raakt de volgende agent weer van in de war. Wrijving
+            zoals dit beperkt de voordelen van development met AI.
+          </p>
+          <p>
+            Ik zet korte feedbackloops op rond codekwaliteit en onderhoudbaarheid,
+            waarin nieuwe conventies worden vastgelegd zodra ze ontstaan en
+            makkelijk terug te vinden en af te dwingen zijn. Mens en agent hebben
+            er allebei baat bij: de volgende wijziging is eenvoudiger, voor wie
+            hem ook maakt.
+          </p>
+        </div>
+      </section>
+
+      <section class="capabilities" aria-labelledby="capabilities-title">
+        <h2 id="capabilities-title">Wat bied ik?</h2>
+
+        <div class="capability-group">
+          <h3>Training en coaching in het effectief inzetten van AI-agents</h3>
+          <ul>
+            <li>Hoe je een ondubbelzinnig ontwerp tot stand brengt zodat developer en agent elkaar begrijpen</li>
+            <li>Hoe je voorkomt dat een agent onbedoelde (of gevaarlijke) dingen doet</li>
+            <li>
+              Hoe je mensen en agents laat samenwerken en de juiste taken bepaalt voor beiden
+            </li>
+            <li>Hoe je in de praktijk effectieve AI-ontwikkelworkflows opzet</li>
+          </ul>
+        </div>
+
+        <div class="capability-group">
+          <h3>Fullstack engineering</h3>
+          <ul>
+            <li>TypeScript en Node.js op front- en backend</li>
+            <li>Frontends in alle grote frameworks (zoals React en Vue)</li>
+            <li>Infrastructure-as-code en DevOps</li>
+            <li>Architectuur en technisch leiderschap voor agile teams</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="background" aria-labelledby="background-title">
+        <h2 id="background-title">Achtergrond</h2>
+        <p class="background-line">
+          Ik schrijf al ruim 15 jaar front- en backends voor het web, in kleine
+          teams. Ik richt me op het samenstellen van een proces dat leidt tot schone,
+          onderhoudbare code door het saaie werk te automatiseren. Of dat nu linting,
+          testing en deployment is of een omgeving en cultuur waarin AI goed wordt
+          ingezet: het geeft developers de ruimte om zich op het moeilijke,
+          creatieve werk te concentreren, daar waar echte waarde wordt toegevoegd.
+        </p>
+      </section>
+
+      <section class="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <div class="contact-block">
+          <img
+            class="photo"
+            src="../photo-matthijs-hakfoort.jpg"
+            width="400"
+            height="500"
+            alt="Matthijs Hakfoort"
+          />
+          <div class="contact-links">
+            <!--
+              Cloudflare's Email Address Obfuscation rewrites this mailto into
+              a /cdn-cgi/l/email-protection link and injects a script to decode
+              it. That is wanted here, so no email_off wrapper: the trade is
+              that the address needs JavaScript to resolve.
+            -->
+            <a href="mailto:codecraft@matthijshakfoort.nl"
+              >codecraft@matthijshakfoort.nl</a
+            >
+            <a href="https://www.linkedin.com/in/matthijshakfoort/">LinkedIn</a>
+            <p class="contact-registration">KvK 42120215</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Codecraft</p>
+    </footer>
+  </body>
+</html>

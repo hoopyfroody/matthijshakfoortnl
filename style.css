@@ -55,6 +55,16 @@ main {
   padding-block: clamp(3rem, 12vh, 9rem);
 }
 
+/* Identity and language toggle share one row, so the toggle costs no
+   vertical space above the fold. The row's height comes from .identity's
+   own margin-bottom below. */
+.hero-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
 .hero .identity {
   font-family: var(--font-mono);
   font-size: 1rem;
@@ -78,17 +88,14 @@ main {
   font-size: 0.8125rem;
 }
 
-/* Dutch toggle — styled ready for when the markup is uncommented in
-   index.html alongside DUTCH_ENABLED; unused while it stays inert.
-   display: block so this margin collapses with .hero .identity's
-   margin-bottom above it instead of stacking on top of it. */
+/* Language toggle — sits at the right of .hero-top, opposite the mark. */
 .lang-toggle {
-  display: block;
+  flex: none;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   letter-spacing: 0.08em;
   color: var(--ink-muted);
-  margin-bottom: clamp(2.5rem, 8vh, 5rem);
+  text-transform: uppercase;
 }
 
 .hero h1 {

@@ -14,23 +14,13 @@
       new HTML shipped against the old stylesheet. Bump this whenever
       style.css changes in a way that must reach visitors immediately.
     -->
-    <link rel="stylesheet" href="style.css?v=3" />
-    <!--
-      Reciprocal hreflang links go here once /nl/ exists, alongside the
-      matching pair on that page:
-      <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
-      <link rel="alternate" hreflang="nl" href="https://matthijshakfoort.nl/nl/" />
-    -->
+    <link rel="stylesheet" href="style.css?v=4" />
+    <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
+    <link rel="alternate" hreflang="nl" href="https://matthijshakfoort.nl/nl/" />
     <script>
-      // DUTCH LANGUAGE SWITCH — step 1 of 2. Flip this flag to true when
-      // /nl/ ships, AND uncomment the matching toggle in the hero below
-      // (step 2 of 2) — both must change together, or a Dutch-preferring
-      // visitor gets redirected with no toggle rendered to navigate back.
-      // Until both are done this script is inert: it never redirects.
+      // Redirects a first-time visitor whose browser prefers Dutch to /nl/.
+      // An explicit choice, recorded by either toggle, always wins.
       (function () {
-        var DUTCH_ENABLED = false;
-        if (!DUTCH_ENABLED) return;
-
         var STORAGE_KEY = "lang";
         try {
           // An explicit choice always wins, in both directions. If the read
@@ -51,30 +41,26 @@
         }
       })();
     </script>
-    <!--
-      Spec checks 10-16 (docs/spec-english-page-redesign.md) are deferred
-      until /nl/ exists, not skipped — re-run them once this switch flips.
-    -->
   </head>
   <body>
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <p class="identity">
-          <span class="identity-mark">Codecraft</span>
-          <span class="identity-person">Matthijs Hakfoort</span>
-        </p>
-        <!--
-          Dutch toggle — step 2 of 2. Uncomment together with DUTCH_ENABLED
-          in <head> (step 1 of 2) when /nl/ ships. A real link, works
-          without script; the onclick only records the explicit choice so
-          the redirect never traps a returning visitor.
+        <div class="hero-top">
+          <p class="identity">
+            <span class="identity-mark">Codecraft</span>
+            <span class="identity-person">Matthijs Hakfoort</span>
+          </p>
+          <!--
+            A real link, works without script; the onclick only records the
+            explicit choice so the redirect never traps a returning visitor.
+          -->
           <a
             href="/nl/"
             class="lang-toggle"
             onclick="try { localStorage.setItem('lang', 'nl'); } catch (e) {}"
             >NL</a
           >
-        -->
+        </div>
         <h1 id="hero-title">Most development teams use AI blindly.</h1>
         <p class="lead">
           I help them achieve a shared understanding with the agent, set limits on what
@@ -161,7 +147,8 @@
           I focus on building a process that encourages clean, maintainable code
           through automation of the boring parts. Whether that is linting, testing and
           deployment, or an environment and culture where agents are used well, it
-          enables developers to concentrate on the hard and creative work.
+          enables developers to concentrate on the hard and creative work, where real
+          value is added.
         </p>
       </section>
 

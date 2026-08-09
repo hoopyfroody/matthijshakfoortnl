@@ -4,7 +4,7 @@ Status: implemented and shipped 2026-08-09. The second failure mode changed whil
 
 Vocabulary is defined in [CONTEXT.md](../CONTEXT.md); the settled design and copy decisions are in [docs/design-brief.md](./design-brief.md); language handling follows [ADR 0001](./adr/0001-two-static-pages-for-language.md).
 
-Scope: the English page at `/` only. Dutch at `/nl/` is out of scope, but the markup this spec produces must be ready for it.
+Scope: the English page at `/` only. Dutch at `/nl/` is out of scope, but the markup this spec produces must be ready for it. `/nl/` shipped on 2026-08-09 against that readiness; what changed in doing so is recorded in [the design brief](./design-brief.md) and in the language checks below.
 
 The existing `index.html` and `style.css` are legacy. They are not a baseline to extend and they are not a source of requirements — the three documents above are the only inputs. Implementation writes the page from those documents and lets the legacy files be replaced.
 
@@ -150,6 +150,10 @@ What replaces them: the page is verified by hand against the checks below before
 9. The photo placeholder occupies the photo's final aspect ratio, so no layout shift is possible when the real file lands.
 
 *Language handling, re-run when `/nl/` ships (these are deferred, not skipped):*
+
+Run 2026-08-09, when `/nl/` shipped, on a browser preferring Dutch. Check 10 passed as written, and check 14 in the form that browser allows: after choosing EN, a reload of `/` stayed English despite the Dutch preference. The toggle navigated in both directions, but with JavaScript enabled, so check 15 is only half done. Checks 11, 12, 13 and 16 need a browser set to English or to a third language and have not been run.
+
+Check 6 was re-run on both pages at a 303px viewport: the identity row and the toggle share one line without wrapping or horizontal scroll.
 
 10. First visit, browser prefers Dutch, no stored choice → lands on `/nl/`.
 11. First visit, browser prefers English → stays on `/`.

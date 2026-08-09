@@ -78,6 +78,14 @@ Language handling follows [ADR 0001](./adr/0001-two-static-pages-for-language.md
 
 English ships first. Dutch is drafted only once the English copy has settled, then rewritten by Matthijs until the tone survives translation.
 
+Revised 2026-08-09. Dutch shipped at `/nl/`, and the switch flipped: the redirect is live, the toggle renders on both pages, and the two carry reciprocal `hreflang` links. Three things were decided while building it.
+
+The redirect runs on `/` only and one way — browser prefers Dutch → `/nl/`. There is no mirror on the Dutch page sending English-preferring visitors back. Someone who follows a shared `/nl/` link has made a choice closer to explicit than a browser setting is, and bouncing them out of it would be the trap ADR 0001 warns about.
+
+The toggle sits in the identity row, right-aligned opposite the Codecraft mark, rather than on its own line below it. On its own line it cost a full line of vertical space in the one place the page can least afford it — see the fold warning at the end of the spec.
+
+The Dutch is Matthijs's, not a translation left as drafted. The draft used *je* throughout, kept *AFK of Human-in-the-loop?* in English, and rendered **Shared understanding** as *een gedeeld beeld*; the revision keeps those and rewrites most of the rest.
+
 ## Still open
 
 - A writing/blog section, deferred. The page is structured so adding one does not force a redesign.
