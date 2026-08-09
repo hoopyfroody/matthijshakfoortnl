@@ -125,16 +125,17 @@ main {
   max-width: var(--measure);
 }
 
-.problem .placeholder {
+.placeholder {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   line-height: 1.5;
   border: 1px dashed var(--ink-muted);
   padding: 0.75em 1em;
   color: var(--ink-muted);
+  max-width: var(--measure);
 }
 
-.problem .placeholder::before {
+.placeholder::before {
   content: "Placeholder — ";
   font-weight: 700;
 }
@@ -173,4 +174,102 @@ main {
 
 .capability-group li {
   line-height: 1.5;
+}
+
+/* Background — self-contained: one prose line, styling scoped
+   to this section only, not dependent on sibling order. */
+.background {
+  padding-block: clamp(2.5rem, 8vh, 5rem);
+}
+
+.background h2 {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.background-line {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: var(--measure);
+}
+
+/* Contact — self-contained: email, LinkedIn placeholder and photo slot,
+   styling scoped to this section only, not dependent on sibling order. */
+.contact {
+  padding-block: clamp(2.5rem, 8vh, 5rem);
+}
+
+.contact h2 {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.contact-block {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.5rem, 5vw, 3rem);
+  align-items: start;
+}
+
+.photo-slot {
+  width: clamp(6rem, 20vw, 9rem);
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--ink-muted) 0,
+    var(--ink-muted) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
+.photo-slot-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+  background: var(--paper);
+  padding: 0.25em 0.4em;
+}
+
+.contact-links {
+  display: grid;
+  gap: 0.85em;
+  align-content: start;
+  max-width: var(--measure);
+}
+
+.contact-links a {
+  color: var(--ink);
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+}
+
+@media (max-width: 26rem) {
+  .contact-block {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer — self-contained landmark, outside <main>. */
+footer {
+  padding: var(--gutter);
+  padding-top: clamp(1.5rem, 4vh, 2.5rem);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
 }
