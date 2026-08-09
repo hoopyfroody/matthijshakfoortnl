@@ -76,7 +76,7 @@ No testimonials, no client logos, no case studies, no availability date, no book
 **Presentation**
 
 29. As a visitor on a phone, I want the page to read comfortably at a narrow width, so that the editorial layout does not force horizontal scrolling.
-30. As a visitor whose system is set to dark mode, I want the page to invert, so that it matches the rest of my environment without me looking for a toggle.
+30. As a visitor, I want one dark palette whatever my system is set to, so that the page looks the way it was designed rather than the way my OS guessed. (Revised 2026-08-09; this story previously asked the palette to invert under `prefers-color-scheme`.)
 31. As a visitor on a slow or metered connection, I want the page to load with no external requests, so that it appears immediately and costs nothing to fetch.
 32. As a screen reader user, I want the page structured with real headings and landmarks, so that I can navigate its sections rather than hearing one undifferentiated block.
 33. As Matthijs, I want the photo slot built with a neutral placeholder, so that adding a real photo is a file drop and not a redesign.
@@ -100,7 +100,7 @@ No testimonials, no client logos, no case studies, no availability date, no book
 
 **Identity.** Codecraft is the primary mark; "Matthijs Hakfoort" appears secondary. Prose is first person singular throughout — the page says "I", never "we".
 
-**Visual.** Type-led, strictly monochrome: near-black on warm off-white, with the pair inverted under `prefers-color-scheme: dark`. No accent colour, no theme toggle. Colours are defined as custom properties on `:root` with the dark values overridden in one media block, so the palette lives in one place. A system sans stack for prose; `ui-monospace` for labels, section markers and the background line. Monospace does structural work — it marks labels and section boundaries — rather than decorating.
+**Visual.** Type-led, strictly monochrome: warm off-white on near-black, in every environment. No accent colour, no theme toggle, no `prefers-color-scheme` branch. Colours are defined as custom properties on `:root` and nowhere else, so the palette lives in one place; `color-scheme: dark` is declared alongside them so browser UI matches. (Revised 2026-08-09 — see the design brief.) A system sans stack for prose; `ui-monospace` for labels, section markers and the background line. Monospace does structural work — it marks labels and section boundaries — rather than decorating.
 
 **No external requests.** No webfonts, no analytics, no third-party embeds, no remote images. The photo, when it arrives, is a local file. The placeholder is CSS-only, at the photo's final aspect ratio, so dropping the real file in does not shift the layout.
 
@@ -143,7 +143,7 @@ What replaces them: the page is verified by hand against the checks below before
 2. No redirect occurs, with browser language set to Dutch and to English, on a first visit with `localStorage` cleared.
 3. The page renders completely with JavaScript disabled.
 4. The page issues no network requests other than `index.html` and `style.css` — confirmed in the network panel with the cache disabled.
-5. The palette inverts when the OS switches to dark mode, and both directions are legible.
+5. The page stays on its one dark palette with the OS set to light and to dark, and is legible in both.
 6. The page reads without horizontal scrolling at 320px wide and keeps a comfortable measure at 1920px.
 7. Headings form an unbroken outline — one `h1`, `h2` per section, `h3` beneath — checked with an accessibility inspector rather than by eye.
 8. The email link opens a mail client with the correct address.

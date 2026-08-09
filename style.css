@@ -1,9 +1,13 @@
-/* Palette: near-black on warm off-white, inverted for dark mode.
-   Every colour on the page lives here and in the one media block below. */
+/* Palette: warm off-white on near-black. Dark in every environment — the
+   page no longer follows prefers-color-scheme, so this is the only place a
+   colour is defined. color-scheme tells the browser to match its own UI
+   (form controls, scrollbars) to it. */
 :root {
-  --paper: #f7f4ee;
-  --ink: #14120f;
-  --ink-muted: #55504a;
+  color-scheme: dark;
+
+  --paper: #14120f;
+  --ink: #f7f4ee;
+  --ink-muted: #a49d94;
 
   --font-sans:
     system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -11,14 +15,6 @@
 
   --measure: 34rem;
   --gutter: clamp(1.25rem, 5vw, 6rem);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #14120f;
-    --ink: #f7f4ee;
-    --ink-muted: #a49d94;
-  }
 }
 
 *,

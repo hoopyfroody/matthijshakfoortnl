@@ -64,7 +64,9 @@ Revised 2026-08-09. KvK moved out of the footer and in with the contact details,
 
 Type-led. Drop the current bordered frame. Large editorial headline, generous whitespace, monospace for labels, section markers and the background line — the mono is what carries the technical edge, so it should do real work rather than decorate.
 
-Strictly monochrome: near-black on warm off-white, inverted for dark mode via `prefers-color-scheme`, no toggle, no accent colour.
+Strictly monochrome: warm off-white on near-black, no toggle, no accent colour.
+
+Revised 2026-08-09. The palette was originally near-black on warm off-white, inverted under `prefers-color-scheme: dark`. It is now dark in every environment: the page is dark by design rather than in sympathy with the visitor's OS, and one palette is one thing to keep legible instead of two. `color-scheme: dark` is declared so the browser's own UI matches.
 
 System font stacks only — a system sans for prose, `ui-monospace` for labels. No webfonts, no external requests of any kind.
 

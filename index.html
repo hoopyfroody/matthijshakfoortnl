@@ -8,7 +8,13 @@
       name="description"
       content="AI Enablement for engineering teams: shared understanding with the agent, limits on what it touches, code that stays maintainable by people and machines."
     />
-    <link rel="stylesheet" href="style.css" />
+    <!--
+      The ?v= is a cache buster, not decoration. Cloudflare sits in front of
+      GitHub Pages and cached the previous style.css for four hours, so the
+      new HTML shipped against the old stylesheet. Bump this whenever
+      style.css changes in a way that must reach visitors immediately.
+    -->
+    <link rel="stylesheet" href="style.css?v=2" />
     <!--
       Reciprocal hreflang links go here once /nl/ exists, alongside the
       matching pair on that page:
@@ -170,6 +176,12 @@
             alt="Matthijs Hakfoort"
           />
           <div class="contact-links">
+            <!--
+              Cloudflare's Email Address Obfuscation rewrites this mailto into
+              a /cdn-cgi/l/email-protection link and injects a script to decode
+              it. That is wanted here, so no email_off wrapper: the trade is
+              that the address needs JavaScript to resolve.
+            -->
             <a href="mailto:codecraft@matthijshakfoort.nl"
               >codecraft@matthijshakfoort.nl</a
             >
