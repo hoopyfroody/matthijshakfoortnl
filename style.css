@@ -82,7 +82,7 @@ main {
 }
 
 .hero h1 {
-  font-size: clamp(2.25rem, 7vw, 5rem);
+  font-size: clamp(2.0rem, 6vw, 4rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -137,4 +137,40 @@ main {
 .problem .placeholder::before {
   content: "Placeholder — ";
   font-weight: 700;
+}
+
+/* Capabilities — self-contained: two labelled groups, styling scoped
+   to this section only, not dependent on sibling order. */
+.capabilities {
+  padding-block: clamp(2.5rem, 8vh, 5rem);
+  display: grid;
+  gap: clamp(2rem, 6vh, 3.5rem);
+}
+
+.capabilities h2 {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.capability-group h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: var(--measure);
+}
+
+.capability-group ul {
+  margin-top: 0.75em;
+  padding-left: 1.25em;
+  max-width: var(--measure);
+  display: grid;
+  gap: 0.5em;
+}
+
+.capability-group li {
+  line-height: 1.5;
 }
