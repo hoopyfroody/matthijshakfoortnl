@@ -1,150 +1,95 @@
+/* Palette: near-black on warm off-white, inverted for dark mode.
+   Every colour on the page lives here and in the one media block below. */
 :root {
-  --ink: #000;
-  --paper: #fff;
-  --line: 1px solid var(--ink);
+  --paper: #f7f4ee;
+  --ink: #14120f;
+  --ink-muted: #55504a;
+
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --measure: 34rem;
+  --gutter: clamp(1.25rem, 5vw, 6rem);
 }
 
-* {
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14120f;
+    --ink: #f7f4ee;
+    --ink-muted: #a49d94;
+  }
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-html,
-body {
-  height: 100%;
+body,
+h1,
+p {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+  overflow-wrap: break-word;
 }
 
-.frame {
-  width: 100%;
-  max-width: 720px;
-  border: var(--line);
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+main {
+  padding: var(--gutter);
 }
 
-/* Header */
-.site-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-bottom: 1.5rem;
-  border-bottom: var(--line);
+/* Hero — self-contained: nothing here depends on sibling order,
+   so later sections can be added above or below it. */
+.hero {
+  padding-block: clamp(3rem, 12vh, 9rem);
 }
 
-.mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: var(--line);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  font-size: 0.85rem;
-}
-
-.wordmark {
+.hero .identity {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
+  margin-bottom: clamp(2.5rem, 8vh, 5rem);
 }
 
-/* Intro */
-.intro h1 {
-  font-size: 2.75rem;
+.hero .identity-mark {
+  display: block;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: 0.16em;
 }
 
-.role {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
-  margin-top: 0.75rem;
-  padding-bottom: 1.5rem;
-  border-bottom: var(--line);
+.hero .identity-person {
+  display: block;
+  color: var(--ink-muted);
+  letter-spacing: 0.08em;
+  text-transform: none;
 }
 
-.lead {
-  margin-top: 1.5rem;
-  max-width: 56ch;
-}
-
-/* Services */
-.services h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
+.hero h1 {
+  font-size: clamp(2.25rem, 7vw, 5rem);
   font-weight: 700;
-  margin-bottom: 1.25rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
 }
 
-.services ul {
-  list-style: none;
-}
-
-.services li {
-  padding: 0.85rem 0;
-  border-top: var(--line);
-}
-
-.services li:last-child {
-  border-bottom: var(--line);
-}
-
-/* Footer */
-.site-footer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 1.5rem;
-  font-size: 0.85rem;
-}
-
-.site-footer a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: var(--line);
-  padding-bottom: 2px;
-}
-
-.site-footer a:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.divider {
-  opacity: 0.5;
-}
-
-/* Responsive */
-@media (max-width: 540px) {
-  body {
-    padding: 1rem;
-  }
-
-  .frame {
-    padding: 1.75rem;
-    gap: 2.25rem;
-  }
-
-  .intro h1 {
-    font-size: 2rem;
-  }
+.hero .lead {
+  margin-top: clamp(1.5rem, 4vh, 2.5rem);
+  font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
+  line-height: 1.5;
+  max-width: var(--measure);
 }
