@@ -29,6 +29,8 @@
 
 body,
 h1,
+h2,
+h3,
 p {
   margin: 0;
 }
@@ -92,4 +94,47 @@ main {
   font-size: clamp(1.0625rem, 1.6vw, 1.375rem);
   line-height: 1.5;
   max-width: var(--measure);
+}
+
+/* Problems — self-contained: three failure-mode blocks, styling scoped
+   to this section only, not dependent on sibling order. */
+.problems {
+  padding-block: clamp(2.5rem, 8vh, 5rem);
+  display: grid;
+  gap: clamp(2rem, 6vh, 3.5rem);
+}
+
+.problems h2 {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.problem h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: var(--measure);
+}
+
+.problem p {
+  margin-top: 0.75em;
+  max-width: var(--measure);
+}
+
+.problem .placeholder {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  border: 1px dashed var(--ink-muted);
+  padding: 0.75em 1em;
+  color: var(--ink-muted);
+}
+
+.problem .placeholder::before {
+  content: "Placeholder — ";
+  font-weight: 700;
 }
