@@ -246,30 +246,17 @@ main {
   align-items: start;
 }
 
-.photo-slot {
+/* The photo occupies the width and 4:5 ratio the placeholder held, so the
+   file drop changed no layout. Local file, so still no external request.
+   Desaturated because the design brief holds the page to a strictly
+   monochrome palette, and the source photograph is not. */
+.photo {
   width: clamp(6rem, 20vw, 9rem);
+  height: auto;
   aspect-ratio: 4 / 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-image: repeating-linear-gradient(
-    135deg,
-    var(--ink-muted) 0,
-    var(--ink-muted) 1px,
-    transparent 1px,
-    transparent 10px
-  );
-}
-
-.photo-slot-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--ink-muted);
-  background: var(--paper);
-  padding: 0.25em 0.4em;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1);
 }
 
 .contact-links {
