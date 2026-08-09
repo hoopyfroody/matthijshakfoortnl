@@ -1,6 +1,8 @@
 # Spec — English page redesign
 
-Status: ready for implementation. Vocabulary is defined in [CONTEXT.md](../CONTEXT.md); the settled design and copy decisions are in [docs/design-brief.md](./design-brief.md); language handling follows [ADR 0001](./adr/0001-two-static-pages-for-language.md).
+Status: implemented and shipped 2026-08-09. The second failure mode changed while the copy was being written — **Over-reach** became **AFK or human-in-the-loop**; the reasoning is in [CONTEXT.md](../CONTEXT.md) and [the design brief](./design-brief.md), and this spec has been revised to match. Everything else here is as it was specified.
+
+Vocabulary is defined in [CONTEXT.md](../CONTEXT.md); the settled design and copy decisions are in [docs/design-brief.md](./design-brief.md); language handling follows [ADR 0001](./adr/0001-two-static-pages-for-language.md).
 
 Scope: the English page at `/` only. Dutch at `/nl/` is out of scope, but the markup this spec produces must be ready for it.
 
@@ -16,7 +18,7 @@ That is the wrong page for the job described in CONTEXT.md. Availability is low,
 
 Replace the page with a single, type-led, diagnosis-led page addressed to the **Buyer**.
 
-It opens with a claim about the Buyer's team rather than a description of Matthijs: most teams use AI blindly. It then names the three failure modes — **Shared understanding**, **Over-reach**, **Dual maintainability** — and what Matthijs does about each. Only after the diagnosis has earned it does the page list capabilities, in two labelled groups that make the **Pillar hierarchy** visible: *Working with AI* first, *Fullstack engineering* second. A short background line corroborates the claims. A contact block closes.
+It opens with a claim about the Buyer's team rather than a description of Matthijs: most teams use AI blindly. It then names the three failure modes — **Shared understanding**, **AFK or human-in-the-loop**, **Dual maintainability** — and what Matthijs does about each. Only after the diagnosis has earned it does the page list capabilities, in two labelled groups that make the **Pillar hierarchy** visible: *Working with AI* first, *Fullstack engineering* second. A short background line corroborates the claims. A contact block closes.
 
 No testimonials, no client logos, no case studies, no availability date, no booking link, no GitHub link. Authority rests entirely on the **Point of view**. Strictly monochrome, system fonts only, no external requests, no build step — hand-written HTML and CSS on GitHub Pages, as today.
 
@@ -34,7 +36,7 @@ No testimonials, no client logos, no case studies, no availability date, no book
 5. As a Buyer, I want each failure mode stated as a short claim I can agree or disagree with, so that the page reads as a position rather than as marketing copy.
 6. As a Buyer, I want each failure mode labelled in plain language rather than with a branded framework name, so that I do not have to learn someone's vocabulary to follow the argument.
 7. As a Buyer, I want to read what Matthijs actually does about each failure mode, so that the claim is backed by practice and not just diagnosis.
-8. As a Buyer who has watched an agent refactor code nobody asked it to touch, I want Over-reach named explicitly, so that I recognise my own experience on the page.
+8. As a Buyer who has watched an agent run for two hours on a wrong turn it took in the first five minutes, I want AFK or human-in-the-loop named explicitly, so that I recognise my own experience on the page.
 9. As a Buyer worried that AI-generated code will pass review and still leave the codebase unworkable, I want Dual maintainability addressed, so that I see the risk I actually care about is understood.
 10. As a Buyer whose team prompts and hopes, I want Shared understanding described as something reached deliberately, so that I understand there is a method here and not just enthusiasm.
 
@@ -125,7 +127,7 @@ No testimonials, no client logos, no case studies, no availability date, no book
 
 **Contact.** `mailto:` link for `codecraft@matthijshakfoort.nl`, plus LinkedIn. Trading name Codecraft and KvK 42120215 in the footer. No GitHub link — the design brief excludes it, and the one in the legacy footer does not carry over.
 
-**Blocked items.** Three inputs are still needed from Matthijs and cannot be invented: the LinkedIn URL, a usable photo, and the final wording of the Point of view. Build each as a clearly marked placeholder that fails visibly rather than silently — a LinkedIn link with no URL should not ship as a dead `<a>`.
+**Blocked items.** Three inputs were needed from Matthijs and could not be invented: the LinkedIn URL, a usable photo, and the final wording of the Point of view. Each was built as a clearly marked placeholder that failed visibly rather than silently — a LinkedIn link with no URL does not ship as a dead `<a>`. All three arrived on 2026-08-09 and replaced their placeholders; none of the three forced a layout change, which is what the approach was for.
 
 ## Testing Decisions
 

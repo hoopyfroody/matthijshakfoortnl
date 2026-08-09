@@ -21,16 +21,26 @@ There are no testimonials, no client names, no logos and no case studies. Author
 **Three problems.** Each gets a block: the failure in a sentence or two, then what Matthijs does about it. On-page labels are plain, not framework-branded:
 
 1. Getting the agent to understand — **Shared understanding**
-2. Keeping it in its lane — **Over-reach**
-3. Code people and agents can both maintain — **Dual maintainability**
+2. AFK or Human-in-the-loop? — **AFK or human-in-the-loop**
+3. Maintainability for humans and agents — **Dual maintainability**
 
-**Capability groups.** Two labelled groups. Four items each; the drafts below carry five, so drop the weakest of each during implementation.
+Revised 2026-08-09, while the copy was being written. The second mode was
+**Over-reach**, labelled *keeping it in its lane*. Over-reach turned out to be one
+way an unattended run goes wrong rather than the whole failure, so the mode is now
+the judgement of which work an agent can be left alone with — both mistakes cost,
+the two-hour wrong turn and the hour spent approving a task the agent would have
+got right in one pass. The third keeps its term; its label is shorter and its
+scope now includes a person breaking a convention the agent invented.
 
-*Working with AI* — establishing shared understanding between developer and agent; setting limits on what an agent may touch; review practice for AI-generated changes; keeping AI-written code maintainable for both people and agents; tool and model choice. No specific tool or model names anywhere on the page — they date it.
+**Capability groups.** Two labelled groups, four items each. No specific tool or model names anywhere on the page — they date it. As shipped:
 
-*Fullstack engineering* — TypeScript and Node.js across the stack; React front-ends; build and release automation; infrastructure as code; architecture and technical direction for small teams.
+*Training and coaching on using AI agents effectively* — how to establish a shared understanding between developer and agent; how to avoid an agent doing unintended (or dangerous) things; how to get humans and agents working together, doing what each is best at; how to set up effective AI development workflows in practice.
 
-Mentoring and coaching is not a standalone bullet; it lives inside the AI group.
+*Fullstack engineering* — TypeScript and Node.js across the stack; frontends in all major frameworks; infrastructure as code and DevOps practices; architecture and technical direction for agile teams.
+
+Mentoring and coaching is not a standalone bullet; it is the frame of the whole AI group, which is why that group's heading names it.
+
+Revised 2026-08-09. The drafts here carried five items each to be cut to four during implementation. What happened instead was a rewrite: the AI bullets became "how to" phrasings and the group took a heading naming training and coaching, which is what makes the mentoring requirement legible. Build and release automation dropped out of the engineering group; the background line carries it instead.
 
 **Background.** Corroboration, placed after the claims rather than as a CV up front. Publishable facts: 15+ years; TypeScript, Node.js, React, build automation, infrastructure as code; agriculture, logistics, e-commerce, consultancy; small, agile, motivated teams. Two or three of these, as prose — "15 years, mostly TypeScript, mostly in teams of 5–15" is evidence where "15 years" alone is a claim.
 
@@ -44,9 +54,11 @@ Diagnosis before catalogue: the problems earn the right to the service list.
 
 ## Contact and footer
 
-Email `codecraft@matthijshakfoort.nl` and LinkedIn (URL still needed from Matthijs). Trading name Codecraft and KvK 42120215. No GitHub.
+Email `codecraft@matthijshakfoort.nl` and LinkedIn. Trading name Codecraft and KvK 42120215. No GitHub.
 
-A photo slot sits low on the page, near the contact block, built with a neutral placeholder so a real photo is a file drop rather than a redesign. Photo still needed from Matthijs.
+A photo sits low on the page, in the contact block.
+
+Revised 2026-08-09. KvK moved out of the footer and in with the contact details, where someone checking the business before a contract conversation looks for it; the footer keeps Codecraft as the closing mark. The photo slot did its job — it shipped as a neutral placeholder at 4:5, and the real file dropped into the same box without moving anything. The photograph is not monochrome, so it is desaturated in CSS to hold the palette.
 
 ## Visual direction
 
@@ -66,7 +78,6 @@ English ships first. Dutch is drafted only once the English copy has settled, th
 
 ## Still open
 
-- LinkedIn URL.
-- A usable photo.
-- Whether to keep or drop the "Software Development and Architecture" role line from the current site (implementation-time call; the headline may make it redundant).
-- A writing/blog section, deferred. The page should be structured so adding one does not force a redesign.
+- A writing/blog section, deferred. The page is structured so adding one does not force a redesign.
+
+Closed 2026-08-09: the LinkedIn URL and the photo were supplied and shipped, and the "Software Development and Architecture" role line was dropped — the diagnosis-led headline states the offer, and a generic role line under it weakens the specificity the page depends on.
