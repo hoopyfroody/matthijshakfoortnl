@@ -61,7 +61,7 @@ main {
 
 .hero .identity {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 1rem;
   line-height: 1.5;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -79,6 +79,7 @@ main {
   color: var(--ink-muted);
   letter-spacing: 0.08em;
   text-transform: none;
+  font-size: 0.8125rem;
 }
 
 /* Dutch toggle — styled ready for when the markup is uncommented in
@@ -281,6 +282,20 @@ main {
 .contact-links a {
   color: var(--ink);
   font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+}
+
+/* The registration number sits with the contact details rather than in the
+   footer: it is something the Buyer checks before a contract conversation,
+   so it belongs next to the ways of starting one. Monospace and muted, so
+   it reads as a detail and not as a third way to get in touch. */
+.contact-registration {
+  /* Extra space above so this reads as a detail below the contact methods
+     rather than as a third one alongside them. */
+  margin-top: 1.5em;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
 }
 
 @media (max-width: 26rem) {
