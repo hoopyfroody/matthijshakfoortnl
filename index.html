@@ -6,7 +6,7 @@
     <title>AI Enablement for engineering teams — Codecraft</title>
     <meta
       name="description"
-      content="AI Enablement for engineering teams: shared understanding with the agent, limits on what it touches, code that stays maintainable by people and machines."
+      content="AI Enablement for engineering teams: shared understanding with the agent, letting the agent work in a safe environment, code that stays maintainable by people and machines."
     />
     <!--
       The ?v= is a cache buster, not decoration. Cloudflare sits in front of
@@ -16,7 +16,11 @@
     -->
     <link rel="stylesheet" href="style.css?v=4" />
     <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
-    <link rel="alternate" hreflang="nl" href="https://matthijshakfoort.nl/nl/" />
+    <link
+      rel="alternate"
+      hreflang="nl"
+      href="https://matthijshakfoort.nl/nl/"
+    />
     <script>
       // Redirects a first-time visitor whose browser prefers Dutch to /nl/.
       // An explicit choice, recorded by either toggle, always wins.
@@ -57,15 +61,20 @@
           <a
             href="/nl/"
             class="lang-toggle"
-            onclick="try { localStorage.setItem('lang', 'nl'); } catch (e) {}"
+            onclick="
+              try {
+                localStorage.setItem('lang', 'nl');
+              } catch (e) {}
+            "
             >NL</a
           >
         </div>
         <h1 id="hero-title">Most development teams use AI blindly.</h1>
         <p class="lead">
-          I help them achieve a shared understanding with the agent, set limits on what
-          it touches and produce code that stays maintainable by people and machines. I apply classical
-          software engineering practice to AI-augmented development.
+          I help them in achieving a shared understanding with the agent,
+          setting up appropriate boundaries for it and producing code that stays
+          maintainable by people and machines. I apply classical software
+          engineering practice to AI-augmented development.
         </p>
       </section>
 
@@ -76,40 +85,48 @@
           <h3>Getting the agent to understand</h3>
           <p>
             The agent builds something good. It's just not what you had in mind.
-            Nothing is broken and the tests pass, but it answers a question nobody
-            asked or builds the right feature in the wrong way.
+            Nothing is broken and the tests pass, but it answers a question
+            nobody asked or builds the right feature in the wrong way.
           </p>
           <p>
-            I found it improves results when a shared understanding is reached between
-            agent and developer. When documented well, this grounds and guides the agent during implementation.
+            I found it improves results when a shared understanding is reached
+            between agent and developer before a line of code is written. When
+            documented well, this understanding grounds and guides the agent
+            during implementation.
           </p>
         </div>
 
         <div class="problem">
           <h3>AFK or Human-in-the-loop?</h3>
-          <p>The agent plugs away at a big feature by itself. After 2 hours you find
-            out it took a wrong turn 5 minutes in. Having learned from this, you watch
-            its every move next time, approving every tool call. But it one-shots the
-            whole thing, and you spent an hour watching.
+          <p>
+            The agent plugs away at a big feature by itself. After 2 hours you
+            find out it took a wrong turn 5 minutes in. Having learned from
+            this, you watch its every move next time, approving every tool call.
+            But it one-shots the whole thing, and you spent an hour watching.
           </p>
-          <p>I teach developers to judge which tasks an agent can be left to do, given a
-            restricted environment and a good brief, and which need someone watching.
+          <p>
+            I teach developers to judge which tasks an agent can be left to do,
+            given a restricted environment and a good brief, and which need
+            someone watching.
           </p>
         </div>
 
         <div class="problem">
           <h3>Maintainability for humans and agents</h3>
           <p>
-            The agent writes code that is technically correct but difficult for humans to
-            understand or modify. Humans then break a convention the agent invented, without
-            knowing it was there, which in turn confuses the next agent. Inefficiencies like these
-            limit what the team gets out of working with agents.
+            The agent writes code that is technically correct but difficult for
+            humans to understand or modify. Humans then break a convention the
+            agent invented, without knowing it was there, which in turn confuses
+            the next agent. Inefficiencies like these limit what the team gets
+            out of working with agents.
           </p>
           <p>
-            I set up short feedback loops around code quality and maintainability,
-            where new conventions are recorded as they are established and are easily referenced
-            and enforced. Both humans and agents benefit: the next change is easier for
-            whoever makes it.
+            I document standards and conventions for the quality attributes that
+            are key to the specific piece of software (e.g., code quality,
+            maintainability, performance...) and set up short feedback loops
+            around them, where new conventions are recorded as they are
+            established and are easily referenced and enforced. Both humans and
+            agents benefit: the next change is easier for whoever makes it.
           </p>
         </div>
       </section>
@@ -120,12 +137,20 @@
         <div class="capability-group">
           <h3>Training and coaching on using AI agents effectively</h3>
           <ul>
-            <li>How to establish a shared understanding between developer and agent</li>
-            <li>How to avoid an agent doing unintended (or dangerous) things</li>
             <li>
-              How to get humans and agents working together, doing what each is best at
+              How to establish a shared understanding between developer and
+              agent
             </li>
-            <li>How to set up effective AI development workflows in practice</li>
+            <li>
+              How to avoid an agent doing unintended (or dangerous) things
+            </li>
+            <li>
+              How to get humans and agents working together, doing what each is
+              best at
+            </li>
+            <li>
+              How to set up effective AI development workflows in practice
+            </li>
           </ul>
         </div>
 
@@ -143,12 +168,12 @@
       <section class="background" aria-labelledby="background-title">
         <h2 id="background-title">Background</h2>
         <p class="background-line">
-          I've spent 15+ years writing front- and backends on the web in small teams.
-          I focus on building a process that encourages clean, maintainable code
-          through automation of the boring parts. Whether that is linting, testing and
-          deployment, or an environment and culture where agents are used well, it
-          enables developers to concentrate on the hard and creative work, where real
-          value is added.
+          I've spent 15+ years writing front- and backends on the web in small
+          teams. I focus on building a process that encourages clean,
+          maintainable code through automation of the boring parts. Whether that
+          is linting, testing and deployment, or an environment and culture
+          where agents are used well, it enables developers to concentrate on
+          the hard and creative work, where real value is added.
         </p>
       </section>
 
