@@ -45,7 +45,96 @@ body {
   overflow-wrap: break-word;
 }
 
+/* The background grid and tetromino field share one tile size and animation
+   duration, keeping every piece locked to the grid throughout the loop. */
+.tetris-parallax {
+  position: fixed;
+  z-index: 0;
+  inset: -14vh 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(0, var(--parallax-y, 12vh), 0);
+  will-change: transform;
+}
+
+.tetris-background {
+  --grid-step: 5rem;
+  --tile-size: 80rem;
+  position: absolute;
+  inset: 0;
+  color: #249ee8;
+  background-image:
+    linear-gradient(rgb(36 158 232 / 13%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(36 158 232 / 13%) 1px, transparent 1px);
+  background-position: 0 0;
+  background-size: var(--grid-step) var(--grid-step);
+  animation: tetris-grid-drift 512s linear infinite;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 18%,
+    #000 100%
+  );
+  mask-image: linear-gradient(to right, transparent, #000 18%, #000 100%);
+}
+
+.tetromino-field {
+  position: absolute;
+  inset: 0;
+  animation: tetromino-field-drift 512s linear infinite;
+}
+
+.tetromino-tile {
+  position: absolute;
+  top: var(--tile-top);
+  left: var(--tile-left);
+  width: var(--tile-size);
+  height: var(--tile-size);
+}
+
+.tetromino-piece {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  opacity: var(--piece-opacity);
+}
+
+.tetromino-cell {
+  position: absolute;
+  top: var(--cell-top);
+  left: var(--cell-left);
+  width: var(--grid-step);
+  height: var(--grid-step);
+  border: 1px solid rgb(36 158 232 / 30%);
+  background: rgb(36 158 232 / 2%);
+}
+
+@keyframes tetris-grid-drift {
+  to {
+    background-position: var(--tile-size) var(--tile-size);
+  }
+}
+
+@keyframes tetromino-field-drift {
+  to {
+    transform: translate3d(var(--tile-size), var(--tile-size), 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tetris-parallax {
+    transform: none;
+  }
+
+  .tetris-background,
+  .tetromino-field {
+    animation: none;
+  }
+}
+
 main {
+  position: relative;
+  z-index: 1;
   padding: var(--gutter);
 }
 
@@ -99,7 +188,7 @@ main {
 }
 
 .hero h1 {
-  font-size: clamp(2.0rem, 6vw, 4rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -292,14 +381,4 @@ main {
   .contact-block {
     grid-template-columns: 1fr;
   }
-}
-
-/* Footer — self-contained landmark, outside <main>. */
-footer {
-  padding: var(--gutter);
-  padding-top: clamp(1.5rem, 4vh, 2.5rem);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-muted);
 }
