@@ -1,7 +1,15 @@
 # Codecraft logo assets
 
-Three SVG assets. The wordmark is traced to paths, so no font is loaded at
-runtime.
+The wordmark is traced to paths, so no font is loaded at runtime.
+
+## Prefer the SVG
+
+Reach for a file in this folder, not in `png/`. The SVG stays sharp at every
+size and on every display, and it is smaller: the full lockup is 6.3 KB as SVG
+against 36 KB as a PNG.
+
+Use a PNG only where SVG is not accepted. Email signatures, older office
+software, and some social media upload forms are the usual cases.
 
 ## Files
 
@@ -14,6 +22,32 @@ runtime.
 
 Each file's ink sits flush to its `viewBox` on all four edges. Add your own
 padding in CSS.
+
+`codecraft-favicon.svg` is the exception. It carries 2 units of padding and
+swaps to the light palette through an embedded `prefers-color-scheme` query, so
+it suits both light and dark browser chrome.
+
+### PNG fallbacks
+
+`png/` holds the same assets rasterised at 8 pixels per unit, on transparent
+backgrounds:
+
+| File | Size |
+|------|------|
+| `codecraft-logo.png` / `codecraft-logo-light.png` | 1734 × 312 |
+| `codecraft-mark.png` / `codecraft-mark-light.png` | 392 × 312 |
+| `codecraft-wordmark.png` / `codecraft-wordmark-light.png` | 1270 × 216 |
+
+The wordmark gains a `-light` file here that it does not need as SVG. A PNG
+cannot carry `currentColor`, so its ink is baked in: `#f7f4ee` in the plain
+file, `#14120f` in the `-light` one.
+
+Regenerate them with headless Chrome, which is what produced these:
+
+```
+chrome --headless --default-background-color=00000000 \
+  --window-size=1734,312 --screenshot=out.png wrapper.html
+```
 
 ## Colour
 
