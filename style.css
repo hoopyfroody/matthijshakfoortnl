@@ -144,37 +144,24 @@ main {
   padding-block: clamp(3rem, 12vh, 9rem);
 }
 
-/* Identity and language toggle share one row, so the toggle costs no
-   vertical space above the fold. The row's height comes from .identity's
-   own margin-bottom below. */
+/* Logo and language toggle share one row, so the toggle costs no vertical
+   space above the fold. The gap below the fold used to come from .identity's
+   own margin; the logo is a replaced element, so the row carries it now. */
 .hero-top {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-}
-
-.hero .identity {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   margin-bottom: clamp(2.5rem, 8vh, 5rem);
 }
 
-.hero .identity-mark {
+/* The lockup is inlined, not an <img>, so the wordmark's currentColor
+   resolves to --ink here. The two ambers are baked into the asset. */
+.site-logo {
   display: block;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.hero .identity-person {
-  display: block;
-  color: var(--ink-muted);
-  letter-spacing: 0.08em;
-  text-transform: none;
-  font-size: 0.8125rem;
+  flex: none;
+  height: clamp(1.75rem, 4.5vw, 2.5rem);
+  width: auto;
 }
 
 /* Language toggle — sits at the right of .hero-top, opposite the mark. */
