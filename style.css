@@ -786,6 +786,18 @@ summary:focus-visible {
     scroll-margin-top: calc(var(--bar-height) + 1.25rem - var(--pillar-space));
   }
 
+  /* The bar already asks the question, right above each answer, so the
+     pillar heading drops it from view. Screen readers still hear it. */
+  .pillar-question {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   .terms {
     grid-template-columns: 1fr;
   }
