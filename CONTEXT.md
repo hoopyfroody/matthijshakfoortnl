@@ -60,17 +60,17 @@ Three pillars, in this order:
 2. [[Forming Product Engineers]]. Follows from the first, because leading by example happens while doing the job.
 3. [[Educating Juniors]]. Comes last as the forward look and the most contrarian claim.
 
-On the page the three read as a sequence — me, your team, your next hires — with the headings *I do the work*, *Your team does the work* and *Educating Juniors*.
+On the page the three read as a sequence of answers to the question *Who should do the work?*: *Me*, *Your team* and *Your next hires*. A mono label under each answer names the pillar. Revised 2026-10-26 with the variant F layout; the headings were *I do the work*, *Your team does the work* and *Educating Juniors*.
 
 All three rest on the [[Point of view]]. Settled 2026-10-25; replaces AI Enablement leading Fullstack Delivery.
 
 ## Hands-on Product Engineering
 
-The first pillar. Matthijs works in the client's team as its [[Product Engineer]] and delivers [[Process Support]] and [[Developer Tooling]]. Includes the build-or-buy judgement for each tool. On the page: *I do the work*.
+The first pillar. Matthijs works in the client's team as its [[Product Engineer]] and delivers [[Process Support]] and [[Developer Tooling]]. Includes the build-or-buy judgement for each tool. On the page: *Me*.
 
 ## Forming Product Engineers
 
-The second pillar. Training, coaching and leading by example, so that the team's own people grow into [[Product Engineer]]s. The three failure modes ([[Shared understanding]], [[AFK or human-in-the-loop]], [[Dual maintainability]]) are its supporting material. On the page: *Your team does the work*.
+The second pillar. Training, coaching and leading by example, so that the team's own people grow into [[Product Engineer]]s. The three failure modes ([[Shared understanding]], [[AFK or human-in-the-loop]], [[Dual maintainability]]) are its supporting material. On the page: *Your team*.
 
 ## Educating Juniors
 

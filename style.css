@@ -12,7 +12,8 @@
   --cta: #e0a03c;
   --rule: rgb(247 244 238 / 14%);
   --rule-strong: rgb(247 244 238 / 32%);
-  --cell: rgb(36 158 232 / 60%);
+  --nav-cell-line: rgb(36 158 232 / 60%);
+  --nav-cell-fill: rgb(36 158 232 / 10%);
 
   --font-sans:
     system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -178,10 +179,6 @@ summary:focus-visible {
   letter-spacing: 0.02em;
 }
 
-.fine {
-  line-height: 1.6;
-}
-
 /* ───────────────────────────── Rail ───────────────────────────── */
 
 .rail {
@@ -276,8 +273,8 @@ summary:focus-visible {
   flex: none;
   width: 0.7em;
   height: 0.7em;
-  border: 1px solid var(--cell);
-  background: rgb(36 158 232 / 10%);
+  border: 1px solid var(--nav-cell-line);
+  background: var(--nav-cell-fill);
   transition: background-color 0.2s;
 }
 
@@ -289,8 +286,6 @@ summary:focus-visible {
 .rail-email {
   margin-top: auto;
   padding-top: 2rem;
-  color: var(--cta);
-  font-weight: 600;
 }
 
 /* ───────────────────────────── Flow ───────────────────────────── */
@@ -496,7 +491,7 @@ summary:focus-visible {
   min-height: 3.2em;
 }
 
-.verdict[data-state="empty"] {
+.verdict[data-state="unanswered"] {
   font-weight: 400;
   color: var(--ink-muted);
 }

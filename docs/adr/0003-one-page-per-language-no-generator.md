@@ -10,7 +10,9 @@ Accepted
 
 [positioning.md](../positioning.md) section 10 planned a home page plus one deeper page per pillar, in two languages: four or five pages each. At that size the duplicated markup that [ADR 0001](./0001-two-static-pages-for-language.md) accepted "at one page" would stop being acceptable, so section 10 asked for a decision on a build step.
 
-The prototype round (`prototype/product-engineer-home`, variant F, "Rail, revised") chose a different shape. A fixed rail holds the claim and the question "Who should do the work?"; the flow beside it carries the point of view and all three pillars in full, each with its engagement, case sketch and call to action. The deeper content lives on the home page, so the pillar pages are not needed.
+The prototype round (`prototype/product-engineer-home`, variant F, "Rail, revised") chose a different shape. A fixed rail holds the claim and the question "Who should do the work?"; the flow beside it carries the point of view and the three pillars, each with its argument, engagement, case sketch and call to action. That covers most of what section 10 put on the pillar pages, so they are deferred.
+
+Not every part of the full argument is on the page yet. Missing from positioning.md: the buy-or-build table (section 4), the second junior pain and the offer to shape the team environment (section 6), and the line that hand-coding skills come later (section 6).
 
 ## Decision
 
@@ -24,4 +26,4 @@ ADR 0001 still holds as written. A copy change is still made in two files.
 
 The allowlist in `scripts/build-site.sh` ([ADR 0002](./0002-publish-an-allowlist-of-files.md)) gains `site.js`.
 
-A blog, or separate pillar pages, would bring the page count past the point ADR 0001 names. That is when to add a generator, in the copy step of `scripts/build-site.sh`. The URLs and the language rules do not change.
+A blog, or pillar pages for the missing parts of the argument, would bring the page count past the point ADR 0001 names. That is when to add a generator, in the copy step of `scripts/build-site.sh`. The URLs and the language rules do not change.
