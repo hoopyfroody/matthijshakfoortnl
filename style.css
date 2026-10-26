@@ -232,10 +232,10 @@ summary:focus-visible {
 }
 
 /* The pillar question and its three answers. The cell is one Tetris
-   square; it fills in for the pillar that is in view. The row aligns on
-   the baseline, not the centre, so the small mono number and the large
-   answer share one line. The cell has no text, so it sits on that line
-   and its 0.7em height reaches about cap height. */
+   square; it fills in for the pillar that is in view. In the rail the
+   cell, the number and the answer share one centre line; line-height 1
+   keeps each box close to its glyphs, so centring the boxes centres the
+   glyphs. */
 .pillar-nav {
   margin-top: clamp(2rem, 6vh, 3.5rem);
   display: grid;
@@ -252,9 +252,11 @@ summary:focus-visible {
 
 .pillar-nav a {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.75rem;
-  padding-block: 0.35rem;
+  line-height: 1;
+  /* The 0.3em gives back the leading that line-height 1 takes away. */
+  padding-block: calc(0.35rem + 0.3em);
   font-size: clamp(1.125rem, 1.7vw, 1.4rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -688,7 +690,7 @@ summary:focus-visible {
   }
 
   .pillar-nav a {
-    padding-block: 0.2rem;
+    padding-block: calc(0.2rem + 0.3em);
   }
 
   .rail-email {
@@ -721,28 +723,42 @@ summary:focus-visible {
     margin-top: 2.5rem;
   }
 
+  /* The question on a small line of its own, the three answers in a row
+     under it. */
   .pillar-nav {
     position: sticky;
     z-index: 2;
     top: 0;
     margin-top: 2rem;
-    padding: 0.5rem var(--gutter);
-    display: flex;
-    gap: 1.25rem;
+    padding: 0.5rem var(--gutter) 0.3rem;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 1.25rem;
+    row-gap: 0;
     overflow-x: auto;
     background: var(--paper);
     border-block: 1px solid var(--rule);
   }
 
-  .pillar-nav h2,
+  .pillar-nav h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0.1rem;
+    font-size: 0.8125rem;
+  }
+
   .rail-email {
     display: none;
   }
 
+  /* In the bar the row aligns on the baseline: the cell has no text, so
+     it sits on that line and its 0.7em height reaches about cap height. */
   .pillar-nav a {
+    align-items: baseline;
     font-size: 1rem;
+    line-height: 1.6;
     white-space: nowrap;
     gap: 0.5rem;
+    padding-block: 0.2rem;
   }
 
   .flow {
@@ -757,7 +773,7 @@ summary:focus-visible {
   /* Clears the sticky bar with room to spare, so the pillar's own rule
      does not sit right under the bar's rule as a double line. */
   .pillar {
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 6.5rem;
   }
 
   .terms {
@@ -778,7 +794,7 @@ summary:focus-visible {
    the cells still show the order. */
 @media (max-width: 34rem) {
   .pillar-nav {
-    gap: 1rem;
+    column-gap: 1rem;
   }
 
   .pillar-nav .label {
