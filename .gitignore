@@ -3,3 +3,4 @@
 
 # Per-machine Claude Code permissions, not shared project config.
 .claude/settings.local.json
+_site/
