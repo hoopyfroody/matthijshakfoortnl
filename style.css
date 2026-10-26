@@ -232,7 +232,10 @@ summary:focus-visible {
 }
 
 /* The pillar question and its three answers. The cell is one Tetris
-   square; it fills in for the pillar that is in view. */
+   square; it fills in for the pillar that is in view. The row aligns on
+   the baseline, not the centre, so the small mono number and the large
+   answer share one line. The cell has no text, so it sits on that line
+   and its 0.7em height reaches about cap height. */
 .pillar-nav {
   margin-top: clamp(2rem, 6vh, 3.5rem);
   display: grid;
@@ -249,7 +252,7 @@ summary:focus-visible {
 
 .pillar-nav a {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.75rem;
   padding-block: 0.35rem;
   font-size: clamp(1.125rem, 1.7vw, 1.4rem);
@@ -392,6 +395,39 @@ summary:focus-visible {
 
 .pillar h3 + p {
   margin-top: 0.5em;
+}
+
+/* What the team buys and what I build. Two lists side by side, not a
+   table: the rows do not pair up. The bought side is muted, so the eye
+   goes to the work I do. */
+.split {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem clamp(1.5rem, 4vw, 2.5rem);
+  align-items: start;
+}
+
+.split h4 {
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+}
+
+.split ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--rule-strong);
+  font-size: 0.9875rem;
+}
+
+.split li {
+  padding-block: 0.5em;
+  line-height: 1.4;
+  border-bottom: 1px solid var(--rule);
+}
+
+.split-buy li {
+  color: var(--ink-muted);
 }
 
 .pillar blockquote {
@@ -718,8 +754,10 @@ summary:focus-visible {
     padding-top: 2.5rem;
   }
 
+  /* Clears the sticky bar with room to spare, so the pillar's own rule
+     does not sit right under the bar's rule as a double line. */
   .pillar {
-    scroll-margin-top: 3.5rem;
+    scroll-margin-top: 5.5rem;
   }
 
   .terms {
@@ -745,6 +783,10 @@ summary:focus-visible {
 
   .pillar-nav .label {
     display: none;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
   }
 
   .contact {

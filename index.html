@@ -156,11 +156,38 @@
             Plain code does everything plain code can do. The model only gets
             the part that needs judgement.
           </blockquote>
+
+          <h3>Tooling for your team’s coding process</h3>
           <p>
-            I also build the tooling for your team’s own AI coding process:
-            automated reviews, quality gates, skills, workflows. That tooling is
-            how the role keeps working after I leave.
+            The tools that let your team spend its time on product engineering
+            instead of programming. Some of them your team should buy. The rest
+            is specific to your team, and that part I build or set up.
           </p>
+          <div class="split">
+            <div class="split-buy">
+              <h4 class="label">Your team buys</h4>
+              <ul>
+              <li>The coding agent itself</li>
+              <li>A hosted AI review service</li>
+              <li>Hosting and sandboxes for background agents</li>
+              <li>LLM observability</li>
+              <li>Preview deployments</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="label">I build or set up</h4>
+              <ul>
+              <li>Instruction files and project templates</li>
+              <li>Skills for recurring work: releases, migrations, incident notes</li>
+              <li>Hooks: formatting, blocked commands, protected paths</li>
+              <li>Custom linters and structural tests</li>
+              <li>The review policy (which code a person reads) and a reviewer that applies it</li>
+              <li>Eval sets and CI gates</li>
+              <li>Internal MCP servers and CLIs for your own systems</li>
+              </ul>
+            </div>
+          </div>
+          <p>That tooling is how the role keeps working after I leave.</p>
 
           <h3>Build it in-house, or not?</h3>
           <p>
@@ -357,10 +384,19 @@
             job agents already do.
           </p>
           <p>
+            Already have juniors? Now that agents do the tickets, they need
+            different first tasks, and a team that is set up to give them.
+          </p>
+          <p>
             I start them on the work agents cannot do: talking to users and
             customers, writing specs, choosing test seams, judging blast radius.
             They read and run code from day one, through the spec they wrote
-            and the tests that check it.
+            and the tests that check it. Hand-coding skills for the critical
+            parts come later.
+          </p>
+          <p>
+            I also help set up the team around them: what juniors work on
+            first, who they talk to, and how their specs get reviewed.
           </p>
 
           <h3>An interview that tests that work</h3>
@@ -397,7 +433,8 @@
             </dd>
             <dt>To start</dt>
             <dd class="cta">
-              Tell me when you last hired a junior, or why you stopped.
+              Tell me when you last hired a junior, why you stopped, or what
+              your juniors do now.
               <a
                 href="mailto:codecraft@matthijshakfoort.nl?subject=Hiring%20juniors"
                 >Email codecraft@matthijshakfoort.nl</a
