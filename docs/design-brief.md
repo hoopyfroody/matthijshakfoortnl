@@ -2,6 +2,8 @@
 
 Settled in a grilling session on 2026-08-08. Vocabulary is defined in [CONTEXT.md](../CONTEXT.md); terms in bold below are defined there. This brief is the input for implementation, which happens in a later session.
 
+> Superseded in part on 2026-10-25 by [positioning.md](./positioning.md), which repositions the site around the Product Engineer and three new pillars. Where the two disagree, positioning.md wins. The language handling, build notes and visual identity here still apply unless positioning.md says otherwise.
+
 ## What the page is
 
 A single page, English at `/`, Dutch at `/nl/` later. It leads with **AI Enablement** and supports it with **Fullstack Delivery**. It is addressed to the **Buyer** and it filters rather than sells — see *the site's job* in CONTEXT.md.
