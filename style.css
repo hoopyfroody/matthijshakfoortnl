@@ -345,7 +345,8 @@ summary:focus-visible {
 }
 
 .pillar {
-  padding-block: clamp(3rem, 10vh, 6rem);
+  --pillar-space: clamp(3rem, 10vh, 6rem);
+  padding-block: var(--pillar-space);
   border-top: 1px solid var(--rule-strong);
   scroll-margin-top: 1rem;
 }
@@ -701,7 +702,9 @@ summary:focus-visible {
 /* On narrow screens the rail dissolves into the page and only the pillar
    nav stays, as a bar along the top. */
 @media (max-width: 60rem) {
+  /* The height of the sticky pillar bar, for the jump offset below. */
   main {
+    --bar-height: 4.1rem;
     display: block;
   }
 
@@ -770,10 +773,17 @@ summary:focus-visible {
     padding-top: 2.5rem;
   }
 
-  /* Clears the sticky bar with room to spare, so the pillar's own rule
-     does not sit right under the bar's rule as a double line. */
+  /* No rules between sections here: the bar already carries one, and
+     the spacing separates the sections. A jump from the bar lands the
+     pillar's question 1.25rem under the bar, whatever the padding above
+     it; the negative part cancels that padding. */
+  .pillar,
+  .closing {
+    border-top: 0;
+  }
+
   .pillar {
-    scroll-margin-top: 6.5rem;
+    scroll-margin-top: calc(var(--bar-height) + 1.25rem - var(--pillar-space));
   }
 
   .terms {
