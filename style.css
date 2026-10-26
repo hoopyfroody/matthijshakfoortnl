@@ -355,12 +355,14 @@ summary:focus-visible {
   margin-bottom: clamp(1.5rem, 5vh, 3rem);
 }
 
+/* A step under the claim in the rail, so the claim stays the largest
+   text on the page and each answer still reads as a section head. */
 .pillar-head h2 {
   margin-top: 0.5rem;
-  font-size: clamp(3rem, 7.5vw, 7rem);
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
   font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.05em;
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
 /* The question sits over each answer, small and quiet, so the answer
@@ -684,6 +686,10 @@ summary:focus-visible {
 
   .lead {
     margin-top: 1rem;
+  }
+
+  .pillar-head h2 {
+    font-size: clamp(2rem, 2.9vw, 2.75rem);
   }
 
   .pillar-nav {
