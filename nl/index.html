@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI ondersteuning voor ontwikkelteams — Codecraft</title>
+    <title>Product Engineering voor teams die met agents bouwen — Codecraft</title>
     <meta
       name="description"
-      content="AI ondersteuning voor ontwikkelteams: een agent die wél begrijpt wat je bedoelt, grenzen aan wat de agent aanraakt, code die onderhoudbaar blijft voor mens en machine."
+      content="Agents schrijven nu de code. Ik zoek uit wat er gebouwd moet worden, bepaal wat goed is en beslis welke code een mens nog moet lezen. In je team, door je team te coachen, en door je volgende juniors op te leiden."
     />
     <!--
       The ?v= is a cache buster, not decoration. Cloudflare sits in front of
@@ -15,7 +15,7 @@
       style.css changes in a way that must reach visitors immediately.
       Keep it in step with the value on the English page.
     -->
-    <link rel="stylesheet" href="../style.css?v=9" />
+    <link rel="stylesheet" href="../style.css?v=10" />
     <link
       rel="icon"
       href="/logo/codecraft-favicon.svg"
@@ -36,8 +36,8 @@
   </head>
   <body>
     <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-top">
+      <header class="rail">
+        <div class="rail-top">
           <svg
             class="site-logo"
             viewBox="0 0 216.73 39"
@@ -53,6 +53,7 @@
           <a
             href="/"
             class="lang-toggle"
+            lang="en"
             onclick="
               try {
                 localStorage.setItem('lang', 'en');
@@ -61,149 +62,401 @@
             >EN</a
           >
         </div>
-        <h1 id="hero-title">
-          De meeste ontwikkelteams gebruiken AI zonder richting.
+        <h1>
+          Agents schrijven nu de code. Iemand moet nog steeds bepalen wat die
+          moet doen.
         </h1>
         <p class="lead">
-          Ik help ze kennis over te brengen aan de AI agent, grenzen te stellen
-          aan wat die aanraakt en code op te leveren die onderhoudbaar blijft
-          voor mens en machine. Ik verbeter het ontwikkelen met AI door middel
-          van klassiek software-engineering vakwerk.
+          Ik zoek uit wat er gebouwd moet worden, bepaal wat ‘goed’ betekent en
+          beslis welke code een mens nog moet lezen. Dat werk doe ik in je
+          team, ik leer je team het zelf te doen, en ik help je de juniors op
+          te leiden die het straks doen.
         </p>
-      </section>
+        <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
+          <h2 id="pillar-nav-title">Wie moet het werk doen?</h2>
+          <a href="#me"
+            ><span class="nav-cell"></span><span class="label">01</span> Ik</a
+          >
+          <a href="#team"
+            ><span class="nav-cell"></span><span class="label">02</span> Je
+            team</a
+          >
+          <a href="#hires"
+            ><span class="nav-cell"></span><span class="label">03</span> Je
+            volgende juniors</a
+          >
+        </nav>
+        <!--
+          Cloudflare's Email Address Obfuscation rewrites every mailto on the
+          page into a /cdn-cgi/l/email-protection link and injects a script
+          to decode it. That is wanted here, so no email_off wrapper: the
+          trade is that the addresses need JavaScript to resolve.
+        -->
+        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
+          >codecraft@matthijshakfoort.nl</a
+        >
+      </header>
 
-      <section class="problems" aria-labelledby="problems-title">
-        <h2 id="problems-title">Drie manieren waarop het misgaat</h2>
-
-        <div class="problem">
-          <h3>De agent laten begrijpen wat je bedoelt</h3>
-          <p>
-            De agent bouwt iets goeds. Alleen niet wat jij voor ogen had. Er is
-            niets stuk en de tests slagen, maar de uitkomst is een antwoord op
-            een vraag die niemand stelde, of de juiste feature op de verkeerde
-            manier gebouwd.
-          </p>
-          <p>
-            Ik merk dat de resultaten beter worden als agent en developer eerst
-            een eenduidig begrip bepalen voor dat gestart wordt met ontwikkelen.
-            Goed vastgelegd stuurt en begrenst dat de de agent tijdens het
-            bouwen.
-          </p>
-        </div>
-
-        <div class="problem">
-          <h3>AFK of Human-in-the-loop?</h3>
-          <p>
-            De agent werkt in zijn eentje aan een grote feature. Twee uur later
-            ontdek je dat hij na vijf minuten al de verkeerde afslag nam. Wijzer
-            geworden kijk je de volgende keer over zijn schouder mee en pluis je
-            elke tool call uit voor je hem goedkeurt. Maar deze keer doet hij
-            het in één keer goed, en heb jij een uur voor niets zitten kijken.
-          </p>
-          <p>
-            Ik leer developers inschatten welke taken je een agent zelf kunt
-            laten doen in een afgeschermde omgeving met een goede briefing, en
-            wanneer er iemand moet meekijken t.b.v. veiligheid, kwaliteit of
-            snelheid.
-          </p>
-        </div>
-
-        <div class="problem">
-          <h3>Onderhoudbaar voor mens én agent</h3>
-          <p>
-            De agent schrijft code die technisch klopt, maar die mensen lastig
-            kunnen begrijpen of aanpassen. Een mens breekt een conventie die de
-            agent bepaald had, zonder te weten dat die er was. Daardoor raakt de
-            volgende agent weer van in de war. Wrijving zoals deze beperkt de
-            voordelen van development met AI.
-          </p>
-          <p>
-            Ik leg standaarden en conventies vast rondom de kwaliteitscriteria
-            zoals die belangrijk zijn voor het specifieke project (bijvoorbeeld
-            codekwaliteit, onderhoudbaarheid, performance...) en zet korte
-            feedbackloops op, waarin nieuwe conventies worden vastgelegd zodra
-            ze ontstaan en makkelijk terug te vinden en af te dwingen zijn. Mens
-            en agent hebben hier baat bij: de volgende wijziging is eenvoudiger,
-            voor wie hem ook doet.
-          </p>
-        </div>
-      </section>
-
-      <section class="capabilities" aria-labelledby="capabilities-title">
-        <h2 id="capabilities-title">Wat bied ik?</h2>
-
-        <div class="capability-group">
-          <h3>Training en coaching in het effectief inzetten van AI-agents</h3>
-          <ul>
+      <div class="flow">
+        <section class="pov" aria-labelledby="pov-title">
+          <h2 id="pov-title">Code schrijven werd goedkoop. Dit niet.</h2>
+          <ul class="pov-list">
             <li>
-              Hoe je een ondubbelzinnig ontwerp tot stand brengt zodat developer
-              en agent elkaar begrijpen
+              Uitzoeken wat gebruikers en klanten nodig hebben, door met ze te
+              praten
             </li>
+            <li>Dat vastleggen als een spec waar een agent mee kan bouwen</li>
             <li>
-              Hoe je voorkomt dat een agent onbedoelde (of gevaarlijke) dingen
-              doet
+              De gates en evals schrijven die bepalen wat ‘goed’ is, en dat
+              controleren
             </li>
+            <li>Gedrag reviewen vóór de code, waar dat kan</li>
             <li>
-              Hoe je mensen en agents laat samenwerken en de juiste taken
-              bepaalt voor beiden
-            </li>
-            <li>
-              Hoe je in de praktijk effectieve AI-ontwikkelworkflows opzet
+              Bepalen welke code een mens nog moet lezen, omdat een fout daar
+              te veel kost
             </li>
           </ul>
-        </div>
+          <p>
+            Dat is het werk van een Product Engineer: één persoon die zowel de
+            productkant als de engineeringkant van softwarewerk doet, terwijl
+            agents de code schrijven. Een senior developer die ook het werk van
+            product owner en informatieanalist doet. Zonder die rol bouwt een
+            team met agents sneller het verkeerde.
+          </p>
+        </section>
 
-        <div class="capability-group">
-          <h3>Fullstack engineering</h3>
-          <ul>
-            <li>TypeScript en Node.js op front- en backend</li>
-            <li>Frontends in alle grote frameworks (zoals React en Vue)</li>
-            <li>Infrastructure-as-code en DevOps</li>
-            <li>Architectuur en technisch leiderschap voor agile teams</li>
-          </ul>
-        </div>
-      </section>
+        <section class="pillar" id="me" aria-labelledby="me-title">
+          <header class="pillar-head">
+            <h2 id="me-title">
+              <span class="pillar-question">Wie moet het werk doen?</span>
+              <span class="pillar-answer">Ik</span>
+            </h2>
+            <span class="label">01 Hands-on Product Engineering</span>
+          </header>
+          <h3>Software voor de manier waarop je team werkt</h3>
+          <p>
+            Voor er agents waren, kostte veel software voor processen te veel
+            of duurde het te lang om te bouwen. Nu verdient die zich terug. Het
+            dure deel is nog steeds het werk rond de code: uitzoeken wat het
+            proces echt nodig heeft, de spec schrijven en de controles bouwen.
+          </p>
+          <blockquote>
+            Gewone code doet alles wat gewone code kan. Het model krijgt alleen
+            het deel waar oordeel voor nodig is.
+          </blockquote>
+          <p>
+            Ik bouw ook de tooling voor het AI-ontwikkelproces van je team zelf:
+            geautomatiseerde reviews, quality gates, skills, workflows. Met die
+            tooling blijft de rol werken als ik weg ben.
+          </p>
 
-      <section class="background" aria-labelledby="background-title">
-        <h2 id="background-title">Achtergrond</h2>
-        <p class="background-line">
-          Ik schrijf al ruim 15 jaar front- en backends voor het web, in kleine
-          teams. Ik richt me op het samenstellen van een proces dat leidt tot
-          schone, onderhoudbare code door het saaie werk te automatiseren. Of
-          dat nu linting, testing en deployment is of een omgeving en cultuur
-          waarin AI goed wordt ingezet: het geeft developers de ruimte om zich
-          op het moeilijke, creatieve werk te concentreren, daar waar echte
-          waarde wordt toegevoegd.
-        </p>
-      </section>
-
-      <section class="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact</h2>
-        <div class="contact-block">
-          <img
-            class="photo"
-            src="../photo-matthijs-hakfoort.jpg"
-            width="400"
-            height="500"
-            alt="Matthijs Hakfoort"
-          />
-          <div class="contact-links">
-            <!--
-              Cloudflare's Email Address Obfuscation rewrites this mailto into
-              a /cdn-cgi/l/email-protection link and injects a script to decode
-              it. That is wanted here, so no email_off wrapper: the trade is
-              that the address needs JavaScript to resolve.
-            -->
-            <a href="mailto:codecraft@matthijshakfoort.nl"
-              >codecraft@matthijshakfoort.nl</a
+          <h3>Zelf bouwen of niet?</h3>
+          <p>
+            Kleine tools zijn goedkoop geworden om te bouwen. Eigenaar zijn
+            ervan niet. Drie vragen beslissen het.
+          </p>
+          <form class="check" data-check aria-describedby="check-verdict">
+            <fieldset>
+              <legend>Is iemand ervan afhankelijk?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="depend" value="yes" /><span
+                    >Ja</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="depend" value="no" /><span
+                    >Nee</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Kan het belangrijke data wijzigen of blootleggen?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="data" value="yes" /><span
+                    >Ja</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="data" value="no" /><span
+                    >Nee</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Ligt het werk stil als het verdwijnt?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="stop" value="yes" /><span
+                    >Ja</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="stop" value="no" /><span
+                    >Nee</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <output
+              class="verdict"
+              id="check-verdict"
+              data-state="empty"
+              data-empty="Beantwoord de drie vragen om te zien wat het nodig heeft."
+              data-build="Bouw het zelf, en snel."
+              data-owner="Het heeft een spec, controles en een eigenaar nodig. Dat is werk voor een Product Engineer."
+              aria-live="polite"
+              >Beantwoord de drie vragen om te zien wat het nodig heeft.</output
             >
-            <a href="https://www.linkedin.com/in/matthijshakfoort/">LinkedIn</a>
-            <p class="contact-registration">KvK 42120215</p>
+          </form>
+          <noscript>
+            <p>
+              Zijn alle drie de antwoorden nee? Bouw het dan zelf, en snel. Is
+              één antwoord ja? Dan heeft het een spec, controles en een
+              eigenaar nodig.
+            </p>
+          </noscript>
+
+          <h3>Na de overdracht</h3>
+          <p>
+            Je eigen mensen worden eigenaar van de software. Ze krijgen de
+            tests, een geschreven spec, de conventies en, als er een LLM in zit,
+            een eval-set, zodat de volgende persoon of agent er veilig in kan
+            werken. Een retainer is een optie.
+          </p>
+
+          <dl class="terms">
+            <dt>Typische opdracht</dt>
+            <dd>
+              Eén of twee dagen per week, drie tot zes maanden lang. Ik bouw één
+              procestool, van het eerste gesprek met gebruikers tot de
+              overdracht, en daarna zijn je eigen mensen de eigenaar.
+            </dd>
+            <dt>Casus</dt>
+            <dd>
+              <span class="fine"
+                >Softwarebedrijf, ongeveer 30 developers, elke één à twee weken
+                een release.</span
+              >
+              Iemand was per release ongeveer vier uur bezig om ieders patch
+              notes tot één lijst te maken. Ik bouwde een systeem dat de notes
+              van elke developer reviewt en samenvoegt. Het samenstellen ging
+              naar ongeveer een uur. En de developers moesten nadenken over wat
+              ze eigenlijk veranderd hadden, en voor wie.
+            </dd>
+            <dt>Om te beginnen</dt>
+            <dd class="cta">
+              Vertel me welk proces de tijd van je team opslokt.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Een%20proces%20dat%20onze%20tijd%20opslokt"
+                >Mail codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pillar" id="team" aria-labelledby="team-title">
+          <header class="pillar-head">
+            <h2 id="team-title">
+              <span class="pillar-question">Wie moet het werk doen?</span>
+              <span class="pillar-answer">Je team</span>
+            </h2>
+            <span class="label">02 Product Engineers vormen</span>
+          </header>
+          <h3>Je eigen mensen groeien in de rol</h3>
+          <p>
+            Training, coaching en het goede voorbeeld geven. Dat voorbeeld geef
+            ik tijdens het werk zelf, dus dit begint vaak als hands-on werk.
+            Drie dingen gaan het vaakst mis.
+          </p>
+          <details open>
+            <summary>De agent laten begrijpen wat je bedoelt</summary>
+            <p>
+              De agent bouwt iets goeds. Alleen niet wat jij voor ogen had. Vaak
+              begint het eerder: de developer heeft nooit uitgezocht wat de
+              gebruiker nodig had, dus geen prompt had het kunnen oplossen.
+            </p>
+          </details>
+          <details>
+            <summary>AFK of Human-in-the-loop?</summary>
+            <p>
+              Twee uur kwijt aan een verkeerde afslag, of een uur meekijken bij
+              een taak die de agent in één keer goed had gedaan. En na de run
+              reviewen sommige teams elke regel en verdrinken ze erin, terwijl
+              andere niets reviewen. Het antwoord: bepaal per deel van de code
+              hoe groot de schade van een fout kan zijn, en laat een mens lezen
+              waar die groot is.
+            </p>
+          </details>
+          <details>
+            <summary>Onderhoudbaar voor mens én agent</summary>
+            <p>
+              Code waar zowel mensen als agents in kunnen blijven werken, met
+              conventies die worden vastgelegd zodra ze ontstaan, zodat de
+              volgende wijziging eenvoudiger is, voor wie hem ook doet.
+            </p>
+          </details>
+
+          <h3>Niet iedereen hoeft mee</h3>
+          <p>
+            Niet elke developer wil deze rol. Sommigen blijven liever
+            specialist, en een team heeft ze nog steeds nodig. Een deel van de
+            coaching is samen met jou bepalen wie in de rol groeit en wie
+            specialist blijft.
+          </p>
+
+          <dl class="terms">
+            <dt>Typische opdracht</dt>
+            <dd>
+              Eén of twee dagen per week met één team, drie maanden lang. Eerst
+              doe ik het werk en kijken zij mee, daarna doen zij het en coach
+              ik.
+            </dd>
+            <dt>Casus</dt>
+            <dd>
+              <span class="fine">Vorige werkgever, als software architect.</span>
+              Ik onderzocht hoe het team coding agents goed kon inzetten. Dat
+              leidde tot presentaties, vragen van collega’s en tooling: een
+              editor-workflow, manieren van werken met tests, en gedeelde
+              skills. De editor-workflow wordt nog dagelijks gebruikt. De skills
+              zijn vervangen door nieuwere, en zo hoort het ook.
+            </dd>
+            <dt>Om te beginnen</dt>
+            <dd class="cta">
+              Vertel me over je team en hoe het nu agents gebruikt.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Ons%20team%20en%20agents"
+                >Mail codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pillar" id="hires" aria-labelledby="hires-title">
+          <header class="pillar-head">
+            <h2 id="hires-title">
+              <span class="pillar-question">Wie moet het werk doen?</span>
+              <span class="pillar-answer">Je volgende juniors</span>
+            </h2>
+            <span class="label">03 Juniors opleiden</span>
+          </header>
+          <h3>Waar komen je seniors over vijf jaar vandaan?</h3>
+          <p>
+            Juniors leerden het vak door code te schrijven op basis van strak
+            omschreven tickets. Dat werk doen agents nu, dus wie juniors op
+            tickets traint, traint ze voor het werk dat agents al doen.
+          </p>
+          <p>
+            Ik laat ze beginnen met het werk dat agents niet kunnen: praten met
+            gebruikers en klanten, specs schrijven, test seams kiezen, inschatten
+            hoe groot de schade van een fout kan zijn. Ze lezen en draaien code
+            vanaf dag één, via de spec die ze zelf schreven en de tests die
+            daarop controleren.
+          </p>
+
+          <h3>Een sollicitatie die dat werk test</h3>
+          <ol class="steps">
+            <li>
+              Een gesprek van 20 minuten met een ‘gebruiker’, gespeeld door
+              iemand uit je team.
+            </li>
+            <li>Een spec van één pagina, met testgevallen.</li>
+            <li>Een review van code die een agent op basis van die spec bouwde.</li>
+          </ol>
+
+          <h3>Waar ik op let</h3>
+          <ul class="bullets">
+            <li>Ze vragen ‘waarom’ en ‘voor wie’ voordat ze ‘hoe’ vragen.</li>
+            <li>Ze schrijven helder.</li>
+            <li>Ze merken het als iets niet klopt in een demo.</li>
+            <li>Ze praten makkelijk met mensen die geen developer zijn.</li>
+            <li>Ze lezen code kritisch.</li>
+          </ul>
+
+          <dl class="terms">
+            <dt>Typische opdracht</dt>
+            <dd>
+              Je volgende wervingsronde voor juniors. Ik ontwerp de opdracht en
+              zit bij de sollicitatiegesprekken, daarna coach ik de nieuwe collega
+              drie maanden lang één dag per week.
+            </dd>
+            <dt>Ervaring</dt>
+            <dd>
+              Ik heb tussen de tien en twintig juniors begeleid. Onlangs nam ik
+              er een paar mee langs deze route in plaats van de oude. De eerste
+              resultaten zijn veelbelovend.
+            </dd>
+            <dt>Om te beginnen</dt>
+            <dd class="cta">
+              Vertel me wanneer je voor het laatst een junior aannam, of waarom
+              je daarmee stopte.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Juniors%20aannemen"
+                >Mail codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="closing" aria-label="Achtergrond, fit en contact">
+          <h2 class="label">Achtergrond</h2>
+          <p class="background-line">
+            Ik bouw al vijftien jaar software, recent als software architect,
+            vooral in TypeScript, vooral in teams van vijf tot vijftien mensen.
+            De delen van dat werk die agents niet doen (requirements-interviews,
+            domeinmodellering, bepalen welke tests een wijziging nodig heeft,
+            beoordelen of iets goed is en of het een plezier is om te gebruiken)
+            zijn de delen die me altijd het meest hebben beziggehouden. Ze
+            houden me ook met beide benen op de grond nu de tools om de paar
+            maanden veranderen.
+          </p>
+
+          <h2 class="label">Waarschijnlijk geen goede match als</h2>
+          <ul class="bullets">
+            <li>je een vaste prijs wilt zonder verkennende fase;</li>
+            <li>je developers tien keer zo snel wilt maken;</li>
+            <li>je een kleine no-code-koppeling nodig hebt.</li>
+          </ul>
+
+          <h2 class="contact-h">
+            Vertel me over je team, het probleem en je planning.
+          </h2>
+          <div class="contact">
+            <img
+              class="photo"
+              src="../photo-matthijs-hakfoort.jpg"
+              width="400"
+              height="500"
+              alt="Matthijs Hakfoort"
+            />
+            <div>
+              <a class="email" href="mailto:codecraft@matthijshakfoort.nl"
+                >codecraft@matthijshakfoort.nl</a
+              >
+              <p>
+                <a href="https://www.linkedin.com/in/matthijshakfoort/"
+                  >LinkedIn</a
+                >
+              </p>
+              <!--
+                The registration number sits with the contact details: it is
+                something the Buyer checks before a contract conversation.
+              -->
+              <p class="fine">
+                Gevestigd in de regio Arnhem, Apeldoorn, Deventer. Op afstand
+                overal; op locatie of hybride in het oosten van Nederland.<br />
+                Codecraft, KvK 42120215
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <script src="../background.js?v=3"></script>
+    <script src="../site.js?v=1"></script>
   </body>
 </html>

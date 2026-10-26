@@ -13,6 +13,7 @@ SITE_FILES=(
   nl/index.html
   style.css
   background.js
+  site.js
   photo-matthijs-hakfoort.jpg
   logo/codecraft-favicon.svg
 )

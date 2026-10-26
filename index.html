@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Enablement for engineering teams — Codecraft</title>
+    <title>Product Engineering for teams that build with agents — Codecraft</title>
     <meta
       name="description"
-      content="AI Enablement for engineering teams: shared understanding with the agent, letting the agent work in a safe environment, code that stays maintainable by people and machines."
+      content="Agents write the code now. I find out what to build, define what good means and decide which code a person still has to read. In your team, by coaching your team, and by training your next juniors."
     />
     <!--
       The ?v= is a cache buster, not decoration. Cloudflare sits in front of
@@ -14,7 +14,7 @@
       new HTML shipped against the old stylesheet. Bump this whenever
       style.css changes in a way that must reach visitors immediately.
     -->
-    <link rel="stylesheet" href="style.css?v=9" />
+    <link rel="stylesheet" href="style.css?v=10" />
     <link
       rel="icon"
       href="/logo/codecraft-favicon.svg"
@@ -53,8 +53,8 @@
   </head>
   <body>
     <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-top">
+      <header class="rail">
+        <div class="rail-top">
           <svg
             class="site-logo"
             viewBox="0 0 216.73 39"
@@ -70,6 +70,7 @@
           <a
             href="/nl/"
             class="lang-toggle"
+            lang="nl"
             onclick="
               try {
                 localStorage.setItem('lang', 'nl');
@@ -78,141 +79,386 @@
             >NL</a
           >
         </div>
-        <h1 id="hero-title">Most development teams use AI blindly.</h1>
+        <h1>
+          Agents write the code now. Someone still has to decide what it
+          should do.
+        </h1>
         <p class="lead">
-          I help them in achieving a shared understanding with the agent,
-          setting up appropriate boundaries for it and producing code that stays
-          maintainable by people and machines. I apply classical software
-          engineering practice to AI-augmented development.
+          I find out what to build, define what “good” means, and decide which
+          code a person still has to read. I do that work in your team, I
+          teach your team to do it, and I help you train the juniors who will
+          do it next.
         </p>
-      </section>
+        <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
+          <h2 id="pillar-nav-title">Who should do the work?</h2>
+          <a href="#me"
+            ><span class="nav-cell"></span><span class="label">01</span> Me</a
+          >
+          <a href="#team"
+            ><span class="nav-cell"></span><span class="label">02</span> Your
+            team</a
+          >
+          <a href="#hires"
+            ><span class="nav-cell"></span><span class="label">03</span> Your
+            next hires</a
+          >
+        </nav>
+        <!--
+          Cloudflare's Email Address Obfuscation rewrites every mailto on the
+          page into a /cdn-cgi/l/email-protection link and injects a script
+          to decode it. That is wanted here, so no email_off wrapper: the
+          trade is that the addresses need JavaScript to resolve.
+        -->
+        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
+          >codecraft@matthijshakfoort.nl</a
+        >
+      </header>
 
-      <section class="problems" aria-labelledby="problems-title">
-        <h2 id="problems-title">Three failure modes</h2>
-
-        <div class="problem">
-          <h3>Getting the agent to understand</h3>
-          <p>
-            The agent builds something good. It's just not what you had in mind.
-            Nothing is broken and the tests pass, but it answers a question
-            nobody asked or builds the right feature in the wrong way.
-          </p>
-          <p>
-            I found it improves results when a shared understanding is reached
-            between agent and developer before a line of code is written. When
-            documented well, this understanding grounds and guides the agent
-            during implementation.
-          </p>
-        </div>
-
-        <div class="problem">
-          <h3>AFK or Human-in-the-loop?</h3>
-          <p>
-            The agent plugs away at a big feature by itself. After 2 hours you
-            find out it took a wrong turn 5 minutes in. Having learned from
-            this, you watch its every move next time, approving every tool call.
-            But it one-shots the whole thing, and you spent an hour watching.
-          </p>
-          <p>
-            I teach developers to judge which tasks an agent can be left to do,
-            given a restricted environment and a good brief, and which need
-            someone watching.
-          </p>
-        </div>
-
-        <div class="problem">
-          <h3>Maintainability for humans and agents</h3>
-          <p>
-            The agent writes code that is technically correct but difficult for
-            humans to understand or modify. Humans then break a convention the
-            agent invented, without knowing it was there, which in turn confuses
-            the next agent. Inefficiencies like these limit what the team gets
-            out of working with agents.
-          </p>
-          <p>
-            I document standards and conventions for the quality attributes that
-            are key to the specific piece of software (e.g., code quality,
-            maintainability, performance...) and set up short feedback loops
-            around them, where new conventions are recorded as they are
-            established and are easily referenced and enforced. Both humans and
-            agents benefit: the next change is easier for whoever makes it.
-          </p>
-        </div>
-      </section>
-
-      <section class="capabilities" aria-labelledby="capabilities-title">
-        <h2 id="capabilities-title">What can I offer?</h2>
-
-        <div class="capability-group">
-          <h3>Training and coaching on using AI agents effectively</h3>
-          <ul>
+      <div class="flow">
+        <section class="pov" aria-labelledby="pov-title">
+          <h2 id="pov-title">Writing code got cheap. This did not.</h2>
+          <ul class="pov-list">
+            <li>Finding out what users and customers need, by talking to them</li>
+            <li>Writing that down as a spec an agent can build from</li>
+            <li>Writing the gates and evals that define “good” and check it</li>
+            <li>Reviewing behaviour before code, where that is possible</li>
             <li>
-              How to establish a shared understanding between developer and
-              agent
-            </li>
-            <li>
-              How to avoid an agent doing unintended (or dangerous) things
-            </li>
-            <li>
-              How to get humans and agents working together, doing what each is
-              best at
-            </li>
-            <li>
-              How to set up effective AI development workflows in practice
+              Deciding which code a person must still read, because a mistake
+              there costs too much
             </li>
           </ul>
-        </div>
+          <p>
+            That is the work of a Product Engineer: one person who does the
+            product half and the engineering half of software work, while
+            agents write the code. Without it, a team with agents builds the
+            wrong thing faster.
+          </p>
+        </section>
 
-        <div class="capability-group">
-          <h3>Fullstack engineering</h3>
-          <ul>
-            <li>TypeScript and Node.js across the stack</li>
-            <li>Frontends in all major frameworks (e.g. React and Vue)</li>
-            <li>Infrastructure as code & DevOps practices</li>
-            <li>Architecture and technical direction for agile teams</li>
-          </ul>
-        </div>
-      </section>
+        <section class="pillar" id="me" aria-labelledby="me-title">
+          <header class="pillar-head">
+            <h2 id="me-title">
+              <span class="pillar-question">Who should do the work?</span>
+              <span class="pillar-answer">Me</span>
+            </h2>
+            <span class="label">01 Hands-on Product Engineering</span>
+          </header>
+          <h3>Software for how your team works</h3>
+          <p>
+            Before agents, a lot of process software cost too much or took too
+            long to build. Now it pays back. The expensive part is still the
+            work around the code: finding out what the process really needs,
+            writing the spec, and building the checks.
+          </p>
+          <blockquote>
+            Plain code does everything plain code can do. The model only gets
+            the part that needs judgement.
+          </blockquote>
+          <p>
+            I also build the tooling for your team’s own AI coding process:
+            automated reviews, quality gates, skills, workflows. That tooling is
+            how the role keeps working after I leave.
+          </p>
 
-      <section class="background" aria-labelledby="background-title">
-        <h2 id="background-title">Background</h2>
-        <p class="background-line">
-          I've spent 15+ years writing front- and backends on the web in small
-          teams. I focus on building a process that encourages clean,
-          maintainable code through automation of the boring parts. Whether that
-          is linting, testing and deployment, or an environment and culture
-          where agents are used well, it enables developers to concentrate on
-          the hard and creative work, where real value is added.
-        </p>
-      </section>
-
-      <section class="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact</h2>
-        <div class="contact-block">
-          <img
-            class="photo"
-            src="photo-matthijs-hakfoort.jpg"
-            width="400"
-            height="500"
-            alt="Matthijs Hakfoort"
-          />
-          <div class="contact-links">
-            <!--
-              Cloudflare's Email Address Obfuscation rewrites this mailto into
-              a /cdn-cgi/l/email-protection link and injects a script to decode
-              it. That is wanted here, so no email_off wrapper: the trade is
-              that the address needs JavaScript to resolve.
-            -->
-            <a href="mailto:codecraft@matthijshakfoort.nl"
-              >codecraft@matthijshakfoort.nl</a
+          <h3>Build it in-house, or not?</h3>
+          <p>
+            Small tools got cheap to build. Owning them did not. Three questions
+            decide it.
+          </p>
+          <form class="check" data-check aria-describedby="check-verdict">
+            <fieldset>
+              <legend>Does anyone depend on it?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="depend" value="yes" /><span
+                    >Yes</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="depend" value="no" /><span
+                    >No</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Can it change or expose important data?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="data" value="yes" /><span
+                    >Yes</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="data" value="no" /><span
+                    >No</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Would work stop if it disappeared?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="stop" value="yes" /><span
+                    >Yes</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="stop" value="no" /><span
+                    >No</span
+                  ></label
+                >
+              </div>
+            </fieldset>
+            <output
+              class="verdict"
+              id="check-verdict"
+              data-state="empty"
+              data-empty="Answer the three questions to see what it needs."
+              data-build="Build it in-house, quickly."
+              data-owner="It needs a spec, checks and an owner. That is Product Engineer work."
+              aria-live="polite"
+              >Answer the three questions to see what it needs.</output
             >
-            <a href="https://www.linkedin.com/in/matthijshakfoort/">LinkedIn</a>
-            <p class="contact-registration">KvK 42120215</p>
+          </form>
+          <noscript>
+            <p>
+              If all three answers are no, build it in-house, quickly. If any
+              answer is yes, it needs a spec, checks and an owner.
+            </p>
+          </noscript>
+
+          <h3>After handover</h3>
+          <p>
+            Your own people own the software. They get the tests, a written
+            spec, the conventions and, where an LLM is involved, an eval set, so
+            the next person or agent can work in it safely. A retainer is an
+            option.
+          </p>
+
+          <dl class="terms">
+            <dt>Typical engagement</dt>
+            <dd>
+              One or two days a week for three to six months. I build one
+              process tool from the first user conversation to handover, and
+              your people own it after that.
+            </dd>
+            <dt>Case sketch</dt>
+            <dd>
+              <span class="fine"
+                >Software company, about 30 developers, a release every one or
+                two weeks.</span
+              >
+              Someone spent about four hours per release turning everyone’s
+              patch notes into one list. I built a system that reviews each
+              developer’s notes and compiles them. Assembly went to about one
+              hour. And the developers had to think about what they had
+              actually changed, and for whom.
+            </dd>
+            <dt>To start</dt>
+            <dd class="cta">
+              Tell me which process eats your team’s time.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=A%20process%20that%20eats%20our%20time"
+                >Email codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pillar" id="team" aria-labelledby="team-title">
+          <header class="pillar-head">
+            <h2 id="team-title">
+              <span class="pillar-question">Who should do the work?</span>
+              <span class="pillar-answer">Your team</span>
+            </h2>
+            <span class="label">02 Forming Product Engineers</span>
+          </header>
+          <h3>Your own people grow into the role</h3>
+          <p>
+            Training, coaching and leading by example. Leading by example
+            happens while doing the job, so this often starts as hands-on work.
+            Three things go wrong most often.
+          </p>
+          <details open>
+            <summary>Getting the agent to understand</summary>
+            <p>
+              The agent builds something good. It is just not what you had in
+              mind. Often it starts earlier: the developer never found out what
+              the user needed, so no prompt could have fixed it.
+            </p>
+          </details>
+          <details>
+            <summary>AFK or Human-in-the-loop?</summary>
+            <p>
+              Two hours lost to a wrong turn, or an hour spent approving a task
+              the agent would have done right. And after the run, some teams
+              review every line and drown, while others review nothing. The
+              answer is to decide by blast radius which code a person reads.
+            </p>
+          </details>
+          <details>
+            <summary>Maintainability for humans and agents</summary>
+            <p>
+              Code that both people and agents can keep working in, with
+              conventions written down as they appear, so the next change is
+              easier for whoever makes it.
+            </p>
+          </details>
+
+          <h3>Not everyone has to move</h3>
+          <p>
+            Not every developer wants this role. Some want to stay specialists,
+            and a team still needs them. Part of the coaching is deciding with
+            you who moves into the role and who stays where they are.
+          </p>
+
+          <dl class="terms">
+            <dt>Typical engagement</dt>
+            <dd>
+              One or two days a week with one team for three months. First I do
+              the work while they watch, then they do it while I coach.
+            </dd>
+            <dt>Case sketch</dt>
+            <dd>
+              <span class="fine">Previous employer, as software architect.</span>
+              I researched how the team could use coding agents well. That led
+              to presentations, questions from colleagues, and tooling: an
+              editor workflow, ways of working with tests, and shared skills.
+              The editor workflow is still in daily use. The skills have been
+              replaced by newer ones, which is how it should be.
+            </dd>
+            <dt>To start</dt>
+            <dd class="cta">
+              Tell me about your team and how it uses agents now.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Our%20team%20and%20agents"
+                >Email codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pillar" id="hires" aria-labelledby="hires-title">
+          <header class="pillar-head">
+            <h2 id="hires-title">
+              <span class="pillar-question">Who should do the work?</span>
+              <span class="pillar-answer">Your next hires</span>
+            </h2>
+            <span class="label">03 Educating Juniors</span>
+          </header>
+          <h3>Where do your seniors come from in five years?</h3>
+          <p>
+            Juniors used to learn by writing code from strict tickets. Agents do
+            that work now, so training juniors on tickets trains them for the
+            job agents already do.
+          </p>
+          <p>
+            I start them on the work agents cannot do: talking to users and
+            customers, writing specs, choosing test seams, judging blast radius.
+            They read and run code from day one, through the spec they wrote
+            and the tests that check it.
+          </p>
+
+          <h3>An interview that tests that work</h3>
+          <ol class="steps">
+            <li>
+              A 20-minute conversation with a “user”, played by someone on your
+              team.
+            </li>
+            <li>A one-page spec and test cases.</li>
+            <li>A review of code an agent built from that spec.</li>
+          </ol>
+
+          <h3>What I look for</h3>
+          <ul class="bullets">
+            <li>They ask “why” and “for whom” before “how”.</li>
+            <li>They write clearly.</li>
+            <li>They notice when something feels wrong in a demo.</li>
+            <li>They are comfortable talking to people who are not developers.</li>
+            <li>They read code critically.</li>
+          </ul>
+
+          <dl class="terms">
+            <dt>Typical engagement</dt>
+            <dd>
+              Your next junior hiring round. I design the assignment and sit on
+              the panel, then I coach the new hire one day a week through their
+              first three months.
+            </dd>
+            <dt>Evidence</dt>
+            <dd>
+              I have mentored somewhere between ten and twenty juniors.
+              Recently I took a few of them along this route instead of the old
+              one. The early results are promising.
+            </dd>
+            <dt>To start</dt>
+            <dd class="cta">
+              Tell me when you last hired a junior, or why you stopped.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Hiring%20juniors"
+                >Email codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="closing" aria-label="Background, fit and contact">
+          <h2 class="label">Background</h2>
+          <p class="background-line">
+            I have built software for fifteen years, most recently as software
+            architect, mostly in TypeScript, mostly in teams of five to fifteen.
+            The parts of that work agents do not do (requirements interviews,
+            domain modelling, deciding which tests a change needs, judging
+            whether something is good and whether it is delightful) are the
+            parts I have always cared about most. They also keep me grounded
+            when the tools change every few months.
+          </p>
+
+          <h2 class="label">Probably not a fit if</h2>
+          <ul class="bullets">
+            <li>you want a fixed price without a discovery phase;</li>
+            <li>you want your developers to be ten times faster;</li>
+            <li>you need a small no-code integration.</li>
+          </ul>
+
+          <h2 class="contact-h">
+            Tell me about your team, the problem and your timeline.
+          </h2>
+          <div class="contact">
+            <img
+              class="photo"
+              src="photo-matthijs-hakfoort.jpg"
+              width="400"
+              height="500"
+              alt="Matthijs Hakfoort"
+            />
+            <div>
+              <a class="email" href="mailto:codecraft@matthijshakfoort.nl"
+                >codecraft@matthijshakfoort.nl</a
+              >
+              <p>
+                <a href="https://www.linkedin.com/in/matthijshakfoort/"
+                  >LinkedIn</a
+                >
+              </p>
+              <!--
+                The registration number sits with the contact details: it is
+                something the Buyer checks before a contract conversation.
+              -->
+              <p class="fine">
+                Based in the Arnhem, Apeldoorn, Deventer region. Remote
+                anywhere; on site or hybrid in the east of the Netherlands.<br />
+                Codecraft, KvK 42120215
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <script src="background.js?v=3"></script>
+    <script src="site.js?v=1"></script>
   </body>
 </html>
