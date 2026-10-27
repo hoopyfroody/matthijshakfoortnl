@@ -18,7 +18,7 @@
       same holds for the ?v= on background.js and site.js at the end of the
       body. Keep all three in step with the Dutch page.
     -->
-    <link rel="stylesheet" href="style.css?v=11" />
+    <link rel="stylesheet" href="style.css?v=12" />
     <link rel="icon" href="/logo/codecraft-favicon.svg" type="image/svg+xml" />
     <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
     <link
@@ -49,6 +49,19 @@
           location.replace("/nl/");
         }
       })();
+    </script>
+    <script>
+      // On wide screens the flow opens as an index: the pillar nav alone,
+      // with a line under each answer, and the pillars wait until the
+      // visitor picks one. Set here, before the first paint, so the
+      // pillars do not flash in; site.js opens the index. A link to a part
+      // of the page skips it, and without script there is no index.
+      if (
+        !location.hash &&
+        window.matchMedia("(min-width: 60.01rem)").matches
+      ) {
+        document.documentElement.setAttribute("data-index", "");
+      }
     </script>
   </head>
   <body>
@@ -147,7 +160,10 @@
             <li>Converting that into a spec an agent can build from</li>
             <li>Defining “good” and “delightful”, and checking it</li>
             <li>Deciding which risks to accept and which tradeoffs to make</li>
-            <li>Determining which code a person must still read before it goes live</li>
+            <li>
+              Determining which code a person must still read before it goes
+              live
+            </li>
           </ul>
           <p class="definition-outro">
             In short: the product and engineering work that needs a human touch.
@@ -170,15 +186,22 @@
         <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
           <h2 id="pillar-nav-title">Who should do the work?</h2>
           <a href="#me"
-            ><span class="nav-cell"></span><span class="label">01</span> Me</a
+            ><span class="nav-cell"></span><span class="label">01</span> Me<span
+              class="teaser"
+              >What needs to be built?</span
+            ></a
           >
           <a href="#team"
             ><span class="nav-cell"></span><span class="label">02</span> Your
-            team</a
+            team<span class="teaser"
+              >How can your team work effectively with agents?</span
+            ></a
           >
           <a href="#hires"
             ><span class="nav-cell"></span><span class="label">03</span> Your
-            next hires</a
+            next hires<span class="teaser"
+              >Where do your seniors come from in five years?</span
+            ></a
           >
         </nav>
 
@@ -392,32 +415,42 @@
           <p>
             Training, coaching and leading by example. Leading by example
             happens while doing the job, so this often starts as hands-on work.
-            Three things go wrong most often as teams start this new way of
-            working, and I coach your team to avoid them:
+            Three things often go wrong as teams start this new way of working,
+            and I coach your team on how to avoid them:
           </p>
           <ul class="bullets">
             <li>
               <strong>Getting the agent to understand.</strong> The agent builds
-              something good, but not what you meant, often because nobody found
-              out what the user needed.
+              something good, but not what you meant, often because nobody could
+              clearly communicate what the user actually wants to the agent.
             </li>
             <li>
-              <strong>AFK or human-in-the-loop?</strong> Hours go to a wrong
-              turn, or to approving work the agent had right. Decide by blast
-              radius which code a person reads.
+              <strong>AFK agents or human-in-the-loop?</strong> Hours or even
+              days lost to an agent misinterpreting the user's intent, or to
+              babysitting agents that did not need it. Choosing the right level
+              of automation is hard.
             </li>
             <li>
-              <strong>Maintainability for humans and agents.</strong> Keep the
-              code workable for both, and write conventions down as they appear.
+              <strong>Keeping apps maintainable for humans and agents.</strong>
+              The agent builds something that works perfectly, but the human
+              cannot understand it. The human makes manual changes that are then
+              considered gospel by the agent, hobbling future work.
             </li>
           </ul>
 
-          <h3>Not everyone has to move</h3>
-          <p>
-            Not every developer wants this role. Some want to stay specialists,
-            and a team still needs them. Part of the coaching is deciding with
-            you who moves into the role and who stays where they are.
-          </p>
+          <h3>One loop for every change</h3>
+          <ol class="steps">
+            <li>Talk to the user and write the spec the agent builds from.</li>
+            <li>
+              Judge the blast radius: let the agent run alone or stay with it,
+              and choose the code a person reads.
+            </li>
+            <li>
+              Write down each convention the work turned up, for people and
+              agents alike.
+            </li>
+          </ol>
+          <p>I run this loop with your team until it runs without me.</p>
 
           <dl class="terms">
             <dt>Typical engagement</dt>
@@ -430,11 +463,12 @@
               <span class="fine"
                 >Previous employer, as software architect.</span
               >
-              I researched how the team could use coding agents well. That led
-              to presentations, questions from colleagues, and tooling: an
+              I researched how the team could use coding agents well. I gave
+              presentations, wrote standard operating procedures and tooling: an
               editor workflow, ways of working with tests, and shared skills.
               The editor workflow is still in daily use. The skills have been
-              replaced by newer ones, which is how it should be.
+              replaced by updated ones, which is exactly how the loop above is
+              supposed to work.
             </dd>
             <dt>To start</dt>
             <dd class="cta">
@@ -578,6 +612,6 @@
     </main>
 
     <script src="background.js?v=3"></script>
-    <script src="site.js?v=3"></script>
+    <script src="site.js?v=4"></script>
   </body>
 </html>

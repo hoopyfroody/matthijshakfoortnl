@@ -103,6 +103,31 @@
     });
     measure();
     update(false);
+
+    // The index (data-index, set in the page head) holds the pillars back
+    // until the visitor picks an answer. The click handler runs before the
+    // browser follows the link, so the pillars are in place for the jump.
+    // A pick opens the index for good, and so does a window that turns
+    // narrow, where the index does not apply. Pages without the head
+    // script never have an index, so this does nothing there.
+    const root = document.documentElement;
+    const openIndex = () => {
+      if (!root.hasAttribute("data-index")) return;
+      root.removeAttribute("data-index");
+      measure();
+      if (calm.matches) return;
+      nav.parentElement.querySelectorAll(":scope > section").forEach((el) => {
+        el.animate(
+          [{ opacity: 0, transform: "translateY(0.75rem)" }, { opacity: 1 }],
+          { duration: 450, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)" },
+        );
+      });
+    };
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) openIndex();
+    });
+    window.addEventListener("hashchange", openIndex);
+    wide.addEventListener("change", openIndex);
   }
 }
 

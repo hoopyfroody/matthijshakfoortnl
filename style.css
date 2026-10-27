@@ -308,6 +308,11 @@ summary:focus-visible {
   border-color: var(--ink);
 }
 
+/* The line under each answer shows only in the index, further down. */
+.teaser {
+  display: none;
+}
+
 /* What a Product Engineer is: the one term the pillars use without
    explaining it. It sits in the rail under the lead, so a reader who
    jumps to one pillar still has it on screen. Short windows get a compact
@@ -791,6 +796,49 @@ summary:focus-visible {
     /* The 0.3em gives back the leading that line-height 1 takes away. */
     padding-block: calc(0.35rem + 0.3em);
     font-size: clamp(1.125rem, 1.7vw, 1.4rem);
+  }
+
+  /* The index: until the visitor picks an answer, the flow holds only
+     the pillar nav, centred, with a line under each answer. The rail
+     keeps the focus. data-index is set in the page head and cleared by
+     site.js. */
+  [data-index] .flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-bottom: var(--rail-pad-block);
+  }
+
+  [data-index] .flow > section {
+    display: none;
+  }
+
+  [data-index] .pillar-nav {
+    row-gap: 1.5rem;
+    max-width: 28rem;
+  }
+
+  [data-index] .pillar-nav h2 {
+    margin-bottom: 0.25rem;
+  }
+
+  [data-index] .pillar-nav a {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding-block: 0;
+    white-space: normal;
+  }
+
+  [data-index] .teaser {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: var(--ink-muted);
   }
 }
 
