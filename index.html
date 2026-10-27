@@ -18,7 +18,7 @@
       same holds for the ?v= on background.js and site.js at the end of the
       body. Keep all three in step with the Dutch page.
     -->
-    <link rel="stylesheet" href="style.css?v=10" />
+    <link rel="stylesheet" href="style.css?v=11" />
     <link rel="icon" href="/logo/codecraft-favicon.svg" type="image/svg+xml" />
     <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
     <link
@@ -126,15 +126,47 @@
           >
         </div>
         <h1>
-          Agents write the code now. Someone still has to decide what it should
-          do.
+          Agents write any code you ask for. Knowing what to ask for is the hard
+          part.
         </h1>
         <p class="lead">
-          I find out what to build, define what “good” means, and help the agent
-          and the people decide which code a person still has to read. I do that
-          work in your team, I teach your team to do it, and I help you train
-          the juniors who will do it next.
+          Finding out <em>what</em> to build, defining what “good” means, and
+          helping the agent and the people decide which code a person still has
+          to read. These are the responsibilities of a Product Engineer. I do
+          that work in your team, I teach your team to do it, and I help you
+          train the juniors who will do it next.
         </p>
+        <section class="definition" aria-labelledby="definition-title">
+          <h2 id="definition-title">What is a Product Engineer?</h2>
+          <p class="definition-intro">
+            Writing code got cheap. The work an agent cannot do (well) did not,
+            and a Product Engineer is responsible for it:
+          </p>
+          <ul>
+            <li>Finding out what users and customers actually need</li>
+            <li>Converting that into a spec an agent can build from</li>
+            <li>Defining “good” and “delightful”, and checking it</li>
+            <li>Deciding which risks to accept and which tradeoffs to make</li>
+            <li>Determining which code a person must still read before it goes live</li>
+          </ul>
+          <p class="definition-outro">
+            In short: the product and engineering work that needs a human touch.
+            I believe this role will become essential for teams that want to
+            work well with agents.
+          </p>
+        </section>
+        <!--
+          Cloudflare's Email Address Obfuscation rewrites every mailto on the
+          page into a /cdn-cgi/l/email-protection link and injects a script
+          to decode it. That is wanted here, so no email_off wrapper: the
+          trade is that the addresses need JavaScript to resolve.
+        -->
+        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
+          >codecraft@matthijshakfoort.nl</a
+        >
+      </header>
+
+      <div class="flow">
         <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
           <h2 id="pillar-nav-title">Who should do the work?</h2>
           <a href="#me"
@@ -149,44 +181,6 @@
             next hires</a
           >
         </nav>
-        <!--
-          Cloudflare's Email Address Obfuscation rewrites every mailto on the
-          page into a /cdn-cgi/l/email-protection link and injects a script
-          to decode it. That is wanted here, so no email_off wrapper: the
-          trade is that the addresses need JavaScript to resolve.
-        -->
-        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
-          >codecraft@matthijshakfoort.nl</a
-        >
-      </header>
-
-      <div class="flow">
-        <section class="pov" aria-labelledby="pov-title">
-          <h2 id="pov-title">Writing code got cheap. This did not.</h2>
-          <ul class="pov-list">
-            <li>
-              Finding out what users and customers need, by talking to them
-            </li>
-            <li>
-              Converting that information to a spec an agent can build from
-            </li>
-            <li>Defining "good" and "delightful" and checking it</li>
-            <li>
-              Validating behaviour and functionality is what is actually needed
-            </li>
-            <li>
-              Deciding which code a person must still read and which can be left
-              to agents
-            </li>
-          </ul>
-          <p>
-            That is the job of a <strong>Product Engineer</strong>: a person
-            skilled in both product and engineering work. While agents write the
-            code, they ensure the right thing gets built. Without them, a
-            traditional team that now includes agents builds the wrong thing
-            faster.
-          </p>
-        </section>
 
         <section class="pillar" id="me" aria-labelledby="me-title">
           <header class="pillar-head">
@@ -196,26 +190,27 @@
             </h2>
             <span class="label">01 Hands-on Product Engineering</span>
           </header>
-          <h3>Software for how your team works</h3>
+          <h3>I build software that supports how your team works</h3>
           <p>
             Before agents, a lot of custom software ideas cost too much or took
             too long to build. The point where these tools pay themselves back
-            has shifted though. The expensive part is still the work around the
+            has shifted, though. The expensive part is still the work around the
             code: finding out what the process really needs, writing the spec,
             and building the checks.
           </p>
           <blockquote>
-            When integrating an LLM: plain code does everything plain code can
-            do. The model only gets the part it is good at: judgement and text
-            comprehension.
+            When integrating an LLM: plain code should do everything plain code
+            can do. The model only gets the part it is good at: judgement and
+            text comprehension.
           </blockquote>
 
           <h3>Tooling that makes your team more efficient</h3>
           <p>
             The right tooling takes the friction out of your team’s work
             process, so your team spends its time on product engineering. Some
-            of it your team should buy. The rest is specific to your team, and
-            that part I build or set up.
+            of it your team should still buy, but the breakpoint has shifted.
+            More software can now be specific to your team or company, and that
+            part I build or set up.
           </p>
           <div class="split">
             <div class="split-buy">
@@ -234,9 +229,12 @@
                 <li>Instruction files and project templates</li>
                 <li>
                   Skills for recurring work: releases, migrations, incident
-                  notes
+                  notes, converting specs to tickets, and much more
                 </li>
-                <li>Hooks: formatting, blocked commands, protected paths</li>
+                <li>
+                  Hooks, to prevent the agent from going off-track: formatting,
+                  blocked commands, protected paths
+                </li>
                 <li>Custom linters and structural tests</li>
                 <li>
                   The review policy (which code a person reads) and a reviewer
@@ -244,12 +242,14 @@
                 </li>
                 <li>Eval sets and CI gates</li>
                 <li>Internal MCP servers and CLIs for your own systems</li>
+                <li>A framework for continuous improvement</li>
               </ul>
             </div>
           </div>
           <p>
             That tooling is what supports your team and lets them continue
-            working in this new way after I leave.
+            working in this new way after I leave. The goal is to make myself
+            redundant.
           </p>
 
           <h3>Build it in-house, or not?</h3>
@@ -272,6 +272,11 @@
                   ></label
                 >
               </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="Only a human owner can make the right tradeoffs in the face of bug reports and change requests and keep it working."
+              ></p>
             </fieldset>
             <fieldset>
               <legend>Can it change or expose important data?</legend>
@@ -287,6 +292,11 @@
                   ></label
                 >
               </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="This needs to be spec'd well, verified thoroughly, monitored and owned."
+              ></p>
             </fieldset>
             <fieldset>
               <legend>
@@ -304,6 +314,11 @@
                   ></label
                 >
               </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="It needs monitoring, and a plan for when it fails."
+              ></p>
             </fieldset>
             <output
               class="verdict"
@@ -327,8 +342,9 @@
           <p>
             Your own people own the software. They get the tests, a written
             spec, the conventions and, where an LLM is involved, an eval set, so
-            the next person or agent can work in it safely. A retainer is an
-            option.
+            the next person or agent can work in it safely. Your team runs it. I
+            am happy to stay on call for the moments when they want a second
+            opinion.
           </p>
 
           <dl class="terms">
@@ -345,13 +361,13 @@
                 two weeks.</span
               >
               Someone spent about four hours per release turning everyone’s
-              patch notes into one consistently styled list. I built a system
-              that reviews each developer’s notes (and gently nudges them to
-              improve) and compiles them into a suggested list. Assembly went to
-              about one hour. And as a pretty big side benefit, the developers
-              had to think about the problem they solved, the solution and the
-              impact, which improved both the quality of the notes and the
-              mindset of the developers.
+              release notes into one consistently styled list. I built a system
+              that reviews each developer’s notes (and gently nudges to improve
+              them) and compiles them into a suggested list. List assembly went
+              to about one hour. And as a pretty big side benefit, the
+              developers had to think about the problem they solved, the
+              solution and the impact, which improved both the quality of the
+              notes and the mindset of the developers.
             </dd>
             <dt>To start</dt>
             <dd class="cta">
@@ -376,33 +392,25 @@
           <p>
             Training, coaching and leading by example. Leading by example
             happens while doing the job, so this often starts as hands-on work.
-            Three things go wrong most often.
+            Three things go wrong most often as teams start this new way of
+            working, and I coach your team to avoid them:
           </p>
-          <details open>
-            <summary>Getting the agent to understand</summary>
-            <p>
-              The agent builds something good. It is just not what you had in
-              mind. Often it starts earlier: the developer never found out what
-              the user needed, so no prompt could have fixed it.
-            </p>
-          </details>
-          <details>
-            <summary>AFK or Human-in-the-loop?</summary>
-            <p>
-              Two hours lost to a wrong turn, or an hour spent approving a task
-              the agent would have done right. And after the run, some teams
-              review every line and drown, while others review nothing. The
-              answer is to decide by blast radius which code a person reads.
-            </p>
-          </details>
-          <details>
-            <summary>Maintainability for humans and agents</summary>
-            <p>
-              Code that both people and agents can keep working in, with
-              conventions written down as they appear, so the next change is
-              easier for whoever makes it.
-            </p>
-          </details>
+          <ul class="bullets">
+            <li>
+              <strong>Getting the agent to understand.</strong> The agent builds
+              something good, but not what you meant, often because nobody found
+              out what the user needed.
+            </li>
+            <li>
+              <strong>AFK or human-in-the-loop?</strong> Hours go to a wrong
+              turn, or to approving work the agent had right. Decide by blast
+              radius which code a person reads.
+            </li>
+            <li>
+              <strong>Maintainability for humans and agents.</strong> Keep the
+              code workable for both, and write conventions down as they appear.
+            </li>
+          </ul>
 
           <h3>Not everyone has to move</h3>
           <p>
@@ -570,6 +578,6 @@
     </main>
 
     <script src="background.js?v=3"></script>
-    <script src="site.js?v=2"></script>
+    <script src="site.js?v=3"></script>
   </body>
 </html>

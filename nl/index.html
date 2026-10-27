@@ -16,7 +16,7 @@
       Keep it in step with the value on the English page. The same holds
       for the ?v= on background.js and site.js at the end of the body.
     -->
-    <link rel="stylesheet" href="../style.css?v=10" />
+    <link rel="stylesheet" href="../style.css?v=11" />
     <link
       rel="icon"
       href="/logo/codecraft-favicon.svg"
@@ -73,6 +73,18 @@
           team, ik leer je team het zelf te doen, en ik help je de juniors op
           te leiden die het straks doen.
         </p>
+        <!--
+          Cloudflare's Email Address Obfuscation rewrites every mailto on the
+          page into a /cdn-cgi/l/email-protection link and injects a script
+          to decode it. That is wanted here, so no email_off wrapper: the
+          trade is that the addresses need JavaScript to resolve.
+        -->
+        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
+          >codecraft@matthijshakfoort.nl</a
+        >
+      </header>
+
+      <div class="flow">
         <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
           <h2 id="pillar-nav-title">Wie moet het werk doen?</h2>
           <a href="#me"
@@ -87,18 +99,7 @@
             volgende juniors</a
           >
         </nav>
-        <!--
-          Cloudflare's Email Address Obfuscation rewrites every mailto on the
-          page into a /cdn-cgi/l/email-protection link and injects a script
-          to decode it. That is wanted here, so no email_off wrapper: the
-          trade is that the addresses need JavaScript to resolve.
-        -->
-        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
-          >codecraft@matthijshakfoort.nl</a
-        >
-      </header>
 
-      <div class="flow">
         <section class="pov" aria-labelledby="pov-title">
           <h2 id="pov-title">Code schrijven werd goedkoop. Dit niet.</h2>
           <ul class="pov-list">
@@ -495,6 +496,6 @@
     </main>
 
     <script src="../background.js?v=3"></script>
-    <script src="../site.js?v=2"></script>
+    <script src="../site.js?v=3"></script>
   </body>
 </html>

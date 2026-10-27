@@ -141,10 +141,19 @@ body {
   }
 }
 
-/* The page is a rail and a flow. The rail holds the claim and the three
-   pillars and stays in view; the document scrolls beside it. The Tetris
-   grid only shows through the rail: the flow column is solid paper. */
+/* The page is a rail and a flow. The rail holds the claim and the
+   definition and stays in view; the document scrolls beside it, under
+   the pillar bar. The Tetris grid only shows through the rail: the flow
+   column is solid paper. */
 main {
+  /* The height of the sticky pillar bar, for the jump offset. */
+  --bar-height: 4.1rem;
+  /* The rail's spacing above the claim. The flow uses the first one too,
+     so the pillar list starts level with the logo. */
+  --rail-pad: clamp(1.5rem, 4vw, 3.5rem);
+  --rail-pad-block: var(--rail-pad);
+  --logo-height: clamp(1.75rem, 4.5vw, 2.5rem);
+  --claim-gap: clamp(2rem, 7vh, 4.5rem);
   position: relative;
   z-index: 1;
   display: grid;
@@ -187,7 +196,7 @@ summary:focus-visible {
   height: 100vh;
   height: 100dvh;
   overflow-y: auto;
-  padding: clamp(1.5rem, 4vw, 3.5rem);
+  padding: var(--rail-pad-block) var(--rail-pad);
   display: flex;
   flex-direction: column;
 }
@@ -206,7 +215,7 @@ summary:focus-visible {
 .site-logo {
   display: block;
   flex: none;
-  height: clamp(1.75rem, 4.5vw, 2.5rem);
+  height: var(--logo-height);
   width: auto;
 }
 
@@ -217,8 +226,8 @@ summary:focus-visible {
 /* The claim outranks everything else on the page: it gets the size, the
    weight and the top of the page to itself. */
 .rail h1 {
-  margin-top: clamp(2rem, 7vh, 4.5rem);
-  font-size: clamp(2.25rem, 3.7vw, 3.75rem);
+  margin-top: var(--claim-gap);
+  font-size: clamp(2rem, 3.1vw, 3.25rem);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.035em;
@@ -231,35 +240,46 @@ summary:focus-visible {
   font-size: clamp(1.0625rem, 1.3vw, 1.1875rem);
 }
 
-/* The pillar question and its three answers. The cell is one Tetris
-   square; it fills in for the pillar that is in view. In the rail the
-   cell, the number and the answer share one centre line; line-height 1
-   keeps each box close to its glyphs, so centring the boxes centres the
-   glyphs. */
+/* The pillar question and its three answers, as a bar along the top of
+   the flow: the question on a small line of its own, the three answers
+   in a row under it. The cell is one Tetris square; it fills in for the
+   pillar that is in view. The bar reaches over the flow's side padding
+   to its edges. */
 .pillar-nav {
-  margin-top: clamp(2rem, 6vh, 3.5rem);
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  margin-inline: calc(-1 * var(--flow-pad-x));
+  padding: 0.5rem var(--flow-pad-x) 0.3rem;
   display: grid;
-  gap: 0.25rem;
+  grid-template-columns: repeat(3, max-content);
+  column-gap: 1.25rem;
+  overflow-x: auto;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
 }
 
 .pillar-nav h2 {
-  margin-bottom: 0.4rem;
-  font-size: 1rem;
+  grid-column: 1 / -1;
+  margin-bottom: 0.1rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.3;
   color: var(--ink-muted);
 }
 
+/* The row aligns on the baseline: the cell has no text, so it sits on
+   that line and its 0.7em height reaches about cap height. */
 .pillar-nav a {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  line-height: 1;
-  /* The 0.3em gives back the leading that line-height 1 takes away. */
-  padding-block: calc(0.35rem + 0.3em);
-  font-size: clamp(1.125rem, 1.7vw, 1.4rem);
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-block: 0.2rem;
+  font-size: 1rem;
   font-weight: 800;
+  line-height: 1.6;
   letter-spacing: -0.02em;
+  white-space: nowrap;
   color: var(--ink-muted);
   text-decoration: none;
 }
@@ -288,6 +308,60 @@ summary:focus-visible {
   border-color: var(--ink);
 }
 
+/* What a Product Engineer is: the one term the pillars use without
+   explaining it. It sits in the rail under the lead, so a reader who
+   jumps to one pillar still has it on screen. Short windows get a compact
+   form, further down. */
+.definition {
+  margin-top: clamp(2rem, 6vh, 3.5rem);
+  max-width: 30rem;
+  padding-block: 0.75rem 1rem;
+  border-block: 1px solid var(--rule);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.definition h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.definition p {
+  margin-top: 0.35rem;
+  color: var(--ink-muted);
+}
+
+/* The tasks, each on a Tetris cell like the pillar answers. The empty
+   cell sits on the baseline of the first line. */
+.definition ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.6rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.definition li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  line-height: 1.35;
+}
+
+.definition li::before {
+  content: "";
+  flex: none;
+  width: 0.55em;
+  height: 0.55em;
+  border: 1px solid var(--nav-cell-line);
+  background: var(--nav-cell-fill);
+}
+
+.definition .definition-outro {
+  margin-top: 0.75rem;
+}
+
 .rail-email {
   margin-top: auto;
   padding-top: 2rem;
@@ -296,9 +370,10 @@ summary:focus-visible {
 /* ───────────────────────────── Flow ───────────────────────────── */
 
 .flow {
+  --flow-pad-x: clamp(2rem, 6vw, 6rem);
   background: var(--paper);
   border-left: 1px solid var(--rule);
-  padding: clamp(2rem, 6vw, 6rem);
+  padding: 0 var(--flow-pad-x) var(--flow-pad-x);
   font-size: 1.0625rem;
 }
 
@@ -310,45 +385,14 @@ summary:focus-visible {
   margin-top: 0.85em;
 }
 
-/* Point of view: starts lower and smaller than the claim, level with the
-   lead, so the rail reads first. */
-.pov {
-  padding-top: clamp(8rem, 38vh, 22rem);
-  padding-bottom: clamp(3rem, 10vh, 6rem);
-}
-
-.pov h2 {
-  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-}
-
-.pov-list {
-  list-style: none;
-  padding: 0;
-  margin-block: 1rem;
-}
-
-.pov-list li {
-  line-height: 1.35;
-  padding-block: 0.55em;
-  border-top: 1px solid var(--rule);
-}
-
-.pov-list li:last-child {
-  border-bottom: 1px solid var(--rule);
-}
-
-.pov > p {
-  color: var(--ink-muted);
-}
-
 .pillar {
   --pillar-space: clamp(3rem, 10vh, 6rem);
   padding-block: var(--pillar-space);
   border-top: 1px solid var(--rule-strong);
-  scroll-margin-top: 1rem;
+  /* A jump from the bar lands the pillar's answer 1.25rem under the bar,
+     whatever the padding above it; the negative part cancels that
+     padding. */
+  scroll-margin-top: calc(var(--bar-height) + 1.25rem - var(--pillar-space));
 }
 
 .pillar-head {
@@ -359,22 +403,22 @@ summary:focus-visible {
    text on the page and each answer still reads as a section head. */
 .pillar-head h2 {
   margin-top: 0.5rem;
-  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-size: clamp(1.75rem, 2.7vw, 2.75rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.035em;
 }
 
-/* The question sits over each answer, small and quiet, so the answer
-   keeps the size and the pair still reads as one heading. */
+/* The bar asks the question right above each answer, so the pillar
+   heading drops it from view. Screen readers still hear it. */
 .pillar-question {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: 0;
-  color: var(--ink-muted);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .pillar-answer {
@@ -523,6 +567,19 @@ summary:focus-visible {
 .yes-no input:checked + span {
   background: var(--ink);
   color: var(--paper);
+}
+
+/* The outcome of a "yes", on its own line under the question. */
+.check .outcome {
+  flex-basis: 100%;
+  /* Sit close to its own question, and away from the next one. */
+  margin-block: -0.15rem 0.4rem;
+  font-size: 0.9375rem;
+  color: var(--ink-muted);
+}
+
+.check .outcome:empty {
+  display: none;
 }
 
 .verdict {
@@ -677,11 +734,76 @@ summary:focus-visible {
   }
 }
 
-/* Short desktop windows: tighten the rail so its email stays in view. */
-@media (min-width: 60.01rem) and (max-height: 50rem) {
+/* On wide screens the pillar nav opens the flow as a list, level with
+   the logo. site.js sets data-stuck once the list starts to leave the top
+   of the viewport; the nav is then the bar above. Without the script the
+   list stays a list. The cell, the number and the answer share
+   one centre line; line-height 1 keeps each box close to its glyphs, so
+   centring the boxes centres the glyphs. */
+@media (min-width: 60.01rem) {
+  .flow {
+    padding-top: var(--rail-pad-block);
+  }
+
+  /* The bar fits the flow here, and the glide between list and bar needs
+     the items to show outside the bar's box. The nav moves when it
+     sticks, so the browser must not anchor the scroll position to it. */
+  .pillar-nav {
+    overflow: visible;
+    overflow-anchor: none;
+  }
+
+  .pillar-nav h2,
+  .pillar-nav a {
+    transform-origin: 0 0;
+  }
+
+  /* The stuck bar has a set height, and the section under it takes the
+     rest of the list's height (--list-height, from site.js), so nothing
+     under the nav moves when it switches. */
+  .pillar-nav[data-stuck] {
+    height: var(--bar-height);
+  }
+
+  .pillar-nav[data-stuck] + * {
+    margin-top: calc(var(--list-height) - var(--bar-height));
+  }
+
+  .pillar-nav:not([data-stuck]) {
+    position: static;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: none;
+    row-gap: 0.25rem;
+    background: none;
+    border: 0;
+  }
+
+  .pillar-nav:not([data-stuck]) h2 {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+  }
+
+  .pillar-nav:not([data-stuck]) a {
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1;
+    /* The 0.3em gives back the leading that line-height 1 takes away. */
+    padding-block: calc(0.35rem + 0.3em);
+    font-size: clamp(1.125rem, 1.7vw, 1.4rem);
+  }
+}
+
+/* Short desktop windows: tighten the rail so the definition and the email
+   stay in view. */
+@media (min-width: 60.01rem) and (max-height: 56.25rem) {
+  main {
+    --rail-pad-block: 2rem;
+    --claim-gap: 1.25rem;
+  }
+
   .rail h1 {
-    margin-top: 1.75rem;
-    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-size: clamp(1.75rem, 2.6vw, 2.5rem);
   }
 
   .lead {
@@ -689,15 +811,11 @@ summary:focus-visible {
   }
 
   .pillar-head h2 {
-    font-size: clamp(2rem, 2.9vw, 2.75rem);
+    font-size: clamp(1.5rem, 2.2vw, 2.125rem);
   }
 
-  .pillar-nav {
+  .definition {
     margin-top: 1.5rem;
-  }
-
-  .pillar-nav a {
-    padding-block: calc(0.2rem + 0.3em);
   }
 
   .rail-email {
@@ -705,12 +823,37 @@ summary:focus-visible {
   }
 }
 
-/* On narrow screens the rail dissolves into the page and only the pillar
-   nav stays, as a bar along the top. */
+/* The compact definition: the question and the tasks only, smaller and
+   tighter, for desktop windows where the full form would make the rail
+   scroll. Narrow rails wrap more lines, so they switch at a greater
+   height. */
+@media (min-width: 60.01rem) and (max-height: 49rem),
+  (min-width: 60.01rem) and (max-width: 75rem) and (max-height: 56.25rem) {
+  .definition {
+    padding-block: 0.6rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .definition .definition-intro,
+  .definition .definition-outro {
+    display: none;
+  }
+
+  .definition ul {
+    margin-top: 0.4rem;
+    gap: 0.15rem;
+  }
+
+  .definition li {
+    line-height: 1.3;
+  }
+}
+
+/* On narrow screens the rail dissolves into the page, above the pillar
+   bar. */
 @media (max-width: 60rem) {
-  /* The height of the sticky pillar bar, for the jump offset below. */
   main {
-    --bar-height: 4.1rem;
     display: block;
   }
 
@@ -720,7 +863,8 @@ summary:focus-visible {
 
   .rail-top,
   .rail h1,
-  .lead {
+  .lead,
+  .definition {
     margin-inline: var(--gutter);
   }
 
@@ -728,80 +872,42 @@ summary:focus-visible {
     padding-top: 2rem;
   }
 
+  /* No rail height to fit here, so the claim and the answers keep a
+     larger size. */
   .rail h1 {
     margin-top: 2.5rem;
+    font-size: 2.25rem;
   }
 
-  /* The question on a small line of its own, the three answers in a row
-     under it. */
+  .pillar-head h2 {
+    font-size: 2rem;
+  }
+
   .pillar-nav {
-    position: sticky;
-    z-index: 2;
-    top: 0;
     margin-top: 2rem;
-    padding: 0.5rem var(--gutter) 0.3rem;
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    column-gap: 1.25rem;
-    row-gap: 0;
-    overflow-x: auto;
-    background: var(--paper);
-    border-block: 1px solid var(--rule);
-  }
-
-  .pillar-nav h2 {
-    grid-column: 1 / -1;
-    margin-bottom: 0.1rem;
-    font-size: 0.8125rem;
+    border-top: 1px solid var(--rule);
   }
 
   .rail-email {
     display: none;
   }
 
-  /* In the bar the row aligns on the baseline: the cell has no text, so
-     it sits on that line and its 0.7em height reaches about cap height. */
-  .pillar-nav a {
-    align-items: baseline;
-    font-size: 1rem;
-    line-height: 1.6;
-    white-space: nowrap;
-    gap: 0.5rem;
-    padding-block: 0.2rem;
+  /* The bar under it carries the rule. */
+  .definition {
+    border-bottom: 0;
   }
 
   .flow {
+    --flow-pad-x: var(--gutter);
     border-left: 0;
-    padding: 0 var(--gutter);
-  }
-
-  .pov {
-    padding-top: 2.5rem;
+    padding-bottom: 0;
   }
 
   /* No rules between sections here: the bar already carries one, and
-     the spacing separates the sections. A jump from the bar lands the
-     pillar's question 1.25rem under the bar, whatever the padding above
-     it; the negative part cancels that padding. */
+     the spacing separates the sections. */
   .pillar,
   .closing {
     border-top: 0;
-  }
-
-  .pillar {
-    scroll-margin-top: calc(var(--bar-height) + 1.25rem - var(--pillar-space));
-  }
-
-  /* The bar already asks the question, right above each answer, so the
-     pillar heading drops it from view. Screen readers still hear it. */
-  .pillar-question {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: 0;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
   }
 
   .terms {
