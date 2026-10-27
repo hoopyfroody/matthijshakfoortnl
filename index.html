@@ -252,20 +252,26 @@
                 <li>Instruction files and project templates</li>
                 <li>
                   Skills for recurring work: releases, migrations, incident
-                  notes, converting specs to tickets, and much more
+                  notes, converting specs to tickets. In essence, all tasks that
+                  happen repeatedly
                 </li>
                 <li>
-                  Hooks, to prevent the agent from going off-track: formatting,
-                  blocked commands, protected paths
+                  Hooks, to prevent the agent from going off-track. For example
+                  formatting, blocked commands, protected paths
                 </li>
                 <li>Custom linters and structural tests</li>
                 <li>
-                  The review policy (which code a person reads) and a reviewer
-                  that applies it
+                  The review policy (which code a person reads, which is read by
+                  a review agent) and a reviewer that applies it
                 </li>
-                <li>Eval sets and CI gates</li>
-                <li>Internal MCP servers and CLIs for your own systems</li>
-                <li>A framework for continuous improvement</li>
+                <li>
+                  Eval sets for quality monitoring and CI gates for deployments
+                  with confidence
+                </li>
+                <li>
+                  Internal MCP servers and CLIs to unlock your own systems
+                </li>
+                <li>A framework for continuous semi-automated improvement</li>
               </ul>
             </div>
           </div>
@@ -282,7 +288,7 @@
           </p>
           <form class="check" data-check aria-describedby="check-verdict">
             <fieldset>
-              <legend>Do people depend on it?</legend>
+              <legend>Do people depend on the tool?</legend>
               <div class="yes-no">
                 <label
                   ><input type="radio" name="depend" value="yes" /><span
@@ -298,11 +304,11 @@
               <p
                 class="outcome"
                 aria-live="polite"
-                data-text-yes="Only a human owner can make the right tradeoffs in the face of bug reports and change requests and keep it working."
+                data-text-yes="Only a human owner can make the right tradeoffs in the face of bug reports and change requests."
               ></p>
             </fieldset>
             <fieldset>
-              <legend>Can it change or expose important data?</legend>
+              <legend>Can the tool change or expose important data?</legend>
               <div class="yes-no">
                 <label
                   ><input type="radio" name="data" value="yes" /><span
@@ -318,7 +324,7 @@
               <p
                 class="outcome"
                 aria-live="polite"
-                data-text-yes="This needs to be spec'd well, verified thoroughly, monitored and owned."
+                data-text-yes="The tool needs to be specified well, verified thoroughly, monitored and owned."
               ></p>
             </fieldset>
             <fieldset>
@@ -340,7 +346,7 @@
               <p
                 class="outcome"
                 aria-live="polite"
-                data-text-yes="It needs monitoring, and a plan for when it fails."
+                data-text-yes="The tool needs monitoring, and a plan for when it fails."
               ></p>
             </fieldset>
             <output
@@ -349,7 +355,7 @@
               data-state="unanswered"
               data-text-unanswered="Answer the three questions to see what it needs."
               data-text-build="Build it in-house, quickly."
-              data-text-needs-owner="It needs a spec, checks and an owner. That is Product Engineer work."
+              data-text-needs-owner="The tool needs a spec, checks and an owner. That is Product Engineer work."
               aria-live="polite"
               >Answer the three questions to see what it needs.</output
             >
@@ -428,7 +434,7 @@
               <strong>AFK agents or human-in-the-loop?</strong> Hours or even
               days lost to an agent misinterpreting the user's intent, or to
               babysitting agents that did not need it. Choosing the right level
-              of automation is hard.
+              of automation for the right task is hard.
             </li>
             <li>
               <strong>Keeping apps maintainable for humans and agents.</strong>
@@ -442,8 +448,8 @@
           <ol class="steps">
             <li>Talk to the user and write the spec the agent builds from.</li>
             <li>
-              Judge the blast radius: let the agent run alone or stay with it,
-              and choose the code a person reads.
+              Judge the blast radius: let the agent run autonomously or monitor
+              it closely and choose the code a person reads.
             </li>
             <li>
               Write down each convention the work turned up, for people and
@@ -492,8 +498,8 @@
           <h3>Where do your seniors come from in five years?</h3>
           <p>
             Juniors used to learn by writing code from strictly scoped tickets.
-            Agents do that work now, so training juniors on tickets trains them
-            for the job agents already do.
+            Agents do that work now, so training juniors on those kinds of
+            tickets trains them for the job agents already do.
           </p>
           <p>
             Already have juniors? Now that agents code the tickets, they need
@@ -537,9 +543,9 @@
           <dl class="terms">
             <dt>Typical engagement</dt>
             <dd>
-              Your next junior hiring round. I design the assignment and sit on
-              the panel, then I coach the new hire one day a week through their
-              first three months.
+              Your next junior or internship hiring round. I design the
+              assignment and sit on the panel, then I coach the new hire one day
+              a week through their first three months.
             </dd>
             <dt>Evidence</dt>
             <dd>
@@ -603,8 +609,8 @@
                 something the Buyer checks before a contract conversation.
               -->
               <p class="fine">
-                Based in the east part of the Netherlands. Remote anywhere; on
-                site or hybrid in the east or middle Netherlands.<br />
+                Based in Zutphen, The Netherlands. Remote possible; on site or
+                hybrid in the east and middle Netherlands.<br />
                 Codecraft, KvK 42120215
               </p>
             </div>
