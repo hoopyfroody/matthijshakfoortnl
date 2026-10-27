@@ -134,20 +134,21 @@
         <section class="definition" aria-labelledby="definition-title">
           <h2 id="definition-title">Wat is een Product Engineer?</h2>
           <p class="definition-intro">
-            Code schrijven werd goedkoop. Het werk dat een agent niet (goed)
-            kan, werd dat niet, en daar is een Product Engineer verantwoordelijk
-            voor:
+            Code schrijven is ineens goedkoop. Het werk dat een agent niet
+            (goed) kan is dat niet, en daar is een Product Engineer
+            verantwoordelijk voor:
           </p>
           <ul>
             <li>Uitzoeken wat gebruikers en klanten echt nodig hebben</li>
-            <li>Dat omzetten in een spec waar een agent mee kan bouwen</li>
             <li>
-              Bepalen wat ‘goed’ en ‘een plezier om te gebruiken’ is, en dat
-              controleren
+              Dat omzetten in een spec op basis waarvan een agent kan bouwen
             </li>
             <li>
-              Beslissen welke risico’s je accepteert en welke afwegingen je
-              maakt
+              Bepalen wat ‘goed’ en ‘fijn in gebruik’ is, en dat controleren
+            </li>
+            <li>
+              Beslissen welke risico’s je accepteert en welke keuze beter is bij
+              ogenschijnlijk gelijkwaardige opties
             </li>
             <li>
               Bepalen welke code een mens nog moet lezen voordat die live gaat
@@ -212,16 +213,17 @@
           <blockquote>
             Bij het integreren van een LLM: gewone code doet alles wat gewone
             code kan. Het model krijgt alleen het deel waar het goed in is:
-            oordelen en tekst begrijpen.
+            tekstbegrip en (gelimiteerd) oordeel.
           </blockquote>
 
           <h3>Tooling die je team efficiënter maakt</h3>
           <p>
-            De juiste tooling haalt de frictie uit het werkproces van je team,
-            zodat je team zijn tijd besteedt aan product engineering. Een deel
-            daarvan moet je team nog steeds kopen, maar het omslagpunt is
-            verschoven. Meer software kan nu specifiek zijn voor je team of
-            bedrijf, en dat deel bouw of richt ik in.
+            De juiste tooling haalt de wrijving uit het werkproces van je team,
+            zodat je team haar tijd kan besteden aan product engineering. Een
+            deel van de ondersteunende tools kan nog steeds het beste worden
+            ingekocht, maar het omslagpunt is verschoven. Meer software kan nu
+            specifiek zijn voor je team of bedrijf, en dat deel bouw ik of richt
+            ik in.
           </p>
           <div class="split">
             <div class="split-buy">
@@ -229,7 +231,7 @@
               <ul>
                 <li>De coding agent zelf</li>
                 <li>Een gehoste AI-reviewdienst</li>
-                <li>Hosting en sandboxes voor agents op de achtergrond</li>
+                <li>Hosting en sandboxes voor autonome agents</li>
                 <li>LLM-observability</li>
                 <li>Preview-deployments</li>
               </ul>
@@ -240,38 +242,44 @@
                 <li>Instructiebestanden en projecttemplates</li>
                 <li>
                   Skills voor terugkerend werk: releases, migraties,
-                  incidentnotities, specs omzetten naar tickets, en nog veel
-                  meer
+                  incidentnotities, het omzetten van specs naar tickets. In
+                  essentie, alle taken die herhaaldelijk terugkomen
                 </li>
                 <li>
-                  Hooks die voorkomen dat de agent ontspoort: formatting,
-                  geblokkeerde commando’s, beschermde paden
+                  Hooks die voorkomen dat de agent ontspoort. Bijvoorbeeld
+                  formatting, geblokkeerde commando’s, beschermde paden
                 </li>
-                <li>Eigen linters en structurele tests</li>
+                <li>Maatwerk linters en structurele tests</li>
                 <li>
-                  Het reviewbeleid (welke code een mens leest) en een reviewer
-                  die het toepast
+                  Het reviewbeleid (welke code een mens leest, welke aan review
+                  agent) en een reviewer die het toepast
                 </li>
-                <li>Eval-sets en CI-gates</li>
-                <li>Interne MCP-servers en CLI’s voor jullie eigen systemen</li>
-                <li>Een raamwerk voor continue verbetering</li>
+                <li>
+                  Eval-sets voor kwaliteitsbewaking en CI-gates voor deployments
+                  met vertrouwen
+                </li>
+                <li>
+                  Interne MCP-servers en CLI’s om je eigen systemen te
+                  ontsluiten
+                </li>
+                <li>Een methode voor continue semi-automatische verbetering</li>
               </ul>
             </div>
           </div>
           <p>
             Die tooling ondersteunt je team en zorgt dat het op deze nieuwe
-            manier blijft werken als ik weg ben. Het doel is mezelf overbodig te
-            maken.
+            manier blijft werken als ik weg ben. Het doel is mijzelf overbodig
+            te maken.
           </p>
 
           <h3>Zelf bouwen of niet?</h3>
           <p>
-            Kleine tools zijn goedkoop geworden om te bouwen. Eigenaar zijn
-            ervan niet. Drie vragen helpen je te bepalen wat je doet.
+            Kleine tools zijn goedkoop geworden om te bouwen. Eigenaar ervan
+            zijn niet. Drie vragen helpen je te bepalen wat je doet.
           </p>
           <form class="check" data-check aria-describedby="check-verdict">
             <fieldset>
-              <legend>Zijn mensen ervan afhankelijk?</legend>
+              <legend>Zijn mensen afhankelijk van de tool?</legend>
               <div class="yes-no">
                 <label
                   ><input type="radio" name="depend" value="yes" /><span
@@ -287,11 +295,13 @@
               <p
                 class="outcome"
                 aria-live="polite"
-                data-text-yes="Alleen een menselijke eigenaar kan bij bugmeldingen en wijzigingsverzoeken de juiste afwegingen maken en het werkend houden."
+                data-text-yes="Alleen een menselijke eigenaar kan bij bugmeldingen en wijzigingsverzoeken de juiste afwegingen maken."
               ></p>
             </fieldset>
             <fieldset>
-              <legend>Kan het belangrijke data wijzigen of blootleggen?</legend>
+              <legend>
+                Kan de tool belangrijke data wijzigen of blootleggen?
+              </legend>
               <div class="yes-no">
                 <label
                   ><input type="radio" name="data" value="yes" /><span
@@ -307,12 +317,12 @@
               <p
                 class="outcome"
                 aria-live="polite"
-                data-text-yes="Dit heeft een goede spec, grondige verificatie, monitoring en een eigenaar nodig."
+                data-text-yes="De tool heeft een goede specificatie, grondige verificatie, monitoring en een eigenaar nodig."
               ></p>
             </fieldset>
             <fieldset>
               <legend>
-                Ligt het werk stil of loopt het flink vertraging op als het
+                Ligt het werk stil of loopt het flink vertraging op als de tool
                 verdwijnt?
               </legend>
               <div class="yes-no">
@@ -330,7 +340,7 @@
               <p
                 class="outcome"
                 aria-live="polite"
-                data-text-yes="Het heeft monitoring nodig, en een plan voor als het faalt."
+                data-text-yes="De tool heeft monitoring nodig, en een plan voor als het faalt."
               ></p>
             </fieldset>
             <output
@@ -339,7 +349,7 @@
               data-state="unanswered"
               data-text-unanswered="Beantwoord de drie vragen om te zien wat het nodig heeft."
               data-text-build="Bouw het zelf, en snel."
-              data-text-needs-owner="Het heeft een spec, controles en een eigenaar nodig. Dat is werk voor een Product Engineer."
+              data-text-needs-owner="De tool heeft een spec, controles en een eigenaar nodig. Dat is werk voor een Product Engineer."
               aria-live="polite"
               >Beantwoord de drie vragen om te zien wat het nodig heeft.</output
             >
@@ -357,8 +367,8 @@
             Je eigen mensen worden eigenaar van de software. Ze krijgen de
             tests, een geschreven spec, de conventies en, als er een LLM in zit,
             een eval-set, zodat de volgende persoon of agent er veilig in kan
-            werken. Je team beheert het. Ik blijf graag bereikbaar voor de
-            momenten dat ze een second opinion willen.
+            werken. Je team beheert het. Op de momenten dat ze een second
+            opinion willen ben ik beschikbaar.
           </p>
 
           <dl class="terms">
@@ -379,14 +389,14 @@
               een systeem dat de notes van elke developer reviewt (en ze
               vriendelijk aanspoort om ze te verbeteren) en ze samenvoegt tot
               een voorstel voor de lijst. Het samenstellen van de lijst ging
-              naar ongeveer een uur. En als behoorlijk groot bijkomend voordeel
-              moesten de developers nadenken over het probleem dat ze oplosten,
-              de oplossing en de impact. Dat verbeterde zowel de kwaliteit van
-              de notes als de mindset van de developers.
+              naar ongeveer een uur. En de developers moeten nadenken over het
+              probleem dat ze oplosten, de oplossing en de impact. Dat
+              verbeterde zowel de kwaliteit van de notes als de mindset van de
+              developers.
             </dd>
             <dt>Om te beginnen</dt>
             <dd class="cta">
-              Vertel me waar frictie in processen de tijd van je team opslokt.
+              Vertel me waar wrijving in processen de tijd van je team opslokt.
               <a
                 href="mailto:codecraft@matthijshakfoort.nl?subject=Een%20proces%20dat%20onze%20tijd%20opslokt"
                 >Mail codecraft@matthijshakfoort.nl</a
@@ -405,22 +415,23 @@
           </header>
           <h3>Je eigen mensen groeien in de rol</h3>
           <p>
-            Training, coaching en het goede voorbeeld geven. Dat voorbeeld geef
-            je tijdens het werk zelf, dus dit begint vaak als hands-on werk.
-            Drie dingen gaan vaak mis als teams op deze nieuwe manier gaan
-            werken, en ik coach je team om ze te voorkomen:
+            Wat bied ik? Training, coaching en het goede voorbeeld geven. Dat
+            voorbeeld geef je tijdens het werk zelf, dus dit begint vaak als
+            hands-on werk. Drie dingen gaan vaak mis als teams op deze nieuwe
+            manier gaan werken, en ik coach je team om ze te voorkomen:
           </p>
           <ul class="bullets">
             <li>
               <strong>De agent laten begrijpen wat je bedoelt.</strong> De agent
               bouwt iets goeds, maar niet wat je bedoelde, vaak omdat niemand de
-              agent helder kon uitleggen wat de gebruiker echt wil.
+              agent op de juiste manier kon uitleggen wat de gebruiker echt wil.
             </li>
             <li>
               <strong>AFK-agents of human-in-the-loop?</strong> Uren of zelfs
               dagen kwijt omdat een agent de bedoeling van de gebruiker verkeerd
-              begreep, of aan meekijken bij agents die dat niet nodig hadden.
-              Het juiste niveau van automatisering kiezen is lastig.
+              begreep, of aan meekijken bij agents die dat achteraf niet nodig
+              hadden. Het juiste niveau van automatisering kiezen voor de juiste
+              taak is lastig.
             </li>
             <li>
               <strong>Apps onderhoudbaar houden voor mens én agent.</strong>
@@ -437,7 +448,8 @@
             </li>
             <li>
               Schat in hoe groot de schade van een fout kan zijn: laat de agent
-              alleen werken of blijf erbij, en kies de code die een mens leest.
+              autonoom werken of blijf erbij, en kies de code die een mens
+              leest.
             </li>
             <li>
               Leg elke conventie vast die het werk opleverde, voor mensen en
@@ -487,8 +499,8 @@
           <h3>Waar komen je seniors over vijf jaar vandaan?</h3>
           <p>
             Juniors leerden het vak door code te schrijven op basis van strak
-            afgebakende tickets. Dat werk doen agents nu, dus wie juniors op
-            tickets traint, traint ze voor het werk dat agents al doen.
+            afgebakende tickets. Dat werk doen agents nu, dus wie juniors op dat
+            soort tickets traint, traint ze voor het werk dat agents al doen.
           </p>
           <p>
             Heb je al juniors? Nu agents de tickets coderen, hebben ze ander
@@ -497,20 +509,20 @@
           </p>
           <p>
             Ik laat ze beginnen met het werk dat agents niet kunnen: praten met
-            gebruikers en klanten, specs schrijven, test seams kiezen,
-            inschatten hoe groot de schade van een fout kan zijn. Ze lezen en
-            draaien code vanaf dag één, via de spec die ze zelf schreven en de
-            tests die daarop controleren. Zelf code schrijven voor de kritieke
-            delen leren ze later.
+            gebruikers en klanten, specs schrijven, kiezen op welke grenzen
+            tests moeten komen, inschatten hoe groot de schade van een bug kan
+            zijn. Ze lezen en produceren code vanaf dag één, via de spec die ze
+            zelf schreven en de tests die daarop controleren. Zelf code
+            schrijven voor de kritieke delen leren ze later.
           </p>
           <p>
             Ik help ook het team eromheen in te richten: waar juniors mee
             beginnen, met wie ze praten en hoe hun specs worden gereviewd. Je
-            seniors reviewen de werkwijze en het proces van een junior net zo
-            goed als de code.
+            seniors reviewen de code, maar misschien nog wel meer de werkwijze
+            en het proces van een junior.
           </p>
 
-          <h3>Een sollicitatie die de juiste dingen test</h3>
+          <h3>Een sollicitatiegesprek dat de juiste dingen test</h3>
           <ol class="steps">
             <li>
               Een gesprek van 20 minuten met een ‘gebruiker’, gespeeld door
@@ -520,7 +532,8 @@
               Op basis daarvan schrijft de kandidaat een spec van één pagina.
             </li>
             <li>
-              Een review van code die een agent op basis van die spec bouwde.
+              Dan doen we een review van code die een agent op basis van die
+              spec bouwde.
             </li>
           </ol>
 
@@ -536,9 +549,9 @@
           <dl class="terms">
             <dt>Typische opdracht</dt>
             <dd>
-              Je volgende wervingsronde voor juniors. Ik ontwerp de opdracht en
-              zit bij de sollicitatiegesprekken, daarna coach ik de nieuwe
-              collega drie maanden lang één dag per week.
+              Je volgende wervingsronde voor juniors of stagiairs. Ik ontwerp de
+              opdracht en zit bij de sollicitatiegesprekken, daarna coach ik de
+              nieuwe collega drie maanden lang één dag per week.
             </dd>
             <dt>Ervaring</dt>
             <dd>
@@ -565,16 +578,16 @@
             architect, vooral in TypeScript, vooral in teams van vijf tot
             vijftien mensen. De delen van dat werk die agents niet doen
             (requirements-interviews, domeinmodellering, bepalen welke tests een
-            wijziging nodig heeft, beoordelen of iets goed is en of het een
-            plezier is om te gebruiken) zijn de delen die me altijd het meest
-            hebben beziggehouden. Ze houden me ook met beide benen op de grond
-            nu de tools om de paar maanden veranderen.
+            wijziging nodig heeft, beoordelen of iets goed is en of het fijn is
+            om te gebruiken) zijn de delen die me altijd het meest hebben
+            beziggehouden. Ze houden me ook met beide benen op de grond nu de
+            tools om de paar maanden veranderen.
           </p>
 
           <h2 class="label">Waarschijnlijk geen goede match als</h2>
           <ul class="bullets">
             <li>je een vaste prijs wilt zonder verkennende fase;</li>
-            <li>je developers tien keer zo snel wilt maken;</li>
+            <li>je je developers tien keer zo snel wil laten werken;</li>
             <li>je een kleine no-code-koppeling nodig hebt.</li>
           </ul>
 
@@ -603,8 +616,8 @@
                 something the Buyer checks before a contract conversation.
               -->
               <p class="fine">
-                Gevestigd in het oosten van Nederland. Op afstand overal; op
-                locatie of hybride in het oosten of midden van Nederland.<br />
+                Gevestigd in Zutphen. Remote mogelijk; op locatie of hybride in
+                het oosten en midden van Nederland.<br />
                 Codecraft, KvK 42120215
               </p>
             </div>
