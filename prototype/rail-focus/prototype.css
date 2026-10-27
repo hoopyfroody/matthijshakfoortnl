@@ -1,0 +1,214 @@
+/* PROTOTYPE, throwaway. Loaded after /style.css.
+
+   Question: the flow opens on pillar 01 (Me), so the right half of the
+   screen competes with the claim from the first second. How can the
+   flow stay quiet, and keep the focus on the rail, until the visitor
+   chooses to engage?
+
+   - A Index: the flow holds only the pillar question and its three
+     answers, each with one line. The pillars appear when the visitor
+     picks an answer. Scrolling alone does nothing.
+   - B Drawer: the rail takes almost the full width. The flow is a
+     closed spine on the right edge. A click on the spine, a scroll down
+     or a pick from the spine opens it to the normal split.
+   - C Curtain: the first screen of the flow is empty, so the Tetris
+     grid runs behind the whole page. The pillar list waits at the
+     bottom edge, and the pillars rise into view when the visitor
+     scrolls.
+   - 0: the current page.
+
+   <html data-variant> holds the variant and <html data-engaged> the
+   visitor's choice, both set by prototype.js. Wide screens only: under
+   60rem the rail already sits above the flow, so every variant shows
+   the current page. */
+
+.teaser {
+  display: none;
+}
+
+@media (min-width: 60.01rem) {
+  /* ─────────────────────────── A Index ─────────────────────────── */
+
+  html[data-variant="A"]:not([data-engaged]) .flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+    padding-block: var(--rail-pad-block);
+  }
+
+  html[data-variant="A"]:not([data-engaged]) .flow > section {
+    display: none;
+  }
+
+  html[data-variant="A"]:not([data-engaged]) .pillar-nav {
+    row-gap: 1.5rem;
+    max-width: 28rem;
+  }
+
+  html[data-variant="A"]:not([data-engaged]) .pillar-nav h2 {
+    margin-bottom: 0.25rem;
+  }
+
+  html[data-variant="A"]:not([data-engaged]) .pillar-nav a {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding-block: 0;
+    white-space: normal;
+  }
+
+  html[data-variant="A"]:not([data-engaged]) .teaser {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: var(--ink-muted);
+  }
+
+  html[data-variant="A"][data-engaged] .flow > section {
+    animation: proto-rise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  @keyframes proto-rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+  }
+
+  /* ─────────────────────────── B Drawer ─────────────────────────── */
+
+  html[data-variant="B"] main {
+    transition: grid-template-columns 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  html[data-variant="B"]:not([data-engaged]) main {
+    grid-template-columns: minmax(0, 1fr) 4.5rem;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .rail h1 {
+    max-width: 20ch;
+  }
+
+  /* Keeps the language toggle where it is in the split. */
+  html[data-variant="B"]:not([data-engaged]) .rail-top {
+    max-width: 33rem;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .flow {
+    display: flex;
+    justify-content: center;
+    padding: var(--rail-pad-block) 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .flow:hover {
+    background: #211d18;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .flow > section {
+    display: none;
+  }
+
+  /* The spine: the question and the answers, read top to bottom. */
+  html[data-variant="B"]:not([data-engaged]) .pillar-nav {
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .pillar-nav h2 {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .pillar-nav a {
+    padding: 0;
+    font-size: 1.0625rem;
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .pillar-nav::after {
+    content: "→";
+    margin-top: auto;
+    writing-mode: horizontal-tb;
+    color: var(--ink-muted);
+  }
+
+  html[data-variant="B"]:not([data-engaged]) .flow:hover .pillar-nav::after {
+    color: var(--ink);
+  }
+
+  /* ─────────────────────────── C Curtain ─────────────────────────── */
+
+  /* --list-height comes from site.js. The paper starts at the curtain,
+     so the list sits at the bottom of the first screen. */
+  html[data-variant="C"] .flow {
+    --curtain: calc(100dvh - var(--list-height, 12rem) - 7rem);
+    padding-top: calc(var(--curtain) + 2.5rem);
+    border-left-color: transparent;
+    background: linear-gradient(
+      transparent var(--curtain),
+      var(--rule-strong) var(--curtain),
+      var(--rule-strong) calc(var(--curtain) + 1px),
+      var(--paper) calc(var(--curtain) + 1px)
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-variant] main {
+    transition: none;
+  }
+
+  html[data-variant] .flow > section {
+    animation: none;
+  }
+}
+
+/* ─────────────────────── Prototype switcher ─────────────────────── */
+
+.proto-switcher {
+  position: fixed;
+  z-index: 100;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font: 600 0.8125rem/1 system-ui, sans-serif;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 60%);
+}
+
+.proto-switcher[hidden] {
+  display: none;
+}
+
+.proto-switcher button {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.proto-switcher button:hover {
+  background: #e8e8e8;
+}
+
+.proto-switcher output {
+  min-width: 15rem;
+  text-align: center;
+  white-space: nowrap;
+}

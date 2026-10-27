@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en" data-variant="A">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Product Engineering for teams that build with agents — Codecraft
+    </title>
+    <meta
+      name="description"
+      content="Agents write the code now. I find out what to build, define what good means and decide which code a person still has to read. In your team, by coaching your team, and by training your next juniors."
+    />
+    <!--
+      PROTOTYPE, throwaway. A copy of /index.html at 274e601.
+      Question: how can the flow keep the focus on the rail until the
+      visitor chooses to engage? Variants A Index, B Drawer, C Curtain,
+      and 0 for the current page. See prototype.css for each one.
+      Run python3 -m http.server from the repo root, then open
+      http://localhost:8000/prototype/rail-focus/?variant=A
+    -->
+    <link rel="stylesheet" href="../../style.css?v=11" />
+    <link rel="stylesheet" href="prototype.css" />
+    <link rel="icon" href="/logo/codecraft-favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
+    <link
+      rel="alternate"
+      hreflang="nl"
+      href="https://matthijshakfoort.nl/nl/"
+    />
+  </head>
+  <body>
+    <main>
+      <header class="rail">
+        <div class="rail-top">
+          <svg
+            class="site-logo"
+            viewBox="0 0 216.73 39"
+            role="img"
+            aria-label="Codecraft"
+          >
+            <g fill="#8a5a24">
+              <rect x="0" y="0" width="9" height="9" />
+              <rect x="10" y="0" width="9" height="9" />
+              <rect x="20" y="0" width="9" height="9" />
+              <rect x="0" y="10" width="9" height="9" />
+              <rect x="0" y="20" width="9" height="9" />
+              <rect x="10" y="20" width="9" height="9" />
+              <rect x="20" y="20" width="9" height="9" />
+            </g>
+            <g fill="#e0a03c">
+              <rect x="20" y="10" width="9" height="9" />
+              <rect x="30" y="10" width="9" height="9" />
+              <rect x="40" y="10" width="9" height="9" />
+              <rect x="40" y="20" width="9" height="9" />
+              <rect x="20" y="30" width="9" height="9" />
+              <rect x="30" y="30" width="9" height="9" />
+              <rect x="40" y="30" width="9" height="9" />
+            </g>
+            <g fill="currentColor">
+              <path
+                d="M67.396 35.03Q64.408 35.03 62.32 33.698Q60.232 32.366 59.125 30.044Q58.018 27.722 58 24.77Q58.018 21.764 59.152 19.451Q60.286 17.138 62.392 15.824Q64.498 14.51 67.45 14.51Q70.636 14.51 72.895 16.094Q75.154 17.678 75.874 20.432L72.13 21.512Q71.572 19.874 70.303 18.965Q69.034 18.056 67.396 18.056Q65.542 18.056 64.354 18.929Q63.166 19.802 62.59 21.314Q62.014 22.826 61.996 24.77Q62.014 27.776 63.373 29.63Q64.732 31.484 67.396 31.484Q69.214 31.484 70.339 30.647Q71.464 29.81 72.058 28.244L75.874 29.144Q74.92 31.988 72.724 33.509Q70.528 35.03 67.396 35.03Z"
+              />
+              <path
+                d="M86.648 35.03Q83.732 35.03 81.59 33.716Q79.448 32.402 78.287 30.089Q77.126 27.776 77.126 24.752Q77.126 21.71 78.314 19.397Q79.502 17.084 81.644 15.797Q83.786 14.51 86.648 14.51Q89.564 14.51 91.706 15.824Q93.848 17.138 95.018 19.442Q96.188 21.746 96.188 24.752Q96.188 27.794 95.009 30.107Q93.83 32.42 91.688 33.725Q89.546 35.03 86.648 35.03ZM86.648 31.484Q89.438 31.484 90.815 29.603Q92.192 27.722 92.192 24.752Q92.192 21.71 90.797 19.883Q89.402 18.056 86.648 18.056Q84.758 18.056 83.534 18.911Q82.31 19.766 81.716 21.269Q81.122 22.772 81.122 24.752Q81.122 27.812 82.526 29.648Q83.93 31.484 86.648 31.484Z"
+              />
+              <path
+                d="M107.07 35.03Q104.352 35.03 102.381 33.68Q100.41 32.33 99.339 29.999Q98.268 27.668 98.268 24.752Q98.268 21.818 99.348 19.505Q100.428 17.192 102.417 15.851Q104.406 14.51 107.142 14.51Q109.896 14.51 111.777 15.851Q113.658 17.192 114.621 19.514Q115.584 21.836 115.584 24.752Q115.584 27.668 114.612 29.99Q113.64 32.312 111.75 33.671Q109.86 35.03 107.07 35.03ZM107.592 31.628Q109.446 31.628 110.616 30.746Q111.786 29.864 112.326 28.316Q112.866 26.768 112.866 24.752Q112.866 22.736 112.317 21.188Q111.768 19.64 110.625 18.776Q109.482 17.912 107.718 17.912Q105.846 17.912 104.64 18.83Q103.434 19.748 102.849 21.296Q102.264 22.844 102.264 24.752Q102.264 26.678 102.849 28.235Q103.434 29.792 104.613 30.71Q105.792 31.628 107.592 31.628ZM112.866 34.49V20.504H112.434V8.57H116.214V34.49Z"
+              />
+              <path
+                d="M129.076 35.03Q126.178 35.03 123.991 33.761Q121.804 32.492 120.589 30.215Q119.374 27.938 119.374 24.932Q119.374 21.746 120.571 19.406Q121.768 17.066 123.91 15.788Q126.052 14.51 128.896 14.51Q131.866 14.51 133.954 15.887Q136.042 17.264 137.077 19.802Q138.112 22.34 137.896 25.832H134.134V24.464Q134.098 21.08 132.847 19.46Q131.596 17.84 129.04 17.84Q126.214 17.84 124.792 19.622Q123.37 21.404 123.37 24.77Q123.37 27.974 124.792 29.729Q126.214 31.484 128.896 31.484Q130.66 31.484 131.947 30.683Q133.234 29.882 133.954 28.388L137.644 29.558Q136.51 32.168 134.206 33.599Q131.902 35.03 129.076 35.03ZM122.146 25.832V22.898H136.024V25.832Z"
+              />
+              <path
+                d="M149.444 35.03Q146.456 35.03 144.368 33.698Q142.28 32.366 141.173 30.044Q140.066 27.722 140.048 24.77Q140.066 21.764 141.2 19.451Q142.334 17.138 144.44 15.824Q146.546 14.51 149.498 14.51Q152.684 14.51 154.943 16.094Q157.202 17.678 157.922 20.432L154.178 21.512Q153.62 19.874 152.351 18.965Q151.082 18.056 149.444 18.056Q147.59 18.056 146.402 18.929Q145.214 19.802 144.638 21.314Q144.062 22.826 144.044 24.77Q144.062 27.776 145.421 29.63Q146.78 31.484 149.444 31.484Q151.262 31.484 152.387 30.647Q153.512 29.81 154.106 28.244L157.922 29.144Q156.968 31.988 154.772 33.509Q152.576 35.03 149.444 35.03Z"
+              />
+              <path
+                d="M160.794 34.49V15.05H164.142V19.766L163.674 19.154Q164.034 18.218 164.61 17.435Q165.186 16.652 165.942 16.148Q166.68 15.608 167.589 15.311Q168.498 15.014 169.452 14.951Q170.406 14.888 171.288 15.05V18.578Q170.334 18.326 169.173 18.434Q168.012 18.542 167.04 19.172Q166.122 19.766 165.591 20.612Q165.06 21.458 164.826 22.493Q164.592 23.528 164.592 24.68V34.49Z"
+              />
+              <path
+                d="M178.858 35.03Q176.698 35.03 175.24 34.229Q173.782 33.428 173.035 32.105Q172.288 30.782 172.288 29.198Q172.288 27.722 172.81 26.606Q173.332 25.49 174.358 24.707Q175.384 23.924 176.878 23.438Q178.174 23.06 179.812 22.772Q181.45 22.484 183.259 22.232Q185.068 21.98 186.85 21.728L185.482 22.484Q185.518 20.198 184.519 19.091Q183.52 17.984 181.09 17.984Q179.56 17.984 178.282 18.695Q177.004 19.406 176.5 21.044L172.99 19.964Q173.71 17.462 175.735 15.986Q177.76 14.51 181.126 14.51Q183.736 14.51 185.671 15.401Q187.606 16.292 188.506 18.218Q188.974 19.172 189.082 20.234Q189.19 21.296 189.19 22.52V34.49H185.86V30.044L186.508 30.62Q185.302 32.852 183.439 33.941Q181.576 35.03 178.858 35.03ZM179.524 31.952Q181.126 31.952 182.278 31.385Q183.43 30.818 184.132 29.936Q184.834 29.054 185.05 28.1Q185.356 27.236 185.401 26.156Q185.446 25.076 185.446 24.428L186.67 24.878Q184.888 25.148 183.43 25.364Q181.972 25.58 180.793 25.787Q179.614 25.994 178.696 26.282Q177.922 26.552 177.319 26.93Q176.716 27.308 176.365 27.848Q176.014 28.388 176.014 29.162Q176.014 29.918 176.392 30.557Q176.77 31.196 177.544 31.574Q178.318 31.952 179.524 31.952Z"
+              />
+              <path
+                d="M194.852 34.49V14.366Q194.852 13.628 194.906 12.791Q194.96 11.954 195.221 11.135Q195.482 10.316 196.094 9.632Q196.832 8.822 197.714 8.48Q198.596 8.138 199.469 8.084Q200.342 8.03 201.08 8.03H203.528V11.126H201.26Q199.928 11.126 199.271 11.783Q198.614 12.44 198.614 13.646V34.49ZM191.63 18.074V15.05H203.528V18.074Z"
+              />
+              <path
+                d="M216.732 34.49Q214.896 34.85 213.132 34.796Q211.368 34.742 209.982 34.112Q208.596 33.482 207.894 32.132Q207.264 30.926 207.219 29.675Q207.174 28.424 207.174 26.84V9.65H210.954V26.66Q210.954 27.83 210.981 28.694Q211.008 29.558 211.35 30.152Q211.998 31.268 213.411 31.421Q214.824 31.574 216.732 31.304ZM203.448 18.074V15.05H216.732V18.074Z"
+              />
+            </g>
+          </svg>
+          <!--
+            A real link, works without script; the onclick only records the
+            explicit choice so the redirect never traps a returning visitor.
+          -->
+          <a
+            href="/nl/"
+            class="lang-toggle"
+            lang="nl"
+            onclick="
+              try {
+                localStorage.setItem('lang', 'nl');
+              } catch (e) {}
+            "
+            >NL</a
+          >
+        </div>
+        <h1>
+          Agents write any code you ask for. Knowing what to ask for is the hard
+          part.
+        </h1>
+        <p class="lead">
+          Finding out <em>what</em> to build, defining what “good” means, and
+          helping the agent and the people decide which code a person still has
+          to read. These are the responsibilities of a Product Engineer. I do
+          that work in your team, I teach your team to do it, and I help you
+          train the juniors who will do it next.
+        </p>
+        <section class="definition" aria-labelledby="definition-title">
+          <h2 id="definition-title">What is a Product Engineer?</h2>
+          <p class="definition-intro">
+            Writing code got cheap. The work an agent cannot do (well) did not,
+            and a Product Engineer is responsible for it:
+          </p>
+          <ul>
+            <li>Finding out what users and customers actually need</li>
+            <li>Converting that into a spec an agent can build from</li>
+            <li>Defining “good” and “delightful”, and checking it</li>
+            <li>Deciding which risks to accept and which tradeoffs to make</li>
+            <li>Determining which code a person must still read before it goes live</li>
+          </ul>
+          <p class="definition-outro">
+            In short: the product and engineering work that needs a human touch.
+            I believe this role will become essential for teams that want to
+            work well with agents.
+          </p>
+        </section>
+        <!--
+          Cloudflare's Email Address Obfuscation rewrites every mailto on the
+          page into a /cdn-cgi/l/email-protection link and injects a script
+          to decode it. That is wanted here, so no email_off wrapper: the
+          trade is that the addresses need JavaScript to resolve.
+        -->
+        <a class="rail-email" href="mailto:codecraft@matthijshakfoort.nl"
+          >codecraft@matthijshakfoort.nl</a
+        >
+      </header>
+
+      <div class="flow">
+        <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
+          <h2 id="pillar-nav-title">Who should do the work?</h2>
+          <a href="#me"
+            ><span class="nav-cell"></span><span class="label">01</span> Me<span class="teaser">I do the Product Engineer work in your team.</span></a
+          >
+          <a href="#team"
+            ><span class="nav-cell"></span><span class="label">02</span> Your
+            team<span class="teaser">Your own people grow into the role.</span></a
+          >
+          <a href="#hires"
+            ><span class="nav-cell"></span><span class="label">03</span> Your
+            next hires<span class="teaser">Your juniors start on the work agents cannot do.</span></a
+          >
+        </nav>
+
+        <section class="pillar" id="me" aria-labelledby="me-title">
+          <header class="pillar-head">
+            <h2 id="me-title">
+              <span class="pillar-question">Who should do the work?</span>
+              <span class="pillar-answer">Me</span>
+            </h2>
+            <span class="label">01 Hands-on Product Engineering</span>
+          </header>
+          <h3>I build software that supports how your team works</h3>
+          <p>
+            Before agents, a lot of custom software ideas cost too much or took
+            too long to build. The point where these tools pay themselves back
+            has shifted, though. The expensive part is still the work around the
+            code: finding out what the process really needs, writing the spec,
+            and building the checks.
+          </p>
+          <blockquote>
+            When integrating an LLM: plain code should do everything plain code
+            can do. The model only gets the part it is good at: judgement and
+            text comprehension.
+          </blockquote>
+
+          <h3>Tooling that makes your team more efficient</h3>
+          <p>
+            The right tooling takes the friction out of your team’s work
+            process, so your team spends its time on product engineering. Some
+            of it your team should still buy, but the breakpoint has shifted.
+            More software can now be specific to your team or company, and that
+            part I build or set up.
+          </p>
+          <div class="split">
+            <div class="split-buy">
+              <h4 class="label">Your team buys</h4>
+              <ul>
+                <li>The coding agent itself</li>
+                <li>A hosted AI review service</li>
+                <li>Hosting and sandboxes for background agents</li>
+                <li>LLM observability</li>
+                <li>Preview deployments</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="label">I build or set up</h4>
+              <ul>
+                <li>Instruction files and project templates</li>
+                <li>
+                  Skills for recurring work: releases, migrations, incident
+                  notes, converting specs to tickets, and much more
+                </li>
+                <li>
+                  Hooks, to prevent the agent from going off-track: formatting,
+                  blocked commands, protected paths
+                </li>
+                <li>Custom linters and structural tests</li>
+                <li>
+                  The review policy (which code a person reads) and a reviewer
+                  that applies it
+                </li>
+                <li>Eval sets and CI gates</li>
+                <li>Internal MCP servers and CLIs for your own systems</li>
+                <li>A framework for continuous improvement</li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            That tooling is what supports your team and lets them continue
+            working in this new way after I leave. The goal is to make myself
+            redundant.
+          </p>
+
+          <h3>Build it in-house, or not?</h3>
+          <p>
+            Small tools got cheap to build. Owning them did not. Here are three
+            questions to help you decide what to do.
+          </p>
+          <form class="check" data-check aria-describedby="check-verdict">
+            <fieldset>
+              <legend>Do people depend on it?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="depend" value="yes" /><span
+                    >Yes</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="depend" value="no" /><span
+                    >No</span
+                  ></label
+                >
+              </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="Only a human owner can make the right tradeoffs in the face of bug reports and change requests and keep it working."
+              ></p>
+            </fieldset>
+            <fieldset>
+              <legend>Can it change or expose important data?</legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="data" value="yes" /><span
+                    >Yes</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="data" value="no" /><span
+                    >No</span
+                  ></label
+                >
+              </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="This needs to be spec'd well, verified thoroughly, monitored and owned."
+              ></p>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Would work stop or slow significantly if it disappeared?
+              </legend>
+              <div class="yes-no">
+                <label
+                  ><input type="radio" name="stop" value="yes" /><span
+                    >Yes</span
+                  ></label
+                >
+                <label
+                  ><input type="radio" name="stop" value="no" /><span
+                    >No</span
+                  ></label
+                >
+              </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="It needs monitoring, and a plan for when it fails."
+              ></p>
+            </fieldset>
+            <output
+              class="verdict"
+              id="check-verdict"
+              data-state="unanswered"
+              data-text-unanswered="Answer the three questions to see what it needs."
+              data-text-build="Build it in-house, quickly."
+              data-text-needs-owner="It needs a spec, checks and an owner. That is Product Engineer work."
+              aria-live="polite"
+              >Answer the three questions to see what it needs.</output
+            >
+          </form>
+          <noscript>
+            <p>
+              If all three answers are no, build it in-house, quickly. If any
+              answer is yes, it needs a spec, checks and an owner.
+            </p>
+          </noscript>
+
+          <h3>After handover</h3>
+          <p>
+            Your own people own the software. They get the tests, a written
+            spec, the conventions and, where an LLM is involved, an eval set, so
+            the next person or agent can work in it safely. Your team runs it. I
+            am happy to stay on call for the moments when they want a second
+            opinion.
+          </p>
+
+          <dl class="terms">
+            <dt>Typical engagement</dt>
+            <dd>
+              One or two days a week for three to six months. I build one
+              process tool from the first user conversation to handover, and
+              your people own it after that.
+            </dd>
+            <dt>Case sketch</dt>
+            <dd>
+              <span class="fine"
+                >Software company, about 30 developers, a release every one or
+                two weeks.</span
+              >
+              Someone spent about four hours per release turning everyone’s
+              release notes into one consistently styled list. I built a system
+              that reviews each developer’s notes (and gently nudges to improve
+              them) and compiles them into a suggested list. List assembly went
+              to about one hour. And as a pretty big side benefit, the
+              developers had to think about the problem they solved, the
+              solution and the impact, which improved both the quality of the
+              notes and the mindset of the developers.
+            </dd>
+            <dt>To start</dt>
+            <dd class="cta">
+              Tell me where process friction eats your team’s time.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=A%20process%20that%20eats%20our%20time"
+                >Email codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pillar" id="team" aria-labelledby="team-title">
+          <header class="pillar-head">
+            <h2 id="team-title">
+              <span class="pillar-question">Who should do the work?</span>
+              <span class="pillar-answer">Your team</span>
+            </h2>
+            <span class="label">02 Forming Product Engineers</span>
+          </header>
+          <h3>Your own people grow into the role</h3>
+          <p>
+            Training, coaching and leading by example. Leading by example
+            happens while doing the job, so this often starts as hands-on work.
+            Three things go wrong most often as teams start this new way of
+            working, and I coach your team to avoid them:
+          </p>
+          <ul class="bullets">
+            <li>
+              <strong>Getting the agent to understand.</strong> The agent builds
+              something good, but not what you meant, often because nobody found
+              out what the user needed.
+            </li>
+            <li>
+              <strong>AFK or human-in-the-loop?</strong> Hours go to a wrong
+              turn, or to approving work the agent had right. Decide by blast
+              radius which code a person reads.
+            </li>
+            <li>
+              <strong>Maintainability for humans and agents.</strong> Keep the
+              code workable for both, and write conventions down as they appear.
+            </li>
+          </ul>
+
+          <h3>Not everyone has to move</h3>
+          <p>
+            Not every developer wants this role. Some want to stay specialists,
+            and a team still needs them. Part of the coaching is deciding with
+            you who moves into the role and who stays where they are.
+          </p>
+
+          <dl class="terms">
+            <dt>Typical engagement</dt>
+            <dd>
+              One or two days a week with one team for three months. First I do
+              the work while they watch, then they do it while I coach.
+            </dd>
+            <dt>Case sketch</dt>
+            <dd>
+              <span class="fine"
+                >Previous employer, as software architect.</span
+              >
+              I researched how the team could use coding agents well. That led
+              to presentations, questions from colleagues, and tooling: an
+              editor workflow, ways of working with tests, and shared skills.
+              The editor workflow is still in daily use. The skills have been
+              replaced by newer ones, which is how it should be.
+            </dd>
+            <dt>To start</dt>
+            <dd class="cta">
+              Tell me about your team and how it uses agents now.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Our%20team%20and%20agents"
+                >Email codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="pillar" id="hires" aria-labelledby="hires-title">
+          <header class="pillar-head">
+            <h2 id="hires-title">
+              <span class="pillar-question">Who should do the work?</span>
+              <span class="pillar-answer">Your next hires</span>
+            </h2>
+            <span class="label">03 Educating Juniors</span>
+          </header>
+          <h3>Where do your seniors come from in five years?</h3>
+          <p>
+            Juniors used to learn by writing code from strict tickets. Agents do
+            that work now, so training juniors on tickets trains them for the
+            job agents already do.
+          </p>
+          <p>
+            Already have juniors? Now that agents do the tickets, they need
+            different first tasks, and a team that is set up to give them.
+          </p>
+          <p>
+            I start them on the work agents cannot do: talking to users and
+            customers, writing specs, choosing test seams, judging blast radius.
+            They read and run code from day one, through the spec they wrote and
+            the tests that check it. Hand-coding skills for the critical parts
+            come later.
+          </p>
+          <p>
+            I also help set up the team around them: what juniors work on first,
+            who they talk to, and how their specs get reviewed.
+          </p>
+
+          <h3>An interview that tests that work</h3>
+          <ol class="steps">
+            <li>
+              A 20-minute conversation with a “user”, played by someone on your
+              team.
+            </li>
+            <li>A one-page spec and test cases.</li>
+            <li>A review of code an agent built from that spec.</li>
+          </ol>
+
+          <h3>What I look for</h3>
+          <ul class="bullets">
+            <li>They ask “why” and “for whom” before “how”.</li>
+            <li>They write clearly.</li>
+            <li>They notice when something feels wrong in a demo.</li>
+            <li>
+              They are comfortable talking to people who are not developers.
+            </li>
+            <li>They read code critically.</li>
+          </ul>
+
+          <dl class="terms">
+            <dt>Typical engagement</dt>
+            <dd>
+              Your next junior hiring round. I design the assignment and sit on
+              the panel, then I coach the new hire one day a week through their
+              first three months.
+            </dd>
+            <dt>Evidence</dt>
+            <dd>
+              I have mentored somewhere between ten and twenty juniors. Recently
+              I took a few of them along this route instead of the old one. The
+              early results are promising.
+            </dd>
+            <dt>To start</dt>
+            <dd class="cta">
+              Tell me when you last hired a junior, why you stopped, or what
+              your juniors do now.
+              <a
+                href="mailto:codecraft@matthijshakfoort.nl?subject=Hiring%20juniors"
+                >Email codecraft@matthijshakfoort.nl</a
+              >
+            </dd>
+          </dl>
+        </section>
+
+        <section class="closing" aria-label="Background, fit and contact">
+          <h2 class="label">Background</h2>
+          <p class="background-line">
+            I have built software for fifteen years, most recently as software
+            architect, mostly in TypeScript, mostly in teams of five to fifteen.
+            The parts of that work agents do not do (requirements interviews,
+            domain modelling, deciding which tests a change needs, judging
+            whether something is good and whether it is delightful) are the
+            parts I have always cared about most. They also keep me grounded
+            when the tools change every few months.
+          </p>
+
+          <h2 class="label">Probably not a fit if</h2>
+          <ul class="bullets">
+            <li>you want a fixed price without a discovery phase;</li>
+            <li>you want your developers to be ten times faster;</li>
+            <li>you need a small no-code integration.</li>
+          </ul>
+
+          <h2 class="contact-h">
+            Tell me about your team, the problem and your timeline.
+          </h2>
+          <div class="contact">
+            <img
+              class="photo"
+              src="../../photo-matthijs-hakfoort.jpg"
+              width="400"
+              height="500"
+              alt="Matthijs Hakfoort"
+            />
+            <div>
+              <a class="email" href="mailto:codecraft@matthijshakfoort.nl"
+                >codecraft@matthijshakfoort.nl</a
+              >
+              <p>
+                <a href="https://www.linkedin.com/in/matthijshakfoort/"
+                  >LinkedIn</a
+                >
+              </p>
+              <!--
+                The registration number sits with the contact details: it is
+                something the Buyer checks before a contract conversation.
+              -->
+              <p class="fine">
+                Based in the Arnhem, Apeldoorn, Deventer region. Remote
+                anywhere; on site or hybrid in the east of the Netherlands.<br />
+                Codecraft, KvK 42120215
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Prototype switcher. Not part of any design. -->
+    <nav class="proto-switcher" aria-label="Prototype variants" hidden>
+      <button type="button" data-step="-1" aria-label="Previous variant">←</button>
+      <output></output>
+      <button type="button" data-step="1" aria-label="Next variant">→</button>
+      <button type="button" data-reset aria-label="Reset engagement">↺</button>
+    </nav>
+
+    <script src="../../background.js?v=3"></script>
+    <script src="../../site.js?v=3"></script>
+    <script src="prototype.js"></script>
+  </body>
+</html>
