@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Engineering voor teams die met agents bouwen — Codecraft</title>
+    <title>
+      Product Engineering voor teams die met agents bouwen — Codecraft
+    </title>
     <meta
       name="description"
       content="Agents schrijven nu de code. Ik zoek uit wat er gebouwd moet worden, bepaal wat goed is en beslis welke code een mens nog moet lezen. In je team, door je team te coachen, en door je volgende juniors op te leiden."
@@ -12,16 +14,12 @@
       The ?v= is a cache buster, not decoration. Cloudflare sits in front of
       GitHub Pages and cached the previous style.css for four hours, so the
       new HTML shipped against the old stylesheet. Bump this whenever
-      style.css changes in a way that must reach visitors immediately.
-      Keep it in step with the value on the English page. The same holds
-      for the ?v= on background.js and site.js at the end of the body.
+      style.css changes in a way that must reach visitors immediately. The
+      same holds for the ?v= on background.js and site.js at the end of the
+      body. Keep all three in step with the English page.
     -->
-    <link rel="stylesheet" href="../style.css?v=11" />
-    <link
-      rel="icon"
-      href="/logo/codecraft-favicon.svg"
-      type="image/svg+xml"
-    />
+    <link rel="stylesheet" href="../style.css?v=12" />
+    <link rel="icon" href="/logo/codecraft-favicon.svg" type="image/svg+xml" />
     <link rel="alternate" hreflang="en" href="https://matthijshakfoort.nl/" />
     <link
       rel="alternate"
@@ -34,6 +32,19 @@
       /nl/). Someone who arrives here directly, by link or by that redirect,
       stays here; the EN toggle is how they leave.
     -->
+    <script>
+      // On wide screens the flow opens as an index: the pillar nav alone,
+      // with a line under each answer, and the pillars wait until the
+      // visitor picks one. Set here, before the first paint, so the
+      // pillars do not flash in; site.js opens the index. A link to a part
+      // of the page skips it, and without script there is no index.
+      if (
+        !location.hash &&
+        window.matchMedia("(min-width: 60.01rem)").matches
+      ) {
+        document.documentElement.setAttribute("data-index", "");
+      }
+    </script>
   </head>
   <body>
     <main>
@@ -45,7 +56,53 @@
             role="img"
             aria-label="Codecraft"
           >
-            <g fill="#8a5a24"><rect x="0" y="0" width="9" height="9"/><rect x="10" y="0" width="9" height="9"/><rect x="20" y="0" width="9" height="9"/><rect x="0" y="10" width="9" height="9"/><rect x="0" y="20" width="9" height="9"/><rect x="10" y="20" width="9" height="9"/><rect x="20" y="20" width="9" height="9"/></g><g fill="#e0a03c"><rect x="20" y="10" width="9" height="9"/><rect x="30" y="10" width="9" height="9"/><rect x="40" y="10" width="9" height="9"/><rect x="40" y="20" width="9" height="9"/><rect x="20" y="30" width="9" height="9"/><rect x="30" y="30" width="9" height="9"/><rect x="40" y="30" width="9" height="9"/></g><g fill="currentColor"><path d="M67.396 35.03Q64.408 35.03 62.32 33.698Q60.232 32.366 59.125 30.044Q58.018 27.722 58 24.77Q58.018 21.764 59.152 19.451Q60.286 17.138 62.392 15.824Q64.498 14.51 67.45 14.51Q70.636 14.51 72.895 16.094Q75.154 17.678 75.874 20.432L72.13 21.512Q71.572 19.874 70.303 18.965Q69.034 18.056 67.396 18.056Q65.542 18.056 64.354 18.929Q63.166 19.802 62.59 21.314Q62.014 22.826 61.996 24.77Q62.014 27.776 63.373 29.63Q64.732 31.484 67.396 31.484Q69.214 31.484 70.339 30.647Q71.464 29.81 72.058 28.244L75.874 29.144Q74.92 31.988 72.724 33.509Q70.528 35.03 67.396 35.03Z"/><path d="M86.648 35.03Q83.732 35.03 81.59 33.716Q79.448 32.402 78.287 30.089Q77.126 27.776 77.126 24.752Q77.126 21.71 78.314 19.397Q79.502 17.084 81.644 15.797Q83.786 14.51 86.648 14.51Q89.564 14.51 91.706 15.824Q93.848 17.138 95.018 19.442Q96.188 21.746 96.188 24.752Q96.188 27.794 95.009 30.107Q93.83 32.42 91.688 33.725Q89.546 35.03 86.648 35.03ZM86.648 31.484Q89.438 31.484 90.815 29.603Q92.192 27.722 92.192 24.752Q92.192 21.71 90.797 19.883Q89.402 18.056 86.648 18.056Q84.758 18.056 83.534 18.911Q82.31 19.766 81.716 21.269Q81.122 22.772 81.122 24.752Q81.122 27.812 82.526 29.648Q83.93 31.484 86.648 31.484Z"/><path d="M107.07 35.03Q104.352 35.03 102.381 33.68Q100.41 32.33 99.339 29.999Q98.268 27.668 98.268 24.752Q98.268 21.818 99.348 19.505Q100.428 17.192 102.417 15.851Q104.406 14.51 107.142 14.51Q109.896 14.51 111.777 15.851Q113.658 17.192 114.621 19.514Q115.584 21.836 115.584 24.752Q115.584 27.668 114.612 29.99Q113.64 32.312 111.75 33.671Q109.86 35.03 107.07 35.03ZM107.592 31.628Q109.446 31.628 110.616 30.746Q111.786 29.864 112.326 28.316Q112.866 26.768 112.866 24.752Q112.866 22.736 112.317 21.188Q111.768 19.64 110.625 18.776Q109.482 17.912 107.718 17.912Q105.846 17.912 104.64 18.83Q103.434 19.748 102.849 21.296Q102.264 22.844 102.264 24.752Q102.264 26.678 102.849 28.235Q103.434 29.792 104.613 30.71Q105.792 31.628 107.592 31.628ZM112.866 34.49V20.504H112.434V8.57H116.214V34.49Z"/><path d="M129.076 35.03Q126.178 35.03 123.991 33.761Q121.804 32.492 120.589 30.215Q119.374 27.938 119.374 24.932Q119.374 21.746 120.571 19.406Q121.768 17.066 123.91 15.788Q126.052 14.51 128.896 14.51Q131.866 14.51 133.954 15.887Q136.042 17.264 137.077 19.802Q138.112 22.34 137.896 25.832H134.134V24.464Q134.098 21.08 132.847 19.46Q131.596 17.84 129.04 17.84Q126.214 17.84 124.792 19.622Q123.37 21.404 123.37 24.77Q123.37 27.974 124.792 29.729Q126.214 31.484 128.896 31.484Q130.66 31.484 131.947 30.683Q133.234 29.882 133.954 28.388L137.644 29.558Q136.51 32.168 134.206 33.599Q131.902 35.03 129.076 35.03ZM122.146 25.832V22.898H136.024V25.832Z"/><path d="M149.444 35.03Q146.456 35.03 144.368 33.698Q142.28 32.366 141.173 30.044Q140.066 27.722 140.048 24.77Q140.066 21.764 141.2 19.451Q142.334 17.138 144.44 15.824Q146.546 14.51 149.498 14.51Q152.684 14.51 154.943 16.094Q157.202 17.678 157.922 20.432L154.178 21.512Q153.62 19.874 152.351 18.965Q151.082 18.056 149.444 18.056Q147.59 18.056 146.402 18.929Q145.214 19.802 144.638 21.314Q144.062 22.826 144.044 24.77Q144.062 27.776 145.421 29.63Q146.78 31.484 149.444 31.484Q151.262 31.484 152.387 30.647Q153.512 29.81 154.106 28.244L157.922 29.144Q156.968 31.988 154.772 33.509Q152.576 35.03 149.444 35.03Z"/><path d="M160.794 34.49V15.05H164.142V19.766L163.674 19.154Q164.034 18.218 164.61 17.435Q165.186 16.652 165.942 16.148Q166.68 15.608 167.589 15.311Q168.498 15.014 169.452 14.951Q170.406 14.888 171.288 15.05V18.578Q170.334 18.326 169.173 18.434Q168.012 18.542 167.04 19.172Q166.122 19.766 165.591 20.612Q165.06 21.458 164.826 22.493Q164.592 23.528 164.592 24.68V34.49Z"/><path d="M178.858 35.03Q176.698 35.03 175.24 34.229Q173.782 33.428 173.035 32.105Q172.288 30.782 172.288 29.198Q172.288 27.722 172.81 26.606Q173.332 25.49 174.358 24.707Q175.384 23.924 176.878 23.438Q178.174 23.06 179.812 22.772Q181.45 22.484 183.259 22.232Q185.068 21.98 186.85 21.728L185.482 22.484Q185.518 20.198 184.519 19.091Q183.52 17.984 181.09 17.984Q179.56 17.984 178.282 18.695Q177.004 19.406 176.5 21.044L172.99 19.964Q173.71 17.462 175.735 15.986Q177.76 14.51 181.126 14.51Q183.736 14.51 185.671 15.401Q187.606 16.292 188.506 18.218Q188.974 19.172 189.082 20.234Q189.19 21.296 189.19 22.52V34.49H185.86V30.044L186.508 30.62Q185.302 32.852 183.439 33.941Q181.576 35.03 178.858 35.03ZM179.524 31.952Q181.126 31.952 182.278 31.385Q183.43 30.818 184.132 29.936Q184.834 29.054 185.05 28.1Q185.356 27.236 185.401 26.156Q185.446 25.076 185.446 24.428L186.67 24.878Q184.888 25.148 183.43 25.364Q181.972 25.58 180.793 25.787Q179.614 25.994 178.696 26.282Q177.922 26.552 177.319 26.93Q176.716 27.308 176.365 27.848Q176.014 28.388 176.014 29.162Q176.014 29.918 176.392 30.557Q176.77 31.196 177.544 31.574Q178.318 31.952 179.524 31.952Z"/><path d="M194.852 34.49V14.366Q194.852 13.628 194.906 12.791Q194.96 11.954 195.221 11.135Q195.482 10.316 196.094 9.632Q196.832 8.822 197.714 8.48Q198.596 8.138 199.469 8.084Q200.342 8.03 201.08 8.03H203.528V11.126H201.26Q199.928 11.126 199.271 11.783Q198.614 12.44 198.614 13.646V34.49ZM191.63 18.074V15.05H203.528V18.074Z"/><path d="M216.732 34.49Q214.896 34.85 213.132 34.796Q211.368 34.742 209.982 34.112Q208.596 33.482 207.894 32.132Q207.264 30.926 207.219 29.675Q207.174 28.424 207.174 26.84V9.65H210.954V26.66Q210.954 27.83 210.981 28.694Q211.008 29.558 211.35 30.152Q211.998 31.268 213.411 31.421Q214.824 31.574 216.732 31.304ZM203.448 18.074V15.05H216.732V18.074Z"/></g>
+            <g fill="#8a5a24">
+              <rect x="0" y="0" width="9" height="9" />
+              <rect x="10" y="0" width="9" height="9" />
+              <rect x="20" y="0" width="9" height="9" />
+              <rect x="0" y="10" width="9" height="9" />
+              <rect x="0" y="20" width="9" height="9" />
+              <rect x="10" y="20" width="9" height="9" />
+              <rect x="20" y="20" width="9" height="9" />
+            </g>
+            <g fill="#e0a03c">
+              <rect x="20" y="10" width="9" height="9" />
+              <rect x="30" y="10" width="9" height="9" />
+              <rect x="40" y="10" width="9" height="9" />
+              <rect x="40" y="20" width="9" height="9" />
+              <rect x="20" y="30" width="9" height="9" />
+              <rect x="30" y="30" width="9" height="9" />
+              <rect x="40" y="30" width="9" height="9" />
+            </g>
+            <g fill="currentColor">
+              <path
+                d="M67.396 35.03Q64.408 35.03 62.32 33.698Q60.232 32.366 59.125 30.044Q58.018 27.722 58 24.77Q58.018 21.764 59.152 19.451Q60.286 17.138 62.392 15.824Q64.498 14.51 67.45 14.51Q70.636 14.51 72.895 16.094Q75.154 17.678 75.874 20.432L72.13 21.512Q71.572 19.874 70.303 18.965Q69.034 18.056 67.396 18.056Q65.542 18.056 64.354 18.929Q63.166 19.802 62.59 21.314Q62.014 22.826 61.996 24.77Q62.014 27.776 63.373 29.63Q64.732 31.484 67.396 31.484Q69.214 31.484 70.339 30.647Q71.464 29.81 72.058 28.244L75.874 29.144Q74.92 31.988 72.724 33.509Q70.528 35.03 67.396 35.03Z"
+              />
+              <path
+                d="M86.648 35.03Q83.732 35.03 81.59 33.716Q79.448 32.402 78.287 30.089Q77.126 27.776 77.126 24.752Q77.126 21.71 78.314 19.397Q79.502 17.084 81.644 15.797Q83.786 14.51 86.648 14.51Q89.564 14.51 91.706 15.824Q93.848 17.138 95.018 19.442Q96.188 21.746 96.188 24.752Q96.188 27.794 95.009 30.107Q93.83 32.42 91.688 33.725Q89.546 35.03 86.648 35.03ZM86.648 31.484Q89.438 31.484 90.815 29.603Q92.192 27.722 92.192 24.752Q92.192 21.71 90.797 19.883Q89.402 18.056 86.648 18.056Q84.758 18.056 83.534 18.911Q82.31 19.766 81.716 21.269Q81.122 22.772 81.122 24.752Q81.122 27.812 82.526 29.648Q83.93 31.484 86.648 31.484Z"
+              />
+              <path
+                d="M107.07 35.03Q104.352 35.03 102.381 33.68Q100.41 32.33 99.339 29.999Q98.268 27.668 98.268 24.752Q98.268 21.818 99.348 19.505Q100.428 17.192 102.417 15.851Q104.406 14.51 107.142 14.51Q109.896 14.51 111.777 15.851Q113.658 17.192 114.621 19.514Q115.584 21.836 115.584 24.752Q115.584 27.668 114.612 29.99Q113.64 32.312 111.75 33.671Q109.86 35.03 107.07 35.03ZM107.592 31.628Q109.446 31.628 110.616 30.746Q111.786 29.864 112.326 28.316Q112.866 26.768 112.866 24.752Q112.866 22.736 112.317 21.188Q111.768 19.64 110.625 18.776Q109.482 17.912 107.718 17.912Q105.846 17.912 104.64 18.83Q103.434 19.748 102.849 21.296Q102.264 22.844 102.264 24.752Q102.264 26.678 102.849 28.235Q103.434 29.792 104.613 30.71Q105.792 31.628 107.592 31.628ZM112.866 34.49V20.504H112.434V8.57H116.214V34.49Z"
+              />
+              <path
+                d="M129.076 35.03Q126.178 35.03 123.991 33.761Q121.804 32.492 120.589 30.215Q119.374 27.938 119.374 24.932Q119.374 21.746 120.571 19.406Q121.768 17.066 123.91 15.788Q126.052 14.51 128.896 14.51Q131.866 14.51 133.954 15.887Q136.042 17.264 137.077 19.802Q138.112 22.34 137.896 25.832H134.134V24.464Q134.098 21.08 132.847 19.46Q131.596 17.84 129.04 17.84Q126.214 17.84 124.792 19.622Q123.37 21.404 123.37 24.77Q123.37 27.974 124.792 29.729Q126.214 31.484 128.896 31.484Q130.66 31.484 131.947 30.683Q133.234 29.882 133.954 28.388L137.644 29.558Q136.51 32.168 134.206 33.599Q131.902 35.03 129.076 35.03ZM122.146 25.832V22.898H136.024V25.832Z"
+              />
+              <path
+                d="M149.444 35.03Q146.456 35.03 144.368 33.698Q142.28 32.366 141.173 30.044Q140.066 27.722 140.048 24.77Q140.066 21.764 141.2 19.451Q142.334 17.138 144.44 15.824Q146.546 14.51 149.498 14.51Q152.684 14.51 154.943 16.094Q157.202 17.678 157.922 20.432L154.178 21.512Q153.62 19.874 152.351 18.965Q151.082 18.056 149.444 18.056Q147.59 18.056 146.402 18.929Q145.214 19.802 144.638 21.314Q144.062 22.826 144.044 24.77Q144.062 27.776 145.421 29.63Q146.78 31.484 149.444 31.484Q151.262 31.484 152.387 30.647Q153.512 29.81 154.106 28.244L157.922 29.144Q156.968 31.988 154.772 33.509Q152.576 35.03 149.444 35.03Z"
+              />
+              <path
+                d="M160.794 34.49V15.05H164.142V19.766L163.674 19.154Q164.034 18.218 164.61 17.435Q165.186 16.652 165.942 16.148Q166.68 15.608 167.589 15.311Q168.498 15.014 169.452 14.951Q170.406 14.888 171.288 15.05V18.578Q170.334 18.326 169.173 18.434Q168.012 18.542 167.04 19.172Q166.122 19.766 165.591 20.612Q165.06 21.458 164.826 22.493Q164.592 23.528 164.592 24.68V34.49Z"
+              />
+              <path
+                d="M178.858 35.03Q176.698 35.03 175.24 34.229Q173.782 33.428 173.035 32.105Q172.288 30.782 172.288 29.198Q172.288 27.722 172.81 26.606Q173.332 25.49 174.358 24.707Q175.384 23.924 176.878 23.438Q178.174 23.06 179.812 22.772Q181.45 22.484 183.259 22.232Q185.068 21.98 186.85 21.728L185.482 22.484Q185.518 20.198 184.519 19.091Q183.52 17.984 181.09 17.984Q179.56 17.984 178.282 18.695Q177.004 19.406 176.5 21.044L172.99 19.964Q173.71 17.462 175.735 15.986Q177.76 14.51 181.126 14.51Q183.736 14.51 185.671 15.401Q187.606 16.292 188.506 18.218Q188.974 19.172 189.082 20.234Q189.19 21.296 189.19 22.52V34.49H185.86V30.044L186.508 30.62Q185.302 32.852 183.439 33.941Q181.576 35.03 178.858 35.03ZM179.524 31.952Q181.126 31.952 182.278 31.385Q183.43 30.818 184.132 29.936Q184.834 29.054 185.05 28.1Q185.356 27.236 185.401 26.156Q185.446 25.076 185.446 24.428L186.67 24.878Q184.888 25.148 183.43 25.364Q181.972 25.58 180.793 25.787Q179.614 25.994 178.696 26.282Q177.922 26.552 177.319 26.93Q176.716 27.308 176.365 27.848Q176.014 28.388 176.014 29.162Q176.014 29.918 176.392 30.557Q176.77 31.196 177.544 31.574Q178.318 31.952 179.524 31.952Z"
+              />
+              <path
+                d="M194.852 34.49V14.366Q194.852 13.628 194.906 12.791Q194.96 11.954 195.221 11.135Q195.482 10.316 196.094 9.632Q196.832 8.822 197.714 8.48Q198.596 8.138 199.469 8.084Q200.342 8.03 201.08 8.03H203.528V11.126H201.26Q199.928 11.126 199.271 11.783Q198.614 12.44 198.614 13.646V34.49ZM191.63 18.074V15.05H203.528V18.074Z"
+              />
+              <path
+                d="M216.732 34.49Q214.896 34.85 213.132 34.796Q211.368 34.742 209.982 34.112Q208.596 33.482 207.894 32.132Q207.264 30.926 207.219 29.675Q207.174 28.424 207.174 26.84V9.65H210.954V26.66Q210.954 27.83 210.981 28.694Q211.008 29.558 211.35 30.152Q211.998 31.268 213.411 31.421Q214.824 31.574 216.732 31.304ZM203.448 18.074V15.05H216.732V18.074Z"
+              />
+            </g>
           </svg>
           <!--
             A real link, works without script; the onclick only records the
@@ -64,15 +121,44 @@
           >
         </div>
         <h1>
-          Agents schrijven nu de code. Iemand moet nog steeds bepalen wat die
-          moet doen.
+          Agents schrijven alle code waar je om vraagt. Weten waar je om moet
+          vragen is het lastige deel.
         </h1>
         <p class="lead">
-          Ik zoek uit wat er gebouwd moet worden, bepaal wat ‘goed’ betekent en
-          beslis welke code een mens nog moet lezen. Dat werk doe ik in je
-          team, ik leer je team het zelf te doen, en ik help je de juniors op
-          te leiden die het straks doen.
+          Uitzoeken <em>wat</em> er gebouwd moet worden, bepalen wat ‘goed’
+          betekent, en de agent en de mensen helpen beslissen welke code een
+          mens nog moet lezen. Dat zijn de verantwoordelijkheden van een Product
+          Engineer. Ik doe dat werk in je team, ik leer je team het zelf te
+          doen, en ik help je de juniors op te leiden die het straks doen.
         </p>
+        <section class="definition" aria-labelledby="definition-title">
+          <h2 id="definition-title">Wat is een Product Engineer?</h2>
+          <p class="definition-intro">
+            Code schrijven werd goedkoop. Het werk dat een agent niet (goed)
+            kan, werd dat niet, en daar is een Product Engineer verantwoordelijk
+            voor:
+          </p>
+          <ul>
+            <li>Uitzoeken wat gebruikers en klanten echt nodig hebben</li>
+            <li>Dat omzetten in een spec waar een agent mee kan bouwen</li>
+            <li>
+              Bepalen wat ‘goed’ en ‘een plezier om te gebruiken’ is, en dat
+              controleren
+            </li>
+            <li>
+              Beslissen welke risico’s je accepteert en welke afwegingen je
+              maakt
+            </li>
+            <li>
+              Bepalen welke code een mens nog moet lezen voordat die live gaat
+            </li>
+          </ul>
+          <p class="definition-outro">
+            Kortom: het product- en engineeringwerk dat een mens nodig heeft. Ik
+            denk dat deze rol onmisbaar wordt voor teams die goed met agents
+            willen werken.
+          </p>
+        </section>
         <!--
           Cloudflare's Email Address Obfuscation rewrites every mailto on the
           page into a /cdn-cgi/l/email-protection link and injects a script
@@ -88,44 +174,24 @@
         <nav class="pillar-nav" aria-labelledby="pillar-nav-title">
           <h2 id="pillar-nav-title">Wie moet het werk doen?</h2>
           <a href="#me"
-            ><span class="nav-cell"></span><span class="label">01</span> Ik</a
+            ><span class="nav-cell"></span><span class="label">01</span> Ik<span
+              class="teaser"
+              >Wat moet er gebouwd worden?</span
+            ></a
           >
           <a href="#team"
             ><span class="nav-cell"></span><span class="label">02</span> Je
-            team</a
+            team<span class="teaser"
+              >Hoe werkt je team effectief met agents?</span
+            ></a
           >
           <a href="#hires"
             ><span class="nav-cell"></span><span class="label">03</span> Je
-            volgende juniors</a
+            volgende juniors<span class="teaser"
+              >Waar komen je seniors over vijf jaar vandaan?</span
+            ></a
           >
         </nav>
-
-        <section class="pov" aria-labelledby="pov-title">
-          <h2 id="pov-title">Code schrijven werd goedkoop. Dit niet.</h2>
-          <ul class="pov-list">
-            <li>
-              Uitzoeken wat gebruikers en klanten nodig hebben, door met ze te
-              praten
-            </li>
-            <li>Dat vastleggen als een spec waar een agent mee kan bouwen</li>
-            <li>
-              De gates en evals schrijven die bepalen wat ‘goed’ is, en dat
-              controleren
-            </li>
-            <li>Gedrag reviewen vóór de code, waar dat kan</li>
-            <li>
-              Bepalen welke code een mens nog moet lezen, omdat een fout daar
-              te veel kost
-            </li>
-          </ul>
-          <p>
-            Dat is het werk van een Product Engineer: één persoon die zowel de
-            productkant als de engineeringkant van softwarewerk doet, terwijl
-            agents de code schrijven. Een senior developer die ook het werk van
-            product owner en informatieanalist doet. Zonder die rol bouwt een
-            team met agents sneller het verkeerde.
-          </p>
-        </section>
 
         <section class="pillar" id="me" aria-labelledby="me-title">
           <header class="pillar-head">
@@ -135,58 +201,77 @@
             </h2>
             <span class="label">01 Hands-on Product Engineering</span>
           </header>
-          <h3>Software voor de manier waarop je team werkt</h3>
+          <h3>Ik bouw software die ondersteunt hoe je team werkt</h3>
           <p>
-            Voor er agents waren, kostte veel software voor processen te veel
-            of duurde het te lang om te bouwen. Nu verdient die zich terug. Het
-            dure deel is nog steeds het werk rond de code: uitzoeken wat het
-            proces echt nodig heeft, de spec schrijven en de controles bouwen.
+            Voor er agents waren, kostten veel ideeën voor maatwerksoftware te
+            veel of duurde het te lang om ze te bouwen. Maar het punt waarop
+            zulke tools zich terugverdienen is verschoven. Het dure deel is nog
+            steeds het werk rond de code: uitzoeken wat het proces echt nodig
+            heeft, de spec schrijven en de controles bouwen.
           </p>
           <blockquote>
-            Gewone code doet alles wat gewone code kan. Het model krijgt alleen
-            het deel waar oordeel voor nodig is.
+            Bij het integreren van een LLM: gewone code doet alles wat gewone
+            code kan. Het model krijgt alleen het deel waar het goed in is:
+            oordelen en tekst begrijpen.
           </blockquote>
 
-          <h3>Tooling voor het ontwikkelproces van je team</h3>
+          <h3>Tooling die je team efficiënter maakt</h3>
           <p>
-            De tools waarmee je team zijn tijd besteedt aan product engineering
-            in plaats van aan programmeren. Een deel daarvan koopt je team. De
-            rest is specifiek voor je team, en dat deel bouw of richt ik in.
+            De juiste tooling haalt de frictie uit het werkproces van je team,
+            zodat je team zijn tijd besteedt aan product engineering. Een deel
+            daarvan moet je team nog steeds kopen, maar het omslagpunt is
+            verschoven. Meer software kan nu specifiek zijn voor je team of
+            bedrijf, en dat deel bouw of richt ik in.
           </p>
           <div class="split">
             <div class="split-buy">
               <h4 class="label">Je team koopt</h4>
               <ul>
-              <li>De coding agent zelf</li>
-              <li>Een gehoste AI-reviewdienst</li>
-              <li>Hosting en sandboxes voor agents op de achtergrond</li>
-              <li>LLM-observability</li>
-              <li>Preview-deployments</li>
+                <li>De coding agent zelf</li>
+                <li>Een gehoste AI-reviewdienst</li>
+                <li>Hosting en sandboxes voor agents op de achtergrond</li>
+                <li>LLM-observability</li>
+                <li>Preview-deployments</li>
               </ul>
             </div>
             <div>
               <h4 class="label">Ik bouw of richt in</h4>
               <ul>
-              <li>Instructiebestanden en projecttemplates</li>
-              <li>Skills voor terugkerend werk: releases, migraties, incidentnotities</li>
-              <li>Hooks: formatting, geblokkeerde commando’s, beschermde paden</li>
-              <li>Eigen linters en structurele tests</li>
-              <li>Het reviewbeleid (welke code een mens leest) en een reviewer die het toepast</li>
-              <li>Eval-sets en CI-gates</li>
-              <li>Interne MCP-servers en CLI’s voor jullie eigen systemen</li>
+                <li>Instructiebestanden en projecttemplates</li>
+                <li>
+                  Skills voor terugkerend werk: releases, migraties,
+                  incidentnotities, specs omzetten naar tickets, en nog veel
+                  meer
+                </li>
+                <li>
+                  Hooks die voorkomen dat de agent ontspoort: formatting,
+                  geblokkeerde commando’s, beschermde paden
+                </li>
+                <li>Eigen linters en structurele tests</li>
+                <li>
+                  Het reviewbeleid (welke code een mens leest) en een reviewer
+                  die het toepast
+                </li>
+                <li>Eval-sets en CI-gates</li>
+                <li>Interne MCP-servers en CLI’s voor jullie eigen systemen</li>
+                <li>Een raamwerk voor continue verbetering</li>
               </ul>
             </div>
           </div>
-          <p>Met die tooling blijft de rol werken als ik weg ben.</p>
+          <p>
+            Die tooling ondersteunt je team en zorgt dat het op deze nieuwe
+            manier blijft werken als ik weg ben. Het doel is mezelf overbodig te
+            maken.
+          </p>
 
           <h3>Zelf bouwen of niet?</h3>
           <p>
             Kleine tools zijn goedkoop geworden om te bouwen. Eigenaar zijn
-            ervan niet. Drie vragen beslissen het.
+            ervan niet. Drie vragen helpen je te bepalen wat je doet.
           </p>
           <form class="check" data-check aria-describedby="check-verdict">
             <fieldset>
-              <legend>Is iemand ervan afhankelijk?</legend>
+              <legend>Zijn mensen ervan afhankelijk?</legend>
               <div class="yes-no">
                 <label
                   ><input type="radio" name="depend" value="yes" /><span
@@ -199,6 +284,11 @@
                   ></label
                 >
               </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="Alleen een menselijke eigenaar kan bij bugmeldingen en wijzigingsverzoeken de juiste afwegingen maken en het werkend houden."
+              ></p>
             </fieldset>
             <fieldset>
               <legend>Kan het belangrijke data wijzigen of blootleggen?</legend>
@@ -214,9 +304,17 @@
                   ></label
                 >
               </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="Dit heeft een goede spec, grondige verificatie, monitoring en een eigenaar nodig."
+              ></p>
             </fieldset>
             <fieldset>
-              <legend>Ligt het werk stil als het verdwijnt?</legend>
+              <legend>
+                Ligt het werk stil of loopt het flink vertraging op als het
+                verdwijnt?
+              </legend>
               <div class="yes-no">
                 <label
                   ><input type="radio" name="stop" value="yes" /><span
@@ -229,6 +327,11 @@
                   ></label
                 >
               </div>
+              <p
+                class="outcome"
+                aria-live="polite"
+                data-text-yes="Het heeft monitoring nodig, en een plan voor als het faalt."
+              ></p>
             </fieldset>
             <output
               class="verdict"
@@ -244,8 +347,8 @@
           <noscript>
             <p>
               Zijn alle drie de antwoorden nee? Bouw het dan zelf, en snel. Is
-              één antwoord ja? Dan heeft het een spec, controles en een
-              eigenaar nodig.
+              één antwoord ja? Dan heeft het een spec, controles en een eigenaar
+              nodig.
             </p>
           </noscript>
 
@@ -254,7 +357,8 @@
             Je eigen mensen worden eigenaar van de software. Ze krijgen de
             tests, een geschreven spec, de conventies en, als er een LLM in zit,
             een eval-set, zodat de volgende persoon of agent er veilig in kan
-            werken. Een retainer is een optie.
+            werken. Je team beheert het. Ik blijf graag bereikbaar voor de
+            momenten dat ze een second opinion willen.
           </p>
 
           <dl class="terms">
@@ -270,15 +374,19 @@
                 >Softwarebedrijf, ongeveer 30 developers, elke één à twee weken
                 een release.</span
               >
-              Iemand was per release ongeveer vier uur bezig om ieders patch
-              notes tot één lijst te maken. Ik bouwde een systeem dat de notes
-              van elke developer reviewt en samenvoegt. Het samenstellen ging
-              naar ongeveer een uur. En de developers moesten nadenken over wat
-              ze eigenlijk veranderd hadden, en voor wie.
+              Iemand was per release ongeveer vier uur bezig om ieders release
+              notes om te zetten in één consistent opgemaakte lijst. Ik bouwde
+              een systeem dat de notes van elke developer reviewt (en ze
+              vriendelijk aanspoort om ze te verbeteren) en ze samenvoegt tot
+              een voorstel voor de lijst. Het samenstellen van de lijst ging
+              naar ongeveer een uur. En als behoorlijk groot bijkomend voordeel
+              moesten de developers nadenken over het probleem dat ze oplosten,
+              de oplossing en de impact. Dat verbeterde zowel de kwaliteit van
+              de notes als de mindset van de developers.
             </dd>
             <dt>Om te beginnen</dt>
             <dd class="cta">
-              Vertel me welk proces de tijd van je team opslokt.
+              Vertel me waar frictie in processen de tijd van je team opslokt.
               <a
                 href="mailto:codecraft@matthijshakfoort.nl?subject=Een%20proces%20dat%20onze%20tijd%20opslokt"
                 >Mail codecraft@matthijshakfoort.nl</a
@@ -298,44 +406,45 @@
           <h3>Je eigen mensen groeien in de rol</h3>
           <p>
             Training, coaching en het goede voorbeeld geven. Dat voorbeeld geef
-            ik tijdens het werk zelf, dus dit begint vaak als hands-on werk.
-            Drie dingen gaan het vaakst mis.
+            je tijdens het werk zelf, dus dit begint vaak als hands-on werk.
+            Drie dingen gaan vaak mis als teams op deze nieuwe manier gaan
+            werken, en ik coach je team om ze te voorkomen:
           </p>
-          <details open>
-            <summary>De agent laten begrijpen wat je bedoelt</summary>
-            <p>
-              De agent bouwt iets goeds. Alleen niet wat jij voor ogen had. Vaak
-              begint het eerder: de developer heeft nooit uitgezocht wat de
-              gebruiker nodig had, dus geen prompt had het kunnen oplossen.
-            </p>
-          </details>
-          <details>
-            <summary>AFK of Human-in-the-loop?</summary>
-            <p>
-              Twee uur kwijt aan een verkeerde afslag, of een uur meekijken bij
-              een taak die de agent in één keer goed had gedaan. En na de run
-              reviewen sommige teams elke regel en verdrinken ze erin, terwijl
-              andere niets reviewen. Het antwoord: bepaal per deel van de code
-              hoe groot de schade van een fout kan zijn, en laat een mens lezen
-              waar die groot is.
-            </p>
-          </details>
-          <details>
-            <summary>Onderhoudbaar voor mens én agent</summary>
-            <p>
-              Code waar zowel mensen als agents in kunnen blijven werken, met
-              conventies die worden vastgelegd zodra ze ontstaan, zodat de
-              volgende wijziging eenvoudiger is, voor wie hem ook doet.
-            </p>
-          </details>
+          <ul class="bullets">
+            <li>
+              <strong>De agent laten begrijpen wat je bedoelt.</strong> De agent
+              bouwt iets goeds, maar niet wat je bedoelde, vaak omdat niemand de
+              agent helder kon uitleggen wat de gebruiker echt wil.
+            </li>
+            <li>
+              <strong>AFK-agents of human-in-the-loop?</strong> Uren of zelfs
+              dagen kwijt omdat een agent de bedoeling van de gebruiker verkeerd
+              begreep, of aan meekijken bij agents die dat niet nodig hadden.
+              Het juiste niveau van automatisering kiezen is lastig.
+            </li>
+            <li>
+              <strong>Apps onderhoudbaar houden voor mens én agent.</strong>
+              De agent bouwt iets dat perfect werkt, maar de mens begrijpt het
+              niet. De mens maakt handmatige wijzigingen die de agent daarna als
+              heilig beschouwt, en dat hindert al het werk dat volgt.
+            </li>
+          </ul>
 
-          <h3>Niet iedereen hoeft mee</h3>
-          <p>
-            Niet elke developer wil deze rol. Sommigen blijven liever
-            specialist, en een team heeft ze nog steeds nodig. Een deel van de
-            coaching is samen met jou bepalen wie in de rol groeit en wie
-            specialist blijft.
-          </p>
+          <h3>Eén loop voor elke wijziging</h3>
+          <ol class="steps">
+            <li>
+              Praat met de gebruiker en schrijf de spec waar de agent mee bouwt.
+            </li>
+            <li>
+              Schat in hoe groot de schade van een fout kan zijn: laat de agent
+              alleen werken of blijf erbij, en kies de code die een mens leest.
+            </li>
+            <li>
+              Leg elke conventie vast die het werk opleverde, voor mensen en
+              agents.
+            </li>
+          </ol>
+          <p>Ik draai deze loop met je team tot hij zonder mij draait.</p>
 
           <dl class="terms">
             <dt>Typische opdracht</dt>
@@ -346,12 +455,15 @@
             </dd>
             <dt>Casus</dt>
             <dd>
-              <span class="fine">Vorige werkgever, als software architect.</span>
-              Ik onderzocht hoe het team coding agents goed kon inzetten. Dat
-              leidde tot presentaties, vragen van collega’s en tooling: een
+              <span class="fine"
+                >Vorige werkgever, als software architect.</span
+              >
+              Ik onderzocht hoe het team coding agents goed kon inzetten. Ik gaf
+              presentaties en schreef werkinstructies en tooling: een
               editor-workflow, manieren van werken met tests, en gedeelde
               skills. De editor-workflow wordt nog dagelijks gebruikt. De skills
-              zijn vervangen door nieuwere, en zo hoort het ook.
+              zijn vervangen door nieuwere, en dat is precies hoe de loop
+              hierboven hoort te werken.
             </dd>
             <dt>Om te beginnen</dt>
             <dd class="cta">
@@ -375,35 +487,41 @@
           <h3>Waar komen je seniors over vijf jaar vandaan?</h3>
           <p>
             Juniors leerden het vak door code te schrijven op basis van strak
-            omschreven tickets. Dat werk doen agents nu, dus wie juniors op
+            afgebakende tickets. Dat werk doen agents nu, dus wie juniors op
             tickets traint, traint ze voor het werk dat agents al doen.
           </p>
           <p>
-            Heb je al juniors? Nu agents de tickets doen, hebben ze ander werk
-            nodig om mee te beginnen, en een team dat is ingericht om ze dat te
-            geven.
+            Heb je al juniors? Nu agents de tickets coderen, hebben ze ander
+            werk nodig om echt te groeien, en een team dat is ingericht om ze
+            dat te geven.
           </p>
           <p>
             Ik laat ze beginnen met het werk dat agents niet kunnen: praten met
-            gebruikers en klanten, specs schrijven, test seams kiezen, inschatten
-            hoe groot de schade van een fout kan zijn. Ze lezen en draaien code
-            vanaf dag één, via de spec die ze zelf schreven en de tests die
-            daarop controleren. Zelf code schrijven voor de kritieke delen leren
-            ze later.
+            gebruikers en klanten, specs schrijven, test seams kiezen,
+            inschatten hoe groot de schade van een fout kan zijn. Ze lezen en
+            draaien code vanaf dag één, via de spec die ze zelf schreven en de
+            tests die daarop controleren. Zelf code schrijven voor de kritieke
+            delen leren ze later.
           </p>
           <p>
             Ik help ook het team eromheen in te richten: waar juniors mee
-            beginnen, met wie ze praten en hoe hun specs worden gereviewd.
+            beginnen, met wie ze praten en hoe hun specs worden gereviewd. Je
+            seniors reviewen de werkwijze en het proces van een junior net zo
+            goed als de code.
           </p>
 
-          <h3>Een sollicitatie die dat werk test</h3>
+          <h3>Een sollicitatie die de juiste dingen test</h3>
           <ol class="steps">
             <li>
               Een gesprek van 20 minuten met een ‘gebruiker’, gespeeld door
               iemand uit je team.
             </li>
-            <li>Een spec van één pagina, met testgevallen.</li>
-            <li>Een review van code die een agent op basis van die spec bouwde.</li>
+            <li>
+              Op basis daarvan schrijft de kandidaat een spec van één pagina.
+            </li>
+            <li>
+              Een review van code die een agent op basis van die spec bouwde.
+            </li>
           </ol>
 
           <h3>Waar ik op let</h3>
@@ -419,14 +537,14 @@
             <dt>Typische opdracht</dt>
             <dd>
               Je volgende wervingsronde voor juniors. Ik ontwerp de opdracht en
-              zit bij de sollicitatiegesprekken, daarna coach ik de nieuwe collega
-              drie maanden lang één dag per week.
+              zit bij de sollicitatiegesprekken, daarna coach ik de nieuwe
+              collega drie maanden lang één dag per week.
             </dd>
             <dt>Ervaring</dt>
             <dd>
-              Ik heb tussen de tien en twintig juniors begeleid. Onlangs nam ik
-              er een paar mee langs deze route in plaats van de oude. De eerste
-              resultaten zijn veelbelovend.
+              Ik heb door de jaren heen flink wat juniors begeleid. Onlangs nam
+              ik er een paar mee langs deze route in plaats van de ouderwetse.
+              De eerste resultaten zijn veelbelovend.
             </dd>
             <dt>Om te beginnen</dt>
             <dd class="cta">
@@ -443,14 +561,14 @@
         <section class="closing" aria-label="Achtergrond, fit en contact">
           <h2 class="label">Achtergrond</h2>
           <p class="background-line">
-            Ik bouw al vijftien jaar software, recent als software architect,
-            vooral in TypeScript, vooral in teams van vijf tot vijftien mensen.
-            De delen van dat werk die agents niet doen (requirements-interviews,
-            domeinmodellering, bepalen welke tests een wijziging nodig heeft,
-            beoordelen of iets goed is en of het een plezier is om te gebruiken)
-            zijn de delen die me altijd het meest hebben beziggehouden. Ze
-            houden me ook met beide benen op de grond nu de tools om de paar
-            maanden veranderen.
+            Ik bouw al meer dan vijftien jaar software, recent als software
+            architect, vooral in TypeScript, vooral in teams van vijf tot
+            vijftien mensen. De delen van dat werk die agents niet doen
+            (requirements-interviews, domeinmodellering, bepalen welke tests een
+            wijziging nodig heeft, beoordelen of iets goed is en of het een
+            plezier is om te gebruiken) zijn de delen die me altijd het meest
+            hebben beziggehouden. Ze houden me ook met beide benen op de grond
+            nu de tools om de paar maanden veranderen.
           </p>
 
           <h2 class="label">Waarschijnlijk geen goede match als</h2>
@@ -485,8 +603,8 @@
                 something the Buyer checks before a contract conversation.
               -->
               <p class="fine">
-                Gevestigd in de regio Arnhem, Apeldoorn, Deventer. Op afstand
-                overal; op locatie of hybride in het oosten van Nederland.<br />
+                Gevestigd in het oosten van Nederland. Op afstand overal; op
+                locatie of hybride in het oosten of midden van Nederland.<br />
                 Codecraft, KvK 42120215
               </p>
             </div>
@@ -496,6 +614,6 @@
     </main>
 
     <script src="../background.js?v=3"></script>
-    <script src="../site.js?v=3"></script>
+    <script src="../site.js?v=4"></script>
   </body>
 </html>
